@@ -10,7 +10,7 @@ const logos = [
 
 export default function InterviewCallHero(){
   return (
-    <div className="min-h-200 border w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top  items-center justify-center ">
+    <div className="min-h-220 w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top  items-center justify-center ">
       <div className="flex items-center justify-between px-8 py-10">
         <div className="flex items-center gap-2 text-white font-semibold text-lg">
             <Image src={"/interviewCallFullLogo.svg"} alt="" width={100} height={100} className=" w-50"/>
