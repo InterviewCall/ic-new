@@ -8,6 +8,8 @@ import StudentSuccessStories from "./components/StudentSuccessStories";
 import TrainingModules from "./components/TrainingModules";
 import CohortSection from "./components/CohortSection";
 import CommunitySection from "./components/CommunitySection";
+import InterviewCallSystem from "./components/InterviewCallSystem";
+import JoinCohortSection from "./components/JoinCohortSection";
 
 export default function Home() {
   return (
@@ -24,6 +26,8 @@ export default function Home() {
           <TrainingModules />
           <CohortSection />
           <CommunitySection />
+          <InterviewCallSystem />
+          <JoinCohortSection />
         </div>
       </div>
     </div>
