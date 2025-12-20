@@ -10,6 +10,13 @@ import CohortSection from "./components/CohortSection";
 import CommunitySection from "./components/CommunitySection";
 import InterviewCallSystem from "./components/InterviewCallSystem";
 import JoinCohortSection from "./components/JoinCohortSection";
+import Footer from "./components/Footer";
+
+// import dynamic from "next/dynamic";
+
+// const ClockTimer = dynamic(() => import("./components/ClockTimer"), {
+//   ssr: false,
+// });
 
 export default function Home() {
   return (
@@ -28,6 +35,8 @@ export default function Home() {
           <CommunitySection />
           <InterviewCallSystem />
           <JoinCohortSection />
+          <Footer />
+          {/* <ClockTimer targetDate="2025-12-31T23:59:59"/> */}
         </div>
       </div>
     </div>

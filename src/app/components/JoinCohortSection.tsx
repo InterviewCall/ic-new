@@ -1,4 +1,7 @@
+'use client';
+
 import Image from "next/image";
+import ClockWrapper from "./ClockWrapper";
 
 export default function JoinCohortSection() {
     return (
@@ -21,6 +24,11 @@ export default function JoinCohortSection() {
             <div className="text-center text-4xl tracking-tight text-white/80">
                 July Batch closes in
             </div>
+          {/* <ClockTimer targetDate="2025-12-31T23:59:59"/> */}
+          <div className="flex justify-center mt-10">
+            <ClockWrapper/>
+          </div>
+
 
             <div className="grid grid-cols-6 mx-10 mt-10 gap-x-16 justify-center">
                 <Image alt="" src={'/bwPfp1.svg'} width={0} height={0} className="w-full h-auto" />
