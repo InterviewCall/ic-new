@@ -1,7 +1,4 @@
 import { MoveRight } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { BiRightArrow } from "react-icons/bi";
 import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {

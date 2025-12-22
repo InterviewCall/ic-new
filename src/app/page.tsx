@@ -11,6 +11,7 @@ import CommunitySection from "./components/CommunitySection";
 import InterviewCallSystem from "./components/InterviewCallSystem";
 import JoinCohortSection from "./components/JoinCohortSection";
 import Footer from "./components/Footer";
+import ProblemBank from "./components/ProblemBank";
 
 // import dynamic from "next/dynamic";
 
@@ -28,6 +29,7 @@ export default function Home() {
           <StatsTrustSection />
           <JourneyComparison />
           <Roadmap />
+          <ProblemBank />
           <MeetYourInstructors />
           <StudentSuccessStories />
           <TrainingModules />

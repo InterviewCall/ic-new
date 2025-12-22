@@ -50,13 +50,16 @@ const roadmap = {
 
 export default function Roadmap() {
     return (
-        <div>
+        <div className="flex flex-col items-center">
             <div className="grid grid-cols-[5fr_2fr_5fr]  bg-black">
                 {/* 1st col */}
                 <div className="w-full   " >
                     {
                         roadmap.left.map((item, index) => <ConceptCard key={index} topSpacing={item.topSpacing} duration={item.duration} heading={item.heading} icon={item.icon} subHeading={item.subHeading} />)
                     }
+                    <div className="h-20 bg-transparent">
+
+                    </div>
                 </div>
                 {/* Balls */}
                 <div className="w-full relative    flex flex-col items-center" >
@@ -79,6 +82,9 @@ export default function Roadmap() {
                 sidebar2 maybe 
                 <div className="w-full   " ></div> */}
             </div>
+            <button className="hover:cursor-pointer bg-linear-to-r from-white/10 to-black rounded-xl border border-white/20 px-8 py-3 ">
+                View Full Curriculum 
+            </button>
         </div>
     )
 };
