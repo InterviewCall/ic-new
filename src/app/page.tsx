@@ -12,6 +12,8 @@ import InterviewCallSystem from "./components/InterviewCallSystem";
 import JoinCohortSection from "./components/JoinCohortSection";
 import Footer from "./components/Footer";
 import ProblemBank from "./components/ProblemBank";
+import RoleMatchedMentors from "./components/RoleMatchedMentor";
+import JobSwitchExectionSection from "./components/JobSwitchExecutionSection";
 
 // import dynamic from "next/dynamic";
 
@@ -30,6 +32,8 @@ export default function Home() {
           <JourneyComparison />
           <Roadmap />
           <ProblemBank />
+          <RoleMatchedMentors />
+          <JobSwitchExectionSection />
           <MeetYourInstructors />
           <StudentSuccessStories />
           <TrainingModules />
