@@ -65,14 +65,14 @@ function TestimonialCard({ image, text, name, designation }: { image: string, te
                     <Image src="/colon.svg" alt="" width={100} height={100} className="h-full w-auto" />
                 </div>
 
-                <div className="px-2 text-white/80 text-4xl font-extralight w-95/100 leading-9 ">
+                <div className="px-2 text-white/80 text-3xl font-extralight w-95/100 leading-9 ">
                     {/* Six months ago I’d never <br />
                         coded. Today I’m building <br />
                         features used by millions. */}
                     {text.map((item, idx) => <div key={idx}>{item}</div>)}
                 </div>
 
-                <div className="px-2 text-xl text-white/80 leading-6 mt-6">
+                <div className="px-2 text-xl text-white/80 leading-6 mt-4">
                     <div>
                         -{name}
                     </div>

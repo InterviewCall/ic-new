@@ -12,6 +12,8 @@ import InterviewCallSystem from "./components/InterviewCallSystem";
 import JoinCohortSection from "./components/JoinCohortSection";
 import Footer from "./components/Footer";
 import ProblemBank from "./components/ProblemBank";
+import RoleMatchedMentors from "./components/RoleMatchedMentor";
+import JobSwitchExectionSection from "./components/JobSwitchExecutionSection";
 
 // import dynamic from "next/dynamic";
 
@@ -25,11 +27,13 @@ export default function Home() {
       <InterviewCallHero />
       <HeroMarque />
       <div className="w-full flex flex-col items-center ">
-        <div className="w-85/100">
+        <div className="w-full lg:w-254  ">
           <StatsTrustSection />
           <JourneyComparison />
           <Roadmap />
           <ProblemBank />
+          <RoleMatchedMentors />
+          <JobSwitchExectionSection />
           <MeetYourInstructors />
           <StudentSuccessStories />
           <TrainingModules />

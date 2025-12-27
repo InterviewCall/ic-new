@@ -103,7 +103,7 @@ export default function StatsTrustSection() {
                 <div className="mt-14 grid grid-cols-3 gap-16">
                     {content.map((text, idx) => (
                         <div key={idx} className="w-full flex justify-center ">
-                            <div className="w-7/10 text-center text-sm md:text-base border border-white/15 bg-white/5 backdrop-blur-lg rounded-2xl  px-6 py-4 text-white/90 shadow-xl">
+                            <div className="w-full text-center text-sm md:text-base border border-white/15 bg-white/5 backdrop-blur-lg rounded-2xl  px-6 py-4 text-white/90 shadow-xl">
                                 <div>{text.text1}</div>
                                 <div>{text.text2}</div>
                             </div>
@@ -121,7 +121,7 @@ export default function StatsTrustSection() {
                     ))}
                 </div>
 
-                <div className="mt-14 grid grid-cols-3 gap-16">
+                <div className="mt-14 grid grid-cols-3 gap-6">
                     <div className="w-full flex justify-center ">
                         <div className="w-7/10 text-center text-sm md:text-base border border-white/15 bg-white/5 backdrop-blur-lg rounded-2xl  px-6 py-4 text-white/90 shadow-xl">
                             <div>{"🔥 Mind-blown !"}</div>
@@ -129,7 +129,7 @@ export default function StatsTrustSection() {
                         </div>
                     </div>
                     <div className="w-full flex justify-center ">
-                        <div className="w-full text-center flex justify-center items-center text-sm md:text-base border border-white/15 bg-white/5 backdrop-blur-lg rounded-2xl  px-6 py-4 text-white/90 shadow-xl">
+                        <div className="w-full text-center flex justify-center items-center text-sm md:text-base border border-white/15 bg-white/5 backdrop-blur-lg rounded-2xl  px-5 py-4 text-white/90 shadow-xl">
                             <div className="">{"See Real Linkedin Success Stories"}</div>
                         </div>
                     </div>

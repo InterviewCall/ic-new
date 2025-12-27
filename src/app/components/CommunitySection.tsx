@@ -183,7 +183,7 @@ function LearningExperience() {
                     <div className="bg-linear-to-br from-[#080b0e] to-[#0F131A] rounded-2xl flex flex-col items-center p-6 w-full">
                         <Image alt="" src={'/code.svg'} width={100} height={100} className=" w-full h-auto rounded-2xl" />
 
-                        <div className="grid grid-cols-[1fr_5fr] items-center gap-2 border w-full gap-x-6 my-3">
+                        <div className="grid grid-cols-[1fr_5fr] items-center gap-2  w-full gap-x-6 my-3">
                             <div>
                                 <Image alt="" src={'/code.svg'} width={48} height={48} className="rounded-full" />
                             </div>

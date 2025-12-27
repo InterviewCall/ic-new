@@ -149,8 +149,14 @@ export default function ProblemBank() {
                 <div className="text-2xl font-light text-white/60">
                     Get access after eligibility call
                 </div>
-                <button className="py-2 w-full text-2xl mt-3 rounded-2xl  border border-white/10 bg-radial from-[#1e3050] to-black ">
-                    Unlock in your roadmap
+                <button className="py-3.5 relative bg-radial from-black to-white/5 w-full text-2xl mt-3 rounded-2xl border border-white/10 px-6 overflow-hidden">
+                    <div className="absolute bottom-10 inset-0 flex items-center justify-center z-0">
+                        <div className="h-8 w-32 rounded-full bg-[#437adf] blur-[30px]" />
+                    </div>
+
+                    <span className="relative z-10">
+                        Unlock in your roadmap
+                    </span>
                 </button>
             </div>
         </section>
@@ -205,7 +211,7 @@ function Comparison() {
                 </div>
             </div>
             <div className="w-full">
-                <Image alt="Alt" src={'/rightArrow.svg'} width={0} height={0} className="w-full h-auto"/>
+                <Image alt="Alt" src={'/rightArrow.svg'} width={0} height={0} className="w-full h-auto" />
             </div>
             <div className="p-6 h-full">
                 <div className="p-6 rounded-xl text-2xl flex flex-col justify-between font-light text-left bg-linear-to-br h-full from-[#0d1729] to-[#03050a]">
