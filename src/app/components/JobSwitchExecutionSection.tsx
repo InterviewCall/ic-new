@@ -74,6 +74,7 @@ function JobInterests() {
     return (
         <div
             className="
+            bg-[linear-gradient(135deg,#222531_0%,#0E0E18_100%)]
         relative
         rounded-xl
         border border-white/15
@@ -123,7 +124,7 @@ function JobInterests() {
 
 function RecruiterFollowupsCard() {
     return (
-        <div className="relative w-full h-full rounded-xl border border-white/15 bg-trasnparent backdrop-blur-xl p-4 text-white shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+        <div className="bg-[linear-gradient(135deg,#0F0E18_0%,#23262F_100%)] relative w-full h-full rounded-xl border border-white/15 bg-trasnparent backdrop-blur-xl p-4 text-white shadow-[0_0_40px_rgba(0,0,0,0.6)]">
 
             {/* Header */}
             <div className="flex items-center justify-between">
@@ -233,7 +234,7 @@ function OfferRow({ status }: OfferRowProps) {
 
 function NegotiationOffersCard() {
     return (
-        <div className="w-full max-w-2xl rounded-xl border border-white/10  p-4 text-white shadow-[0_0_40px_rgba(0,0,0,0.75)]">
+        <div className="bg-[linear-gradient(135deg,#10101D_0%,#0A0911_100%)] w-full max-w-2xl rounded-xl border border-white/10  p-4 text-white shadow-[0_0_40px_rgba(0,0,0,0.75)]">
 
             {/* Header */}
             <div className="flex items-center justify-between">
@@ -304,7 +305,7 @@ import Image from "next/image";
 
 function ReferralWorkflowCard() {
     return (
-        <div className="relative w-full h-full text-xl font-light rounded-xl border border-white/15 bg-transparent backdrop-blur-xl p-4 text-white shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+        <div className="bg-[linear-gradient(225deg,#161821_0%,#12121D_100%)] relative w-full h-full text-xl font-light rounded-xl border border-white/15 bg-transparent backdrop-blur-xl p-4 text-white shadow-[0_0_40px_rgba(0,0,0,0.6)]">
 
             {/* Header */}
             <div className="flex items-center justify-between">
