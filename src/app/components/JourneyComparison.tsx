@@ -42,7 +42,7 @@ export default function JourneyComparison() {
                     </div>
 
                     {/* 30L card */}
-                    <div className="rounded-3xl border border-white/15 backdrop-blur-xl grid grid-cols-[1.3fr_1fr] gap-0 overflow-hidden">
+                    <div className="rounded-3xl border border-white/15 backdrop-blur-xl grid grid-cols-[1fr_1fr] gap-0 overflow-hidden">
                         <div className="text-left py-8 space-y-5 bg-[linear-gradient(to_bottom_left,#353432_0%,transparent_70%)] h-full flex flex-col items-center">
                             <div className="w-7/10 space-y-1">
                                 <p className="text-6xl font-semibold text-white">₹30L</p>
