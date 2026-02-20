@@ -66,7 +66,7 @@ function CohortCard({ member }: CohortCardProps) {
                 <div className="text-2xl font-medium text-white">
                     {member.name}
                 </div>
-                <div className="text-lg text-white/60">
+                <div className="text-lg text-[#A3BBCB]">
                     {member.role} | {member.experience}
                 </div>
             </div>

@@ -19,7 +19,7 @@ export default function InterviewCallSystem() {
             </div>
 
             <div className=" grid grid-cols-[2fr_3fr] gap-x-5 mt-20 text-3xl items-center ">
-                <div className="text-right text-white/60">
+                <div className="text-right text-[#AFC6E3]">
                     Other Programs/<br />
                     YouTube break<br />
                     the chain

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { RotateCcw } from "lucide-react";
 
-
 export default function RoleMatchedMentors() {
     return (
         <div className="w-full relative my-10 pt-10 rounded-2xl bg-black flex flex-col items-center">
@@ -42,7 +41,9 @@ export default function RoleMatchedMentors() {
                                     </div>
                                 </div>
                             </Card>
-                            <Image alt="" src={'/rightArrow.svg'} width={100} height={0} className=" h-auto rotate-90" />
+                            <div className="h-14 flex items-center overflow-hidden">
+                                <Image alt="" src={'/rightArrow.svg'} width={100} height={100} className=" h-22 w-auto rotate-90" />
+                            </div>
                             <Card>
                                 <div className="text-center">
                                     <div className="text-white/80 text-2xl">
@@ -53,7 +54,9 @@ export default function RoleMatchedMentors() {
                                     </div>
                                 </div>
                             </Card>
-                            <Image alt="" src={'/rightArrow.svg'} width={100} height={0} className=" h-auto rotate-90" />
+                           <div className="h-14 flex items-center overflow-hidden">
+                                <Image alt="" src={'/rightArrow.svg'} width={100} height={100} className=" h-22 w-auto rotate-90" />
+                            </div>
                             <Card>
                                 <div className="text-center">
                                     <div className="text-white/80 text-2xl">
@@ -64,7 +67,9 @@ export default function RoleMatchedMentors() {
                                     </div>
                                 </div>
                             </Card>
-                            <Image alt="" src={'/rightArrow.svg'} width={100} height={0} className=" h-auto rotate-90" />
+                            <div className="h-14 flex items-center overflow-hidden">
+                                <Image alt="" src={'/rightArrow.svg'} width={100} height={100} className=" h-22 w-auto rotate-90" />
+                            </div>
                             <Card>
                                 <div className="text-center">
                                     <div className="text-white/80 text-2xl">
@@ -86,18 +91,25 @@ export default function RoleMatchedMentors() {
                     <PreparationPlanCard />
                 </div>
                 <div className="w-full grid grid-cols-[5fr_1fr_5fr_1fr_5fr] text-center">
-                    <FeatureCard heading="100+" subHeading="active mentors" />
+                    <FeatureCard heading="100+" SubHeading={<span>active mentors</span>} />
                     <div className="w-full flex flex-col items-center">
                         <div className="h-full w-1 bg-radial from-white to-black" />
                     </div>
-                    <FeatureCard heading="Thousands" subHeading="of mock interviews conducted" />
+                    <FeatureCard heading="Thousands" SubHeading={<span>of mock interviews <br/>conducted</span>} />
 
                     <div className="w-full flex flex-col items-center">
                         <div className="h-full w-1 bg-radial from-white to-black" />
                     </div>
-                    <FeatureCard heading="< 48 hours" subHeading="Median assignment time: <48 hours" />
+                    <FeatureCard
+                        heading="< 48 hours"
+                        SubHeading={
+                            <span>
+                            Median assignment <br /> time: &lt; 48 hours
+                            </span>
+                        }
+                        />
                 </div>
-                <div className="text-center mt-10 text-xl text-white/60 leading-tight font-extralight">
+                <div className="text-center mt-10 text-xl text-[#AFB3C7] leading-tight font-extralight">
                     Mentor assignment is managed internally. Direct mentor access or <br />
                     selection is not provided outside the program.
                 </div>
@@ -107,18 +119,18 @@ export default function RoleMatchedMentors() {
     )
 };
 
-function FeatureCard({ heading, subHeading }: { heading: string, subHeading: string }) {
+function FeatureCard({ heading, SubHeading }: { heading: string, SubHeading: React.ReactNode }) {
     return (
         <div className="w-full flex flex-col items-center">
-            <div className="text-3xl tracking-widest">{heading}</div>
-            <div className="text-xl font-extralight text-white/70">{subHeading}</div>
+            <div className="text-3xl tracking-widest text-[#DFDEF0] ">{heading}</div>
+            <div className="text-xl font-extralight text-[#AFB3C7]">{SubHeading}</div>
         </div>
     )
 }
 
 function Card({ children }: { children: React.ReactNode }) {
     return (
-        <div className="w-full rounded-2xl py-px px-0.5 bg-linear-to-b from-white/20 to-black my-1 h-28">
+        <div className="w-full rounded-2xl py-px px-0.5 bg-[radial-gradient(circle,#FFFFFF,black_75%)] to-black my-1 h-28">
             <div className="w-full h-full bg-[radial-gradient(circle,#141A33,#0E101F_70%)] rounded-[calc(var(--radius-2xl)-2px)] px-10 py-6">
                 {children}
             </div>
@@ -177,8 +189,8 @@ function MentorCard() {
                     src="/pfp4.svg"
                     alt="mentor avatar"
                     width={100}
-                    height={0}
-                    className="w-20 h-auto overflow-hidden rounded-full"
+                    height={100}
+                    className="w-26 h-auto overflow-hidden rounded-full"
                 />
 
 
@@ -193,7 +205,7 @@ function MentorCard() {
             </div>
 
             {/* Expertise */}
-            <ul className="mt-6 ml-10 list-disc space-y-2 text-xl text-white/80 font-light">
+            <ul className="mt-6 ml-10 list-disc space-y-4 text-xl text-white/80 font-light">
                 <li className="">
                     <span className="border-b border-dashed border-blue-400/60 pb-0.5">
                         Marketplace / Payments systems
@@ -217,7 +229,7 @@ function MentorCard() {
             </div>
 
             {/* Footer */}
-            <div className="mt-6 border-t border-white/10 pt-4 text-2xl text-white/50 flex items-center gap-2">
+            <div className="mt-6 border-t border-white/10 pt-8 text-2xl text-white/50 flex items-start h-40 gap-2">
                 <span className="">🔒</span>
                 Matching is performed internally for enrolled candidates only.
             </div>
