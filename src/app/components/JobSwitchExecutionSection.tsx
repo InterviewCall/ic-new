@@ -20,16 +20,16 @@ export default function JobSwitchExectionSection() {
 
                 <div className="grid grid-cols-3 divide-x divide-white/10 border border-white/10 rounded-2xl my-10">
                     <FeatureCard logo={<Briefcase />} heading="Application Strategy">
-                        <div className="text-xl text-white/60 font-extralight"><b>3</b> Jobs of interest</div>
-                        <div className="text-xl text-white/60 font-extralight"><b>7</b> High fit targets</div>
+                        <div className="text-xl text-[#C1C0CE] font-extralight"><b>3</b> Jobs of interest</div>
+                        <div className="text-xl text-[#C1C0CE] font-extralight"><b>7</b> High fit targets</div>
                     </FeatureCard>
-                    <FeatureCard logo={<Rocket />} heading="Refrral Workflow">
-                        <div className="text-xl text-white/60 font-extralight"><b>2</b> Pending</div>
-                        <div className="text-xl text-white/60 font-extralight"><b>5</b> Strong Matches</div>
+                    <FeatureCard logo={<Rocket />} heading="Referral Workflow">
+                        <div className="text-xl text-[#C1C0CE] font-extralight"><b>2</b> Pending</div>
+                        <div className="text-xl text-[#C1C0CE] font-extralight"><b>5</b> Strong Matches</div>
                     </FeatureCard>
                     <FeatureCard logo={<Goal />} heading="Weekly Targets">
-                        <div className="text-xl text-white/60 font-extralight"><b className="text-green-300">80%</b> Activity Success</div>
-                        <div className="text-xl text-white/60 font-extralight"><b>3</b> Interviews Booked</div>
+                        <div className="text-xl text-[#C1C0CE] font-extralight"><b className="text-green-300">80%</b> Activity Success</div>
+                        <div className="text-xl text-[#C1C0CE] font-extralight"><b>3</b> Interviews Booked</div>
                     </FeatureCard>
                     
 
@@ -102,7 +102,7 @@ function JobInterests() {
 
             {/* Content */}
             <div className="px-6 py-2 space-y-1">
-                <div className="text-lg font-extralight text-white/50">
+                <div className="text-lg font-extralight text-[#616272]">
                     Domestic And Overseas Jobs
                 </div>
                 <JobCard />
@@ -199,7 +199,7 @@ type OfferRowProps = {
 
 function OfferRow({ status }: OfferRowProps) {
     return (
-        <div className="flex items-center justify-between rounded-lg border border-white/5 bg-white/5 px-4 py-3">
+        <div className="flex items-center justify-between rounded-lg px-4 py-3">
             {/* Left */}
             <div className="flex items-start gap-3">
                 {/* Netflix Icon */}
@@ -212,7 +212,7 @@ function OfferRow({ status }: OfferRowProps) {
                         Senior Backend Engineer
                     </p>
                     <div className="mt-1 flex items-center gap-1 text-xs text-white/50">
-                        <span className="flex h-4 w-4 items-center justify-center rounded bg-blue-500/20 text-blue-400">
+                        <span className="flex h-4 w-4 items-center justify-center rounded bg-white/20 text-blue-400">
                             ✓
                         </span>
                         Reviewed <span className="mx-1">·</span> 1 week ago
@@ -223,8 +223,8 @@ function OfferRow({ status }: OfferRowProps) {
             {/* Status */}
             <span
                 className={`rounded-md px-3 py-1 text-base font-extralight ${status === "Pending"
-                    ? "bg-yellow-500/15 text-yellow-300"
-                    : "bg-blue-500/15 text-blue-300"
+                    ? "bg-[#28282A] text-[#F7D458]"
+                    : "bg-[#1B1C28] text-white"
                     }`}
             >
                 {status}
@@ -255,9 +255,12 @@ function NegotiationOffersCard() {
             <div className="my-3 h-px bg-white/10" />
 
             {/* Offers */}
-            <div className="space-y-3">
+            <div className="space-y-3 ">
                 <OfferRow status="Pending" />
+                <div className="h-0.5 bg-[#2E2E38] w-full"></div>
                 <OfferRow status="In Negotiation" />
+                <div className="h-0.5 bg-[#2E2E38] w-full"></div>
+
             </div>
 
             {/* Negotiations */}
@@ -328,7 +331,7 @@ function ReferralWorkflowCard() {
             {/* List */}
             <div className="mt-4 space-y-3 h-96">
                 {[1, 2, 3].map((_, i) => (
-                    <div key={i} className="flex items-start justify-between rounded-lg border border-white/10 bg-white/5 backdrop-blur-md p-3">
+                    <div key={i} className="flex items-start justify-between rounded-lg border border-white/10 bg-[#161821] backdrop-blur-md p-3">
 
                         {/* Left */}
                         <div className="flex items-start gap-3">
@@ -338,14 +341,14 @@ function ReferralWorkflowCard() {
                                 <p className="text-lg text-white/70">
                                     SWE II @ <span>Google</span>
                                 </p>
-                                <p className="mt-0.5 text-white/40">5 Years @ Google</p>
+                                <p className="mt-0.5 text-[#DAD9E7] ">5 Years <span className="px-2 py-0.5 text-sm rounded-3xl bg-[#292A37]">@ Google</span></p>
                             </div>
                         </div>
 
                         {/* Right */}
                         <div className="text-right text-base text-white/40">
-                            <p>YouTube Team</p>
-                            <p className="mt-1">Last activity 5 hours ago</p>
+                            <p className="text-[#9092A3]">YouTube Team</p>
+                            <p className="mt-1 text-[#9092A3] ">Last activity 5 hours ago</p>
                         </div>
                     </div>
                 ))}
@@ -396,7 +399,7 @@ function FeatureCard({ logo, heading, children }: { logo: React.ReactNode, headi
                 {logo}
             </div>
             <div className="leading-tight">
-                <div className="text-2xl font-light mb-2">
+                <div className="text-2xl text-[#F4F4FA] font-light mb-2">
                     {heading}
                 </div>
                 {/*  */}
@@ -413,7 +416,7 @@ function JobStatusCard({ color, text }: { color: string; text: string }) {
                 className="h-1 w-full rounded-full"
                 style={{ backgroundColor: color }}
             />
-            <div className="mt-1 text-center text-white/60 font-extralight">
+            <div className="mt-1 text-center text-[#656472] font-extralight">
                 {text}
             </div>
         </div>

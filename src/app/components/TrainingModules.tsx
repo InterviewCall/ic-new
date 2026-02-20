@@ -80,7 +80,7 @@ export default function TrainingModules() {
                                     Why learn this:
                                 </div>
 
-                                <div className="z-10 text-xl text-white/50 space-y-4 mb-6">
+                                <div className="z-10 text-xl text-[#5B7D92] space-y-4 mb-6">
                                     {module.why.text}
                                 </div>
 

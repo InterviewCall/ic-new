@@ -156,7 +156,7 @@ export default function ProblemBank() {
                 <Comparison />
             </div>
             <div className="my-10 w-1/3 flex flex-col items-center ">
-                <div className="text-2xl font-light text-white/60">
+                <div className="text-2xl font-light text-[#98C1EF] ">
                     Get access after eligibility call
                 </div>
                 <button className="py-3.5 relative bg-radial from-black to-white/5 w-full text-2xl mt-3 rounded-2xl border border-white/10 px-6 overflow-hidden">
@@ -180,7 +180,7 @@ function Card({ heading, subHeading, texts }: { heading: string, subHeading: str
             <div className="w-full h-full flex flex-col justify-between">
                 <div>
                     <h4 className=" text-3xl">{heading}</h4>
-                    <p className="text-xl text-white/60 mt-1">
+                    <p className="text-xl text-[#A6CEF3] mt-1">
                         {subHeading}
                     </p>
                     <div className="ml-10 mt-3 text-xl">
