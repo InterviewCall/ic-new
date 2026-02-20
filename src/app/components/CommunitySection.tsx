@@ -29,7 +29,7 @@ export default function CommunitySection() {
 function LiveStudentsCard() {
     return (
         <div className="flex flex-col items-center justify-center rounded-2xl bg-[#0A1220] p-10 text-center shadow-inner">
-            <div className="text-7xl font-semibold  bg-linear-to-br from-[#eeeeee] to-[#1c68aa] bg-clip-text text-transparent
+            <div className="text-[170px] font-semibold  bg-linear-to-br from-[#93E8FF] to-[#4CACFF] bg-clip-text text-transparent
                 drop-shadow-[0_0_30px_rgba(95,168,255,2)]">142</div>
             <div className="mt-2 text-lg text-white/70">
                 students learning <br /> right now
@@ -127,8 +127,8 @@ function VictoriesCard() {
     ];
 
     return (
-        <div className="rounded-2xl bg-linear-to-br from-[#121a27] to-[#05080c] p-6">
-            <div className="rounded-2xl bg-linear-to-r from-[#191f2b] to-[#070a0f]  p-6">
+        <div className="rounded-2xl bg-linear-to-br from-[#080F1D] to-[#020811] p-6">
+            <div className="rounded-2xl bg-linear-to-r from-[#0A1527] to-[#060B16]  p-6">
                 <div className="mb-4 text-2xl text-white">
                     This Week’s victories
                 </div>

@@ -4,9 +4,10 @@ import { RotateCcw } from "lucide-react";
 
 export default function RoleMatchedMentors() {
     return (
-        <div className="w-full relative my-10 pt-10 rounded-2xl bg-black">
-            <div className="absolute top-0 inset-x-0 mx-auto -z-10 h-full w-full rounded-full bg-[#011D4A]/60 blur-3xl" />
-            <div className="w-full rounded-2xl ">
+        <div className="w-full relative my-10 pt-10 rounded-2xl bg-black flex flex-col items-center">
+            <div className="absolute top-2/10 inset-x-0 mx-auto z-0 h-8/10 w-full rounded-full bg-[#194086] blur-3xl" />
+
+            <div className="w-full z-10 rounded-2xl  ">
 
             <div className="text-center mb-10">
                 <div className="text-7xl font-light tracking-tighter text-white">
@@ -19,7 +20,7 @@ export default function RoleMatchedMentors() {
                 </div>
             </div>
 
-            <div className="rounded-2xl border border-white/20 py-6 px-10 ">
+            <div className="rounded-2xl border border-white/20 bg-linear-to-br from-[#06060F] to-[#08070F] py-6 px-10 ">
                 <div className="text-2xl">
                     How Role-Matching Works at InterviewCall
                 </div>
@@ -118,7 +119,7 @@ function FeatureCard({ heading, subHeading }: { heading: string, subHeading: str
 function Card({ children }: { children: React.ReactNode }) {
     return (
         <div className="w-full rounded-2xl py-px px-0.5 bg-linear-to-b from-white/20 to-black my-1 h-28">
-            <div className="w-full h-full bg-linear-to-b from-[#090d16] to-[#000000] rounded-[calc(var(--radius-2xl)-2px)] px-10 py-6">
+            <div className="w-full h-full bg-[radial-gradient(circle,#141A33,#0E101F_70%)] rounded-[calc(var(--radius-2xl)-2px)] px-10 py-6">
                 {children}
             </div>
         </div>
@@ -162,7 +163,7 @@ function PreparationPlanCard() {
 
 function MentorCard() {
     return (
-        <div className="relative w-full rounded-2xl border border-white/10 bg-linear-to-br from-[#080c18] to-[#010205] px-8 py-6 shadow-[0_0_60px_rgba(0,0,0,0.8)] text-white">
+        <div className="relative w-full rounded-2xl border border-white/10 bg-[linear-gradient(to_bottom_right,#1F2646_0%,#080813_40%)] px-8 py-6 shadow-[0_0_60px_rgba(0,0,0,0.8)] text-white">
 
             {/* Header */}
             <h3 className="text-3xl font-light tracking-wider text-white/90">

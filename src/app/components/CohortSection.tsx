@@ -18,21 +18,21 @@ const members: CohortMember[] = [
 export default function CohortSection() {
     return (
         <section className="relative isolate w-full rounded-2xl p-10 my-10 overflow-hidden">
-            {/* Blurred background */}
-            <div
-                className="absolute inset-0 bg-[url('/cohortBg.svg')] bg-no-repeat bg-cover bg-top blur-2xl scale-105"
-            />
-
-            {/* Optional dark overlay for contrast */}
-            <div className="absolute inset-0 bg-black/70" />
-
-            {/* Content */}
-            <div className="relative z-10">
                 <div className="mb-10 text-center text-5xl tracking-tight font-medium text-white">
                     Meet the November Cohort
                 </div>
+            {/* Blurred background */}
 
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 px-10">
+            {/* Optional dark overlay for contrast */}
+
+                {/* <div className="absolute inset-0 bg-black/70 " /> */}
+            {/* Content */}
+            <div className="relative z-10 ">
+                <div
+                    className="absolute inset-0 bg-[url('/cohortBg.svg')] bg-no-repeat bg-cover bg-top blur-[150px] scale-105 "
+                />
+
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 px-10 ">
                     {members.map((member, index) => (
                         <CohortCard key={index} member={member} />
                     ))}
@@ -53,7 +53,7 @@ type CohortCardProps = {
 
 function CohortCard({ member }: CohortCardProps) {
     return (
-        <div className="flex items-center gap-4 rounded-xl bg-linear-to-r from-[#0B1B24] to-[#070f14] p-5 backdrop-blur">
+        <div className="flex items-center gap-4 rounded-xl bg-linear-to-r from-[#071720] to-[#07131C] p-5 backdrop-blur">
             <Image
                 src="/cohortPfp1.svg"
                 alt={member.name}

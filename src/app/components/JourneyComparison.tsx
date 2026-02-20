@@ -3,7 +3,7 @@ import React from "react";
 
 export default function JourneyComparison() {
     return (
-        <section className="relative flex flex-col items-center w-full bg-black py-24 overflow-hidden">
+        <section className="relative flex flex-col items-center w-full py-24 overflow-hidden">
             {/* Top heading */}
             <div className="relative  z-10 text-center">
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
@@ -28,54 +28,58 @@ export default function JourneyComparison() {
                 {/* Bottom cards */}
                 <div className="mt-6 grid grid-cols-2 gap-10">
                     {/* 10L card */}
-                    <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-xl grid grid-cols-[1.5fr_1fr] gap-4 ">
-                        <div className="text-left p-6 space-y-5">
-                            <p className="text-6xl font-semibold text-white">₹30L</p>
-                            <p className="text-4xl font-semibold text-white">/ year</p>
-                            <p className="mt-2 text-2xl  text-white">
-                                Rents shared flat unsure of <br /> next role
-                            </p>
+                    <div className="rounded-3xl border border-white/15  backdrop-blur-xl grid grid-cols-[1fr_1fr] gap-0 overflow-hidden">
+                        <div className="text-left py-8 space-y-5 bg-[linear-gradient(to_bottom_left,#353432_0%,transparent_70%)] h-full flex flex-col items-center">
+                            <div className="w-7/10 space-y-1">
+                                <p className="text-6xl font-semibold text-white ">₹10L</p>
+                                <p className="text-5xl font-semibold text-white mb-6">/ year</p>
+                                <p className="mt-2 text-3xl  text-white">
+                                    Rents shared <br/> flat unsure <br/> of next role
+                                </p>
+                            </div>
                         </div>
                         <Image src={"/10lpa.svg"} alt="10LPA" width={50} height={50} className="w-full " />
                     </div>
 
                     {/* 30L card */}
-                    <div className="rounded-3xl border border-white/15 bg-white/5 backdrop-blur-xl grid grid-cols-[1.5fr_1fr] gap-4 ">
-                        <div className="text-left p-6 space-y-5">
-                            <p className="text-6xl font-semibold text-white">₹30L</p>
-                            <p className="text-4xl font-semibold text-white">/ year</p>
-                            <p className="mt-2 text-2xl  text-white">
-                                Travels quarterly, gifts MacBooks, chooses roles
-                            </p>
+                    <div className="rounded-3xl border border-white/15 backdrop-blur-xl grid grid-cols-[1.3fr_1fr] gap-0 overflow-hidden">
+                        <div className="text-left py-8 space-y-5 bg-[linear-gradient(to_bottom_left,#353432_0%,transparent_70%)] h-full flex flex-col items-center">
+                            <div className="w-7/10 space-y-1">
+                                <p className="text-6xl font-semibold text-white">₹30L</p>
+                                <p className="text-5xl font-semibold text-white mb-6">/ year</p>
+                                <p className="mt-2 text-3xl  text-white">
+                                    Travels quarterly, gifts MacBooks, chooses roles
+                                </p>
+                            </div>
                         </div>
                         <Image src={"/30lpa.svg"} alt="30LPA" width={50} height={50} className="w-full " />
                     </div>
                 </div>
 
                 {/* Footer hashtag */}
-                <p className="my-10 text-5xl font-light text-blue-400">
+                <p className="my-15 text-5xl font-light text-[#41AAFF]">
                     #LifeAfterInterviewCall
                 </p>
 
                 <div className="grid grid-cols-4  text-white mb-5">
 
                     <DayCount number={1} left={false} right />
-                    <DayCount number={2} left right />
-                    <DayCount number={3} left right />
-                    <DayCount number={4} left right={false} />
+                    <DayCount number={30} left right />
+                    <DayCount number={60} left right />
+                    <DayCount number={100} left right={false} />
                     
                 </div>
                 <div className="grid grid-cols-4  text-white">
                     <div className="flex flex-col items-center">
                         <Image src={'/image1.svg'} alt="" height={100} width={100} className="w-8/10"/>
-                        <div>
+                        <div className="text-xl mt-3">
                             Improved work-
                         </div>
                     </div>
 
                     <div className="flex flex-col items-center">
                         <Image src={'/image2.svg'} alt="" height={100} width={100} className="w-8/10"/>
-                        <div>
+                        <div className="text-xl mt-3">
                             Explored Spain
                         </div>
                     </div>
@@ -83,14 +87,14 @@ export default function JourneyComparison() {
 
                     <div className="flex flex-col items-center">
                         <Image src={'/image3.svg'} alt="" height={100} width={100} className="w-8/10"/>
-                        <div>
+                        <div className="text-xl mt-3">
                             Frague after
                         </div>
                     </div>
 
                     <div className="flex flex-col items-center">
                         <Image src={'/image4.svg'} alt="" height={100} width={100} className="w-8/10"/>
-                        <div>
+                        <div className="text-xl mt-3">
                             Promoted to Lead
                         </div>
                     </div>
@@ -105,11 +109,11 @@ export default function JourneyComparison() {
 function DayCount({ number, left, right }: { number: number; left: boolean; right: boolean }) {
   return (
     <div className="flex items-center w-full">
-      {<div className={`h-1 ${left ? " bg-[#164AA2] " : " bg-transparent "} flex-1`}></div>}
-      <div className="px-10 py-5 bg-[#161A21] text-white rounded-full text-sm font-medium ">
+      {<div className={`h-0.5 ${left ? " bg-[#164AA2] " : " bg-transparent "} flex-1`}></div>}
+      <div className="px-8 py-4 bg-[#161A21] text-white rounded-full text-2xl font-medium ">
         Day {number}
       </div>
-      {<div className={`h-1 ${right ? " bg-[#164AA2] " : " bg-transparent "} flex-1`}></div>}
+      {<div className={`h-0.5 ${right ? " bg-[#164AA2] " : " bg-transparent "} flex-1`}></div>}
     </div>
   );
 }

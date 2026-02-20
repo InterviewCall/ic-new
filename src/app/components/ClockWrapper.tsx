@@ -8,5 +8,5 @@ const ClockTimer = dynamic(() => import("./ClockTimer"), {
 // import ClockTimer from "./ClockTimer";
 
 export default function ClockWrapper(){
-    return <ClockTimer targetDate="2025-12-31T23:59:59"/>
+    return <ClockTimer targetDate="2026-12-31T23:59:59"/>
 }

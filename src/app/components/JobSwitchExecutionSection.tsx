@@ -5,64 +5,65 @@ import { Plus } from "lucide-react";
 
 export default function JobSwitchExectionSection() {
     return (
-        <div className="mt-30 mb-10 relative">
-            <div className="absolute inset-0 mx-auto top-[15%] -z-10 h-200 w-200 rounded-full bg-white/5 blur-[95px]" />
-
-            <div>
-                <div className="text-7xl font-light text-center">
-                    Job Switch Execution System
+        <div className="mt-30 mb-10 relative flex flex-col items-center">
+            <div className="absolute inset-0 mx-auto top-[20%] z-0 h-7/10 w-full rounded-full bg-[#2B2F41] blur-[95px]" />
+            <div className="z-10">
+                <div>
+                    <div className="text-7xl font-light text-center">
+                        Job Switch Execution System
+                    </div>
+                    <div className="text-3xl font-light text-center my-3 text-white/70">
+                        The system that tracks applications, referrals, interviews, <br />
+                        and offers — end to end.
+                    </div>
                 </div>
-                <div className="text-3xl font-light text-center my-3 text-white/70">
-                    The system that tracks applications, referrals, interviews, <br />
-                    and offers — end to end.
+
+                <div className="grid grid-cols-3 divide-x divide-white/10 border border-white/10 rounded-2xl my-10">
+                    <FeatureCard logo={<Briefcase />} heading="Application Strategy">
+                        <div className="text-xl text-white/60 font-extralight"><b>3</b> Jobs of interest</div>
+                        <div className="text-xl text-white/60 font-extralight"><b>7</b> High fit targets</div>
+                    </FeatureCard>
+                    <FeatureCard logo={<Rocket />} heading="Refrral Workflow">
+                        <div className="text-xl text-white/60 font-extralight"><b>2</b> Pending</div>
+                        <div className="text-xl text-white/60 font-extralight"><b>5</b> Strong Matches</div>
+                    </FeatureCard>
+                    <FeatureCard logo={<Goal />} heading="Weekly Targets">
+                        <div className="text-xl text-white/60 font-extralight"><b className="text-green-300">80%</b> Activity Success</div>
+                        <div className="text-xl text-white/60 font-extralight"><b>3</b> Interviews Booked</div>
+                    </FeatureCard>
+                    
+
                 </div>
-            </div>
 
-            <div className="grid grid-cols-3 divide-x divide-white/10 border border-white/10 rounded-2xl my-10">
-                <FeatureCard logo={<Briefcase />} heading="Application Strategy">
-                    <div className="text-xl text-white/60 font-extralight"><b>3</b> Jobs of interest</div>
-                    <div className="text-xl text-white/60 font-extralight"><b>7</b> High fit targets</div>
-                </FeatureCard>
-                <FeatureCard logo={<Rocket />} heading="Refrral Workflow">
-                    <div className="text-xl text-white/60 font-extralight"><b>2</b> Pending</div>
-                    <div className="text-xl text-white/60 font-extralight"><b>5</b> Strong Matches</div>
-                </FeatureCard>
-                <FeatureCard logo={<Goal />} heading="Weekly Targets">
-                    <div className="text-xl text-white/60 font-extralight"><b className="text-green-300">80%</b> Activity Success</div>
-                    <div className="text-xl text-white/60 font-extralight"><b>3</b> Interviews Booked</div>
-                </FeatureCard>
-                
-
-            </div>
-
-            <div className="border border-white/10 rounded-xl">
-                <div className="flex items-center justify-between border-white/10 border-b py-4 px-6">
-                    <div className="basis-1/2 flex items-center gap-x-3 text-2xl font-light   ">
-                        <Rocket />
-                        <div>
-                            Application Strategy
+                <div className="border border-white/10 rounded-xl">
+                    <div className="flex items-center justify-between border-white/10 bg-[radial-gradient(circle_at_70%_50%,#313448,#0D0D17)] border-b py-4 px-6">
+                        <div className="basis-1/2 flex items-center gap-x-3 text-2xl font-light   ">
+                            <Rocket />
+                            <div>
+                                Application Strategy
+                            </div>
                         </div>
+                        <button className="px-6 py-3 border-white/10 bg-linear-to-bl from-[#0C0D18] to-[#1B1B2B] border rounded-xl">
+                            + New referral
+                        </button>
                     </div>
-                    <button className="px-6 py-3 border-white/10 border rounded-xl">
-                        + New referral
-                    </button>
-                </div>
-                <div className="p-6 grid grid-cols-2 gap-5">
-                    {/* jobs of interes */}
-                    <div className="h-full">
-                        <JobInterests />
-                    </div>
-                    {/* referal  */}
-                    <div className="h-full">
-                        <ReferralWorkflowCard />
-                    </div>
-                    {/* recruiter */}
-                    <div className="h-full">
-                        <RecruiterFollowupsCard />
-                    </div>
-                    {/* negotiation */}
-                    <div>
-                        <NegotiationOffersCard />
+                    <div className="p-6 grid grid-cols-2 gap-5">
+                        {/* jobs of interes */}
+                        <div className="h-full">
+                            <JobInterests />
+                        </div>
+                        {/* referal  */}
+                        <div className="h-full">
+                            <ReferralWorkflowCard />
+                        </div>
+                        {/* recruiter */}
+                        <div className="h-full">
+                            <RecruiterFollowupsCard />
+                        </div>
+                        {/* negotiation */}
+                        <div>
+                            <NegotiationOffersCard />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -92,8 +93,8 @@ function JobInterests() {
             </div>
 
             {/* Title Row */}
-            <div className="flex items-center justify-between px-6 py-3 border-b border-white/10">
-                <div className="text-xl font-light">Jobs Of Interest</div>
+            <div className="flex items-center bg-[#11111C] justify-between px-6 py-3 border-b border-white/10">
+                <div className="text-xl font-light ">Jobs Of Interest</div>
                 <button className="px-6 py-2 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 transition">
                     <Search className="inline" /> Search
                 </button>
@@ -276,14 +277,14 @@ function Badge() {
         <span className="rounded-md relative w-42 h-8 overflow-hidden  text-sm font-light flex items-center justify-center">
 
             {/* Left background */}
-            <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-900 z-0" />
+            <div className="absolute inset-y-0 left-0 w-1/2 bg-gray-900 z-10" />
 
             {/* Right background */}
-            <div className="absolute inset-y-0 right-0 w-1/2 bg-[#2C756E] z-0" />
+            <div className="absolute inset-y-0 right-0 w-1/2 bg-[#2C756E] z-10" />
 
             {/* Triangle */}
             <div
-                className="absolute left-13 w-9 h-9 rotate-180 bg-[#2C756E] z-0"
+                className="absolute left-13 w-9 h-9 rotate-180 bg-[#2C756E] z-10"
                 style={{
                     clipPath: "polygon(0 0, 100% 0, 0 100%)",
                 }}

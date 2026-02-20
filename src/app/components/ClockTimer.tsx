@@ -62,21 +62,23 @@ export default function ClockTimer ({ targetDate }: CountdownTimerProps) {
 
   return (
     <div className="flex gap-4 text-center">
-      <TimeBox label="Days" value={timeLeft.days} />
-      <TimeBox label="Hours" value={timeLeft.hours} />
-      <TimeBox label="Minutes" value={timeLeft.minutes} />
-      <TimeBox label="Seconds" value={timeLeft.seconds} />
+      <TimeBox label="DAYS" value={timeLeft.days} />
+      <TimeBox label="HOURS" value={timeLeft.hours} />
+      <TimeBox label="MIN" value={timeLeft.minutes} />
+      <TimeBox label="SEC" value={timeLeft.seconds} />
     </div>
   );
 };
 
 
 const TimeBox = ({ label, value }: { label: string; value: number }) => (
-  <div className="rounded-xl bg-gray-900 text-white px-4 py-2 w-25 flex flex-col items-center">
-    <div className="text-2xl font-bold">
-      {String(value).padStart(2, "0")}
-    </div>
-    <div className="text-xs uppercase tracking-wide opacity-80">
+  <div>
+    <div className="rounded-xl bg-gray-900 text-white px-4 py-2 w-25 flex flex-col items-center">
+        <div className="text-4xl font-light  py-3">
+          {String(value).padStart(2, "0")}
+        </div>
+      </div>
+    <div className=" mt-2 uppercase tracking-wide opacity-80">
       {label}
     </div>
   </div>

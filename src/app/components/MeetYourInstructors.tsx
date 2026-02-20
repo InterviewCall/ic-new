@@ -3,7 +3,7 @@ import { FaPlay } from "react-icons/fa";
 
 export default function MeetYourInstructors() {
     return (
-        <div className="bg-black w-full text-white flex flex-col items-center py-24">
+        <div className=" w-full text-white flex flex-col items-center py-24">
             <div className="text-7xl  tracking-tighter">
                 Meet Your Instructors
             </div>
