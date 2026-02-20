@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { FaAngleRight } from "react-icons/fa";
 
 const roadmap = {
     left: [
@@ -51,7 +52,10 @@ const roadmap = {
 export default function Roadmap() {
     return (
         <div className="flex flex-col items-center">
-            <div className="grid grid-cols-[5fr_2fr_5fr]  bg-black">
+            <div className="text-center text-7xl mb-2">
+                How It Looks
+            </div>
+            <div className="grid grid-cols-[6fr_4fr_6fr]">
                 {/* 1st col */}
                 <div className="w-full   " >
                     {
@@ -65,10 +69,10 @@ export default function Roadmap() {
                 <div className="w-full relative    flex flex-col items-center" >
                     {/* blue balls */}
                     <div className="w-px h-full bg-[#0750CD]"></div>
-                    <div className="absolute top-50 h-14 w-14 bg-[radial-gradient(circle_at_center,#013EF2,#0A89FF)] rounded-full shadow-[0_0_50px_30px_rgba(1,62,242,0.7)]"></div>
+                    <div className="absolute top-50 h-20 w-20 bg-[radial-gradient(circle_at_center,#013EF2,#0A89FF)] rounded-full shadow-[0_0_60px_40px_rgba(1,62,242,0.7)]"></div>
 
                     {/* yellow balls */}
-                    <div className="absolute bottom-50 h-14 w-14 rounded-full bg-[radial-gradient(circle_at_center,#E2820B,#FDD233)] shadow-[0_0_50px_30px_rgba(226,130,11,0.7)]"></div>
+                    <div className="absolute bottom-50 h-20 w-20 rounded-full bg-[radial-gradient(circle_at_center,#E2820B,#FDD233)] shadow-[0_0_60px_40px_rgba(226,130,11,0.7)]"></div>
                 </div>
                 {/* 2nd col */}
                 <div className="w-full   " >
@@ -82,8 +86,14 @@ export default function Roadmap() {
                 sidebar2 maybe 
                 <div className="w-full   " ></div> */}
             </div>
-            <button className="hover:cursor-pointer bg-linear-to-r from-white/10 to-black rounded-xl border border-white/20 px-8 py-3 ">
+            <button className="hover:cursor-pointer flex items-center gap-x-3 text-2xl bg-linear-to-r from-[#13141B] tracking-wider to-[#070A0E] rounded-full border border-white/20 px-16 py-6 ">
+                <div>
                 View Full Curriculum 
+
+                </div>
+                <div>
+                    <FaAngleRight size={30}/>
+                </div>
             </button>
         </div>
     )
@@ -101,7 +111,7 @@ function ConceptCard({ duration, icon, heading, subHeading, topSpacing }: Concep
             ></div>
 
             <div className="text-gray-400 font-light text-sm my-3">{duration}</div>
-            <div className="border tracking-tight border-white/30 rounded-2xl py-8 px-6 w-90/100 space-y-6 bg-linear-to-b from-[#0B0F17] to-[#081727]">
+            <div className="border tracking-tight border-white/30 rounded-2xl py-8 px-6 w-90/100 space-y-6 bg-[linear-gradient(to_bottom_right,#081E3D_0%,#081425_60%,#1F2F46_100%)] h-full">
                 <div>
                     <Image src={icon} alt="" height={100} width={100} className="h-16 " />
                 </div>

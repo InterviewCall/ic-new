@@ -21,28 +21,41 @@ import JobSwitchExectionSection from "./components/JobSwitchExecutionSection";
 //   ssr: false,
 // });
 
+const sections = [
+  { component: StatsTrustSection, css: "bg-[#05080E]" },
+  { component: JourneyComparison, css: "bg-linear-to-b from-[#05080E] to-[#0B0F17]" },
+  { component: Roadmap, css: "bg-linear-to-b from-[#0B0F17] to-[#050813]" },
+  { component: ProblemBank, css: "bg-linear-to-b from-[#050813] to-[#020207]" },
+  { component: RoleMatchedMentors, css: "bg-linear-to-b from-[#020207] to-[#04050C]" },
+  { component: JobSwitchExectionSection, css: "bg-linear-to-b from-[#04050C] to-[#0F0E17]" },
+  { component: MeetYourInstructors, css: "bg-linear-to-b from-[#0F0E17] to-[#000B22]" },
+  { component: StudentSuccessStories, css: "bg-linear-to-b from-[#000B22] to-[#0C1224]" },
+  { component: TrainingModules, css: "bg-linear-to-b from-[#0C1224] to-[#030C12]" },
+  { component: CohortSection, css: "bg-linear-to-b from-[#030C12] to-[#020C14]" },
+  { component: CommunitySection, css: "bg-linear-to-b from-[#020C14] to-[#020A14]" },
+  { component: InterviewCallSystem, css: "bg-linear-to-b from-[#020A14] to-[#000305]" },
+  { component: JoinCohortSection, css: "bg-linear-to-b from-[#000305] to-[#0C142D]" },
+  { component: Footer, css: "bg-linear-to-b from-[#0C142D] to-[#080C19]" },
+];
+
+
 export default function Home() {
   return (
     <div className="w-full h-full">
       <InterviewCallHero />
       <HeroMarque />
       <div className="w-full flex flex-col items-center ">
-        <div className="w-80/100  ">
-          <StatsTrustSection />
-          <JourneyComparison />
-          <Roadmap />
-          <ProblemBank />
-          <RoleMatchedMentors />
-          <JobSwitchExectionSection />
-          <MeetYourInstructors />
-          <StudentSuccessStories />
-          <TrainingModules />
-          <CohortSection />
-          <CommunitySection />
-          <InterviewCallSystem />
-          <JoinCohortSection />
-          <Footer />
-          {/* <ClockTimer targetDate="2025-12-31T23:59:59"/> */}
+        <div className="w-10/10">
+          {sections.map(({ component: Component, css }, index) => (
+            <div
+              key={index}
+              className={`w-full flex flex-col items-center ${css}`}
+            >
+              <div className="w-8/10 ">
+                <Component />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

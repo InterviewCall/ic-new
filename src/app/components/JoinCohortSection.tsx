@@ -30,7 +30,7 @@ export default function JoinCohortSection() {
           </div>
 
 
-            <div className="grid grid-cols-6 mx-10 mt-10 gap-x-16 justify-center">
+            <div className="grid grid-cols-6 mx-10 mt-16 gap-x-16 justify-center">
                 <Image alt="" src={'/bwPfp1.svg'} width={0} height={0} className="w-full h-auto" />
                 <Image alt="" src={'/bwPfp2.svg'} width={0} height={0} className="w-full h-auto" />
                 <Image alt="" src={'/bwPfp1.svg'} width={0} height={0} className="w-full h-auto" />

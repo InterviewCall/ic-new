@@ -55,7 +55,7 @@ export default function TrainingModules() {
                             {module.content.map((item, i) => (
                                 <div
                                     key={i}
-                                    className="border border-white/30 rounded-2xl p-8  bg-linear-to-br from-[#111D29] to-[#000000]"
+                                    className="border border-white/30 rounded-2xl p-8  bg-linear-to-br from-[#0A121D] to-[#051017]"
                                 >
                                     <div>{item.heading}</div>
                                     <div>{item.subHeading}</div>
@@ -65,9 +65,9 @@ export default function TrainingModules() {
 
                         {/* right why section */}
                         <div className="relative isolate border border-white/30 rounded-2xl p-6 text-3xl 
-                        bg-linear-to-br from-[#111D29] to-[#000000] overflow-hidden">
+                        bg-linear-to-br from-[#06121A] to-[#08111] overflow-hidden">
 
-                            <div className="relative isolate p-6 bg-linear-to-tr from-[#030F15] to-black rounded-2xl space-y-2">
+                            <div className="relative isolate p-6 bg-linear-to-tr from-[#041018] to-[#030F15] rounded-2xl space-y-2">
                                 <Image
                                     src={'/design2.svg'}
                                     alt=""

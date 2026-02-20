@@ -37,10 +37,10 @@ export default function InterviewCallSystem() {
 
             {/* mock */}
             <div className="w-full flex flex-col items-center">
-                <div className="relative my-20 isolate w-1/2 flex flex-col items-center  rounded-2xl border border-white/10 bg-linear-to-br from-[#09121d] to-[#000000] p-8 text-center">
+                <div className="relative my-20 isolate w-1/2 flex flex-col items-center  rounded-2xl border border-white/10 bg-[linear-gradient(to_bottom_right,#091524,#020910_60%,#000000_100%)] p-8 text-center">
 
                     {/* Glow */}
-                    <div className="absolute inset-0 -z-10 rounded-2xl bg-[#1d488f] blur-[120px] opacity-60" />
+                    {/* <div className="absolute inset-0 -z-10 rounded-2xl bg-[#1d488f] blur-[120px] opacity-60" /> */}
 
                     {/* Text */}
                     <h2 className="text-4xl font-medium text-white leading-snug tracking-tight">
