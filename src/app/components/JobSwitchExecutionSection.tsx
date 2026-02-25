@@ -5,20 +5,20 @@ import { Plus } from "lucide-react";
 
 export default function JobSwitchExectionSection() {
     return (
-        <div className="mt-30 mb-10 relative flex flex-col items-center">
+        <div className="mt-10 md:mt-30 mb-10 relative flex flex-col items-center">
             <div className="absolute inset-0 mx-auto top-[20%] z-0 h-7/10 w-full rounded-full bg-[#2B2F41] blur-[95px]" />
             <div className="z-10">
                 <div>
-                    <div className="text-7xl font-light text-center">
+                    <div className="text-4xl md:text-7xl font-light text-center">
                         Job Switch Execution System
                     </div>
-                    <div className="text-3xl font-light text-center my-3 text-white/70">
-                        The system that tracks applications, referrals, interviews, <br />
+                    <div className="text-2xl md:text-3xl font-light text-center my-3 text-white/70 px-4 md:px-0">
+                        The system that tracks applications, referrals, interviews, <br className="hidden md:inline" />
                         and offers — end to end.
                     </div>
                 </div>
 
-                <div className="grid grid-cols-3 divide-x divide-white/10 border border-white/10 rounded-2xl my-10">
+                <div className="grid md:grid-cols-3  divide-x divide-white/10 border border-white/10 rounded-2xl my-10">
                     <FeatureCard logo={<Briefcase />} heading="Application Strategy">
                         <div className="text-xl text-[#C1C0CE] font-extralight"><b>3</b> Jobs of interest</div>
                         <div className="text-xl text-[#C1C0CE] font-extralight"><b>7</b> High fit targets</div>
@@ -28,7 +28,7 @@ export default function JobSwitchExectionSection() {
                         <div className="text-xl text-[#C1C0CE] font-extralight"><b>5</b> Strong Matches</div>
                     </FeatureCard>
                     <FeatureCard logo={<Goal />} heading="Weekly Targets">
-                        <div className="text-xl text-[#C1C0CE] font-extralight"><b className="text-green-300">80%</b> Activity Success</div>
+                        <div className="text-xl text-[#C1C0CE] font-extralight"><b className="text-[#47CEB9]">80%</b> Activity Success</div>
                         <div className="text-xl text-[#C1C0CE] font-extralight"><b>3</b> Interviews Booked</div>
                     </FeatureCard>
                     
@@ -36,18 +36,18 @@ export default function JobSwitchExectionSection() {
                 </div>
 
                 <div className="border border-white/10 rounded-xl">
-                    <div className="flex items-center justify-between border-white/10 bg-[radial-gradient(circle_at_70%_50%,#313448,#0D0D17)] border-b py-4 px-6">
-                        <div className="basis-1/2 flex items-center gap-x-3 text-2xl font-light   ">
+                    <div className="flex items-center justify-between border-white/10 bg-[radial-gradient(circle_at_70%_50%,#313448,#0D0D17)] border-b py-4 px-4 md:px-6">
+                        <div className="justify-between flex items-center gap-x-3 text-2xl font-light   ">
                             <Rocket />
-                            <div>
+                            <div className="text-lg md:text-2xl">
                                 Application Strategy
                             </div>
                         </div>
-                        <button className="px-6 py-3 border-white/10 bg-linear-to-bl from-[#0C0D18] to-[#1B1B2B] border rounded-xl">
+                        <button className="px-3 md:px-6 py-3 border-white/10 bg-linear-to-bl from-[#0C0D18] to-[#1B1B2B] border rounded-xl">
                             + New referral
                         </button>
                     </div>
-                    <div className="p-6 grid grid-cols-2 gap-5">
+                    <div className="p-6 grid md:grid-cols-2 gap-5">
                         {/* jobs of interes */}
                         <div className="h-full">
                             <JobInterests />
@@ -133,12 +133,12 @@ function RecruiterFollowupsCard() {
                     <div className="h-6 w-6 rounded-md bg-blue-500/15 text-blue-400 flex items-center justify-center">
                         ⬡
                     </div>
-                    <h3 className="text-xl font-extralight text-white/90">
+                    <h3 className="text-base md:text-xl font-extralight text-white/90">
                         Recruiter Follow-ups
                     </h3>
                 </div>
 
-                <button className="flex items-center gap-1 rounded-md border border-white/15 bg-white/5 px-2 py-1 font-extralight text-white/70 hover:bg-white/10 hover:text-white transition">
+                <button className="flex text-sm md:text-base items-center gap-1 rounded-md border border-white/15 bg-white/5 px-1.5 md:px-2 py-1 font-extralight text-white/70 hover:bg-white/10 hover:text-white transition">
                     <Plus size={20} />
                     New Reminder
                 </button>
@@ -149,10 +149,10 @@ function RecruiterFollowupsCard() {
                 {[1, 2].map((_, i) => (
                     <div
                         key={i}
-                        className="flex items-start justify-between rounded-lg border border-white/10 bg-white/0 backdrop-blur-md p-3"
+                        className="md:flex items-start justify-between rounded-lg border border-white/10 bg-white/0 backdrop-blur-md p-3"
                     >
                         {/* Left */}
-                        <div className="flex items-start gap-3">
+                        <div className="flex items-center md:items-start gap-3">
                             <Image
                                 src="/pfp4.svg"
                                 alt="recruiter"
@@ -170,7 +170,7 @@ function RecruiterFollowupsCard() {
                         </div>
 
                         {/* Right */}
-                        <div className="text-right">
+                        <div className="text-right mt-2 md:mt-0">
                             <p className="text-base text-white/40">
                                 Sent 3 days ago
                             </p>
@@ -199,7 +199,7 @@ type OfferRowProps = {
 
 function OfferRow({ status }: OfferRowProps) {
     return (
-        <div className="flex items-center justify-between rounded-lg px-4 py-3">
+        <div className="flex items-center justify-between rounded-lg px-0 md:px-4 py-3">
             {/* Left */}
             <div className="flex items-start gap-3">
                 {/* Netflix Icon */}
@@ -208,7 +208,7 @@ function OfferRow({ status }: OfferRowProps) {
                 </div>
 
                 <div>
-                    <p className="text-lg font-light text-white">
+                    <p className="text-base md:text-lg font-light text-white">
                         Senior Backend Engineer
                     </p>
                     <div className="mt-1 flex items-center gap-1 text-xs text-white/50">
@@ -222,7 +222,7 @@ function OfferRow({ status }: OfferRowProps) {
 
             {/* Status */}
             <span
-                className={`rounded-md px-3 py-1 text-base font-extralight ${status === "Pending"
+                className={`rounded-md px-3 py-1 text-sm md:text-base font-extralight ${status === "Pending"
                     ? "bg-[#28282A] text-[#F7D458]"
                     : "bg-[#1B1C28] text-white"
                     }`}
@@ -235,13 +235,13 @@ function OfferRow({ status }: OfferRowProps) {
 
 function NegotiationOffersCard() {
     return (
-        <div className="bg-[linear-gradient(135deg,#10101D_0%,#0A0911_100%)] w-full max-w-2xl rounded-xl border border-white/10  p-4 text-white shadow-[0_0_40px_rgba(0,0,0,0.75)]">
+        <div className="bg-[linear-gradient(135deg,#10101D_0%,#0A0911_100%)] w-full max-w-2xl rounded-xl border border-white/10 px-2 md:px-4 p-4 text-white shadow-[0_0_40px_rgba(0,0,0,0.75)]">
 
             {/* Header */}
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between px-1 md:px-0">
                 <div className="flex items-center gap-2">
                     <CheckCircle className="h-5 w-5 text-blue-400" />
-                    <h3 className="text-xl font-extralight text-white/90">
+                    <h3 className="text-base md:text-xl font-extralight text-white/90">
                         Negotiation & Offers
                     </h3>
                 </div>
@@ -264,7 +264,7 @@ function NegotiationOffersCard() {
             </div>
 
             {/* Negotiations */}
-            <div className="w-full h-fit relative">
+            <div className="w-full h-fit relative ">
                 <div className="absolute my-4 text-lg font-light text-white/80">
                     Offer negotiation range
                 </div>
@@ -313,7 +313,7 @@ function ReferralWorkflowCard() {
 
             {/* Header */}
             <div className="flex items-center justify-between">
-                <h3 className="text-white/90">Referral Workflow</h3>
+                <h3 className="text-base text-white/90">Referral Workflow</h3>
                 <div className="flex items-center gap-1 text-white/40">
                     Backed <span className="text-[10px]">▾</span>
                 </div>
@@ -329,26 +329,26 @@ function ReferralWorkflowCard() {
             </div>
 
             {/* List */}
-            <div className="mt-4 space-y-3 h-96">
+            <div className="mt-4 space-y-3 h-fit md:h-96">
                 {[1, 2, 3].map((_, i) => (
-                    <div key={i} className="flex items-start justify-between rounded-lg border border-white/10 bg-[#161821] backdrop-blur-md p-3">
+                    <div key={i} className="md:flex items-start justify-between rounded-lg border border-white/10 bg-[#161821] backdrop-blur-md p-3">
 
                         {/* Left */}
                         <div className="flex items-start gap-3">
                             <Image src="/pfp4.svg" alt="profile" width={70} height={0} className="h-auto" />
                             <div className="font-extralight">
-                                <p className="text-xxl">Shiv S.</p>
+                                <p className="text-base">Shiv S.</p>
                                 <p className="text-lg text-white/70">
                                     SWE II @ <span>Google</span>
                                 </p>
-                                <p className="mt-0.5 text-[#DAD9E7] ">5 Years <span className="px-2 py-0.5 text-sm rounded-3xl bg-[#292A37]">@ Google</span></p>
+                                <p className="mt-0.5 text-[#DAD9E7] text-lg">5 Years <span className="px-2 py-0.5 text-sm rounded-3xl bg-[#292A37]">@ Google</span></p>
                             </div>
                         </div>
 
                         {/* Right */}
-                        <div className="text-right text-base text-white/40">
-                            <p className="text-[#9092A3]">YouTube Team</p>
-                            <p className="mt-1 text-[#9092A3] ">Last activity 5 hours ago</p>
+                        <div className="text-right mt-2 md:mt-0 text-base leading-tight text-white/40">
+                            <p className="text-[#9092A3] ">YouTube Team</p>
+                            <p className="md:mt-1 text-[#9092A3] ">Last activity 5 hours ago</p>
                         </div>
                     </div>
                 ))}
@@ -394,8 +394,8 @@ function JobCard() {
 
 function FeatureCard({ logo, heading, children }: { logo: React.ReactNode, heading: string, children: React.ReactNode }) {
     return (
-        <div className=" flex justify-center gap-x-5 p-6">
-            <div className="mt-2">
+        <div className="grid grid-cols-[1fr_3fr] gap-x-5 p-6">
+            <div className="mt-2 flex w-full justify-end">
                 {logo}
             </div>
             <div className="leading-tight">
