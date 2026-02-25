@@ -58,3 +58,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .hide-scroll {
   scrollbar-width: none;
 }
+
+.gradient-border{
+  border-image: linear-gradient(to right, #53BCFF, #2A99FF) 1;
+} 
+

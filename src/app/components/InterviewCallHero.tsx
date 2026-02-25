@@ -25,9 +25,9 @@ export default function InterviewCallHero(){
 
           {/* Content */}
           <div className=" px-6 md:px-8 py-10 md:py-16 flex flex-col  items-center text-start tracking-tighter">
-            <div className="w-full sm:w-7/10">
-              <h1 className="hidden md:block text-5xl md:text-6xl font-medium  text-white leading-tighter ">
-                Crack Top Tech Jobs After training from Engineering Managers at <span className="">MAANG</span>
+            <div className="w-full sm:w-85/100">
+              <h1 className="hidden md:block text-5xl md:text-[70px]  font-medium  text-white leading-tighter ">
+                Crack Top Tech Jobs. <br/> Learn DSA, System Design <br/> from Engineering Managers.
               </h1>
                <h1 className="block md:hidden text-4xl md:text-6xl  text-white leading-tighter text-start">
                 Crack Top Tech Jobs After training from Engineering Managers at <span className="text-3xl">MAANG</span>
@@ -39,10 +39,12 @@ export default function InterviewCallHero(){
               </p>
 
               <div className="mt-8 w-full flex flex-wrap items-center gap-3 md:gap-6">
-                <button className="flex text-lg sm:text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 transition md:px-6 py-3 text-white font-medium md:font-light">
+                <div className="w-full md:w-fit p-px rounded-xl bg-linear-to-tr from-[#53BCFF] to-[#2A99FF] overflow-hidden">
+                  <button className="flex gradient-border  text-lg sm:text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-[radial-gradient(circle,#0F4BC1,#2461C5)] transition md:px-6 py-3 text-white font-medium md:font-light">
                   Apply for Next Cohort
                   <ArrowRight size={18} />
                 </button>
+                </div>
 
                 <button className="flex items-center  bg-[#091b42] border border-white/30 md:border-0 rounded-xl md:rounded-none md:px-6 py-3 md:w-fit md:bg-transparent  justify-center md:justify-start  w-full text-lg gap-2 tracking-normal text-white md:text-white/80 hover:text-white transition">
                   View Curriculum
