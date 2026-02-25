@@ -26,7 +26,7 @@ export default function InterviewCallHero(){
           {/* Content */}
           <div className=" px-6 md:px-8 py-10 md:py-16 flex flex-col  items-center text-start tracking-tighter">
             <div className="w-full sm:w-7/10">
-              <h1 className="hidden md:block text-5xl md:text-6xl  text-white leading-tighter ">
+              <h1 className="hidden md:block text-5xl md:text-6xl font-medium  text-white leading-tighter ">
                 Crack Top Tech Jobs After training from Engineering Managers at <span className="">MAANG</span>
               </h1>
                <h1 className="block md:hidden text-4xl md:text-6xl  text-white leading-tighter text-start">
