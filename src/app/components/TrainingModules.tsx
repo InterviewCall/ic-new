@@ -1,29 +1,65 @@
-import Image from "next/image"
+"use client";
 
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import { monthWiseModulesArray, whyMap } from "../utils/content";
 
-const content = [
-    {
-        time: "Month 1",
-        content: [
-            { heading: "Java/CPP + OOP", subHeading: "2 Weeks" },
-            { heading: "Data Structures & Algorithms", subHeading: "Level 1 · 4 Weeks" },
-            { heading: "Data Structures & Algorithms", subHeading: "Level 2 · 8 Weeks" },
-            { heading: "Java/CPP + OOP", subHeading: "2 Weeks" },
-        ],
-        why: {
-            text: "Mastering core Java concepts like data types, control structures, and OOP will set the stage for tackling advanced topics and building scalable web applications.",
-            topic: [
-                "Introduction to Java/C++, Input Output",
-                "Data Types, Operators, Conditions, Loops",
-                "Patterns Problems, Functions, 1D - 2D Arrays",
-                "Strings, Memory Management, OOP",
-                "Java Collections / C++ STL",
-            ],
-        },
-    },
-];
 
 export default function TrainingModules() {
+    const trackRef = useRef<HTMLDivElement | null>(null);
+    const scrollContainerRef = useRef<HTMLDivElement | null>(null);
+    const [position, setPosition] = useState<number>(0);
+    const [isDragging, setIsDragging] = useState<boolean>(false);
+    const [selectedModule, setSelectedModule] = useState<number>(101);
+
+    // useEffect(()=>{
+    //     console.log(position)
+    // },[position])
+
+    useEffect(() => {
+        if (scrollContainerRef.current) {
+            const container = scrollContainerRef.current;
+            const maxScroll = container.scrollHeight - container.clientHeight;
+            container.scrollTop = ((100 - position) / 100) * maxScroll;
+        }
+    })
+
+    useEffect(() => {
+        if (isDragging && scrollContainerRef.current) {
+            const container = scrollContainerRef.current;
+            const maxScroll = container.scrollHeight - container.clientHeight;
+            // 
+            container.scrollTop = ((100 - position) / 100) * maxScroll;
+        }
+    }, [position, isDragging]);
+
+    const handleScroll = () => {
+        if (isDragging || !scrollContainerRef.current) return;
+        const container = scrollContainerRef.current;
+        const scrollPercentage = (container.scrollTop / (container.scrollHeight - container.clientHeight)) * 100;
+        setPosition(100 - scrollPercentage);
+    };
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            if (!isDragging || !trackRef.current) return;
+            const rect = trackRef.current.getBoundingClientRect();
+            const offsetY = e.clientY - rect.top;
+            let percentage = (offsetY / rect.height) * 100;
+            percentage = Math.max(0, Math.min(100, percentage));
+            setPosition(percentage);
+        };
+
+        const handleMouseUp = () => setIsDragging(false);
+
+        window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mouseup", handleMouseUp);
+        return () => {
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("mouseup", handleMouseUp);
+        };
+    }, [isDragging]);
+
     return (
         <div>
             <div className="text-center text-6xl tracking-tight">
@@ -33,40 +69,69 @@ export default function TrainingModules() {
                 To get into MAANG and sustain for years to come
             </div>
 
-            {content.map((module, index) => (
-                <div key={index}>
-                    <div className="grid grid-cols-[1fr_15fr_15fr]">
-                        <div></div>
-                        <div className="m-4 mt-6 text-3xl font-semibold text-white">
-                            {module.time}
+            <div className="grid grid-cols-[1fr_9fr] h-175 mt-10 ">
+                {/* scrollbar div */}
+                <div className="flex justify-center h-full">
+                    <div
+                        ref={trackRef}
+                        className="relative h-full w-[1.5px] bg-[#1CABFF] rounded-full"
+                    >
+                        {/* Scoll Button */}
+                        <div
+                            onMouseDown={() => setIsDragging(true)}
+                            style={{ top: `${position}%`, transform: "translateY(-50%)" }}
+                            className="absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full cursor-pointer z-20"
+                        >
+                            <div className="relative w-full h-full">
+                                <Image src={'/design1.svg'} alt="" width={30} height={30} className="absolute top-0 left-0 w-full h-full" />
+                                <div className="z-10 bg-transparent w-full h-full absolute top-0 left-0"></div>
+                            </div>
                         </div>
-                        <div></div>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-2 h-180  ">
+                    {/* content div */}
+                    <div
+                        ref={scrollContainerRef}
+                        onScroll={handleScroll}
+                        className="w-full overflow-y-auto pr-4 no-scrollbar"
+                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                    >
+                        {/* <div className="w-full h-px bg-blue-500/10 shadow-[0_0_20px_1px_rgba(59,130,246,0.6)] sticky top-0 z-10"></div> */}
+
+                        {monthWiseModulesArray.slice().reverse().map((module) => (
+                            <div key={module.id} className="mb-20">
+                                <div className="grid grid-cols-[1fr_15fr_15fr]">
+                                    <div></div>
+                                    <div className="m-4 mt-6 text-3xl font-semibold text-white">
+                                        {module.time}
+                                    </div>
+                                    <div></div>
+                                </div>
+
+                                <div className="grid grid-cols-1 gap-x-2 mb-6">
+                                    {/* left cards */}
+                                    <div className="space-y-5 text-2xl px-5">
+                                        {module.content.map((item, i) => (
+                                            <div
+                                                key={i}
+                                                className="transition-transform duration-200 hover:scale-103 hover:cursor-pointer border border-white/30 rounded-2xl p-8 bg-linear-to-br from-[#0A121D] to-[#051017]"
+                                                onClick={() => { setSelectedModule(item.id) }}
+                                            >
+                                                <div>{item.heading}</div>
+                                                <div className="text-white/50 text-xl">{item.subHeading}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
                     </div>
 
-                    <div className="grid grid-cols-[1fr_15fr_15fr] gap-x-2 mb-6">
-                        {/* design */}
-                        <div className=" flex flex-col items-center">
-                            <Image src={'/design1.svg'} alt="" width={30} height={30} />
-                            <div className="h-full w-[1.5px] bg-[#1CABFF]"></div>
-                        </div>
-
-                        {/* left cards */}
-                        <div className=" space-y-5 text-2xl">
-                            {module.content.map((item, i) => (
-                                <div
-                                    key={i}
-                                    className="border border-white/30 rounded-2xl p-8  bg-linear-to-br from-[#0A121D] to-[#051017]"
-                                >
-                                    <div>{item.heading}</div>
-                                    <div>{item.subHeading}</div>
-                                </div>
-                            ))}
-                        </div>
-
-                        {/* right why section */}
-                        <div className="relative isolate border border-white/30 rounded-2xl p-6 text-3xl 
-                        bg-linear-to-br from-[#06121A] to-[#08111] overflow-hidden">
-
+                    {/* why div */}
+                    <div className="flex items-center h-full">
+                        <div className="relative isolate border my-10  h-78/100 border-white/30 rounded-2xl p-6 text-3xl bg-linear-to-br from-[#06121A] to-[#08111] overflow-hidden">
                             <div className="relative isolate p-6 bg-linear-to-tr from-[#041018] to-[#030F15] rounded-2xl space-y-2">
                                 <Image
                                     src={'/design2.svg'}
@@ -76,18 +141,16 @@ export default function TrainingModules() {
                                     className="h-auto w-1/4 mb-6"
                                 />
 
-                                <div className="my-3">
-                                    Why learn this:
-                                </div>
+                                <div className="my-3">Why learn this:</div>
 
                                 <div className="z-10 text-xl text-[#5B7D92] space-y-4 mb-6">
-                                    {module.why.text}
+                                    {whyMap[selectedModule]?.text}
                                 </div>
 
-                                {module.why.topic.map((topic, tIndex) => (
+                                {whyMap[selectedModule]?.topic.map((topic, tIndex) => (
                                     <div
                                         key={tIndex}
-                                        className="px-2.5 py-1 rounded-xl text-lg bg-[#B76A00] w-fit"
+                                        className="px-2.5 py-1 rounded-xl text-lg bg-[#B76A00] w-fit mb-2"
                                     >
                                         {topic}
                                     </div>
@@ -95,8 +158,9 @@ export default function TrainingModules() {
                             </div>
                         </div>
                     </div>
+
                 </div>
-            ))}
+            </div>
         </div>
     );
 }
