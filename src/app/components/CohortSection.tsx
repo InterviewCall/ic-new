@@ -17,7 +17,7 @@ const members: CohortMember[] = [
 
 export default function CohortSection() {
     return (
-        <section className="relative isolate w-full rounded-2xl p-10 my-10 overflow-hidden">
+        <section className="relative isolate w-full rounded-2xl p-10 my-20 overflow-hidden">
                 <div className="mb-10 text-center text-5xl tracking-tight font-medium text-white">
                     Meet the November Cohort
                 </div>

@@ -49,3 +49,12 @@ body {
 input[type="date"]::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
+
+/* Hide native scrollbar */
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scroll {
+  scrollbar-width: none;
+}
