@@ -11,10 +11,9 @@ const logos = [
 export default function InterviewCallHero(){
   return (
     <div className="min-h-220 w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top  items-center justify-center ">
-      <div className="flex items-center justify-between px-6 md:px-8 py-8 pb-3 md:pb-10 md:py-10">
+      <div className="flex items-center justify-between px-6 md:px-8 py-8 pb-3 md:pb-6 md:py-6">
         <div className="flex items-center gap-2 text-white font-semibold text-lg">
             <Image src={"/interviewCallFullLogo.svg"} alt="" width={100} height={100} className="w-35 md:w-50"/>
-          
         </div>
         <button className="rounded-xl bg-[#183678] transition px-6 md:px-7 py-3 md:py-3 text-base md:text-md text-white font-medium md:font-light hover:cursor-pointer">
           Request Callback
@@ -25,22 +24,22 @@ export default function InterviewCallHero(){
           {/* Header */}
 
           {/* Content */}
-          <div className=" px-6 md:px-8 py-10 md:py-20 flex flex-col  items-center text-start tracking-tighter">
+          <div className=" px-6 md:px-8 py-10 md:py-16 flex flex-col  items-center text-start tracking-tighter">
             <div className="w-full sm:w-6/10">
               <h1 className="hidden md:block text-5xl md:text-6xl  text-white leading-tighter ">
-                Crack Top Tech Jobs After training from Engineering Managers at <span className="">MAANG</span>
+                Crack Top Tech Jobs After <br/> training from Engineering <br/> Managers at <span className="">MAANG</span>
               </h1>
                <h1 className="block md:hidden text-4xl md:text-6xl  text-white leading-tighter text-start">
                 Crack Top Tech Jobs After training from Engineering Managers at <span className="text-3xl">MAANG</span>
               </h1>
 
-              <p className="mt-6 text-2xl font-light tracking-normal leading-tight text-white/80 max-w-xl">
+              <p className="mt-6 text-2xl font-light tracking-normal md:tracking-tight leading-tight text-white/80 max-w-xl">
                 Engineering Managers from Google, Microsoft, Sony & more personally
                 coach and place you.
               </p>
 
               <div className="mt-8 w-full flex flex-wrap items-center gap-3 md:gap-6">
-                <button className="flex text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 transition px-6 py-3 text-white font-medium">
+                <button className="flex text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 transition px-4 py-3 text-white font-medium">
                   Apply for Next Cohort
                   <ArrowRight size={18} />
                 </button>
@@ -52,13 +51,13 @@ export default function InterviewCallHero(){
               </div>
 
               <div className="mt-8 md:mt-10 md:flex justify-between items-center">
-                <div className="text-lg md:text-sm text-white/50 text-center tracking-normal md:text-start font-extralight">
+                <div className="text-lg md:text-lg text-white/50 text-center tracking-normal md:text-start font-extralight md:font-light">
                   Trained by engineers from
                 </div>
                 <div className="flex mt-1 items-center gap-4 md:gap-8 text-white/50 font-semibold text-lg">
                  {
                   logos.map((logo, idx) => {
-                    return <Image src={logo.src} alt={logo.name} key={idx} width={100} height={100} className="h-6 md:h-8 object-contain"/>
+                    return <Image src={logo.src} alt={logo.name} key={idx} width={100} height={100} className="w-20 h-auto md:w-30 "/>
                   })}
                 </div>
               </div>
