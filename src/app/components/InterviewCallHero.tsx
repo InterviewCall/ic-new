@@ -15,17 +15,17 @@ export default function InterviewCallHero(){
         <div className="flex items-center gap-2 text-white font-semibold text-lg">
             <Image src={"/interviewCallFullLogo.svg"} alt="" width={100} height={100} className="w-35 md:w-50"/>
         </div>
-        <button className="rounded-xl bg-[#183678] transition px-6 md:px-7 py-3 md:py-3 text-base md:text-md text-white font-medium md:font-light hover:cursor-pointer">
+        <button className="rounded-xl bg-[#183678] transition px-4 md:px-7 py-2 md:py-3 text-sm md:text-md text-white font-medium md:font-light hover:cursor-pointer">
           Request Callback
         </button>
       </div>
       <div className="w-full flex justify-center">
-        <div className="w-[85%] my-5 rounded-3xl backdrop-blur-3xl  shadow-2xl border border-white/30">
+        <div className="w-9/10 md:w-[85%] my-5 rounded-3xl backdrop-blur-3xl  shadow-2xl border border-white/30">
           {/* Header */}
 
           {/* Content */}
           <div className=" px-6 md:px-8 py-10 md:py-16 flex flex-col  items-center text-start tracking-tighter">
-            <div className="w-full sm:w-6/10">
+            <div className="w-full sm:w-7/10">
               <h1 className="hidden md:block text-5xl md:text-6xl  text-white leading-tighter ">
                 Crack Top Tech Jobs After <br/> training from Engineering <br/> Managers at <span className="">MAANG</span>
               </h1>
@@ -39,12 +39,12 @@ export default function InterviewCallHero(){
               </p>
 
               <div className="mt-8 w-full flex flex-wrap items-center gap-3 md:gap-6">
-                <button className="flex text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 transition px-4 py-3 text-white font-medium">
+                <button className="flex text-lg sm:text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-blue-600 hover:bg-blue-500 transition md:px-4 py-3 text-white font-medium">
                   Apply for Next Cohort
                   <ArrowRight size={18} />
                 </button>
 
-                <button className="flex items-center bg-[#091b42] border border-white/30 md:border-0 rounded-xl md:rounded-none px-6 py-3 md:w-fit md:bg-transparent  justify-center md:justify-start  w-full text-lg gap-2 tracking-normal text-white md:text-white/80 hover:text-white transition">
+                <button className="flex items-center  bg-[#091b42] border border-white/30 md:border-0 rounded-xl md:rounded-none md:px-6 py-3 md:w-fit md:bg-transparent  justify-center md:justify-start  w-full text-lg gap-2 tracking-normal text-white md:text-white/80 hover:text-white transition">
                   View Curriculum
                   <ArrowRight size={16} />
                 </button>
