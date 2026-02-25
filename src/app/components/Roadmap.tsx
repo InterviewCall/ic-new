@@ -51,8 +51,8 @@ const roadmap = {
 
 export default function Roadmap() {
     return (
-        <div className="flex flex-col items-center">
-            <div className="text-center text-7xl mb-2">
+        <div className="flex w-full flex-col items-center">
+            <div className="text-center  text-7xl mb-2">
                 How It Looks
             </div>
             <div className="grid grid-cols-[6fr_4fr_6fr]">

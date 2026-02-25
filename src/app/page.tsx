@@ -51,7 +51,7 @@ export default function Home() {
               key={index}
               className={`w-full flex flex-col items-center ${css}`}
             >
-              <div className="w-8/10 ">
+              <div className="w-full md:w-8/10 ">
                 <Component />
               </div>
             </div>
