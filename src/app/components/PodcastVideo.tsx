@@ -34,15 +34,15 @@ export default function PodcastVideo({
                     </div>
                 </div>
 
-                <div className="absolute inset-0 bottom-5 flex items-end justify-between px-6 pb-6 text-white">
-                    <div>
-                        <p className="text-lg font-semibold">{leftSpeaker.name}</p>
-                        <p className="text-sm text-white/70">{leftSpeaker.role}</p>
+                <div className="absolute inset-0 md:bottom-5 flex items-end justify-between px-6 pb-2 md:pb-6 text-white">
+                    <div className="">
+                        <p className="text-lg md:text-3xl font-semibold leading-tight md:leading-normal">{leftSpeaker.name}</p>
+                        <p className="text-sm md:text-lg text-white/70 leading-tight md:leading-normal">{leftSpeaker.role}</p>
                     </div>
 
                     <div className="text-right">
-                        <p className="text-lg font-semibold">{rightSpeaker.name}</p>
-                        <p className="text-sm text-white/70">{rightSpeaker.role}</p>
+                        <p className="text-lg md:text-3xl font-semibold leading-tight md:leading-normal">{rightSpeaker.name}</p>
+                        <p className="text-sm md:text-lg text-white/70 leading-tight md:leading-normal">{rightSpeaker.role}</p>
                     </div>
                 </div>
             </div>

@@ -69,7 +69,7 @@ export default function TrainingModules() {
                 To get into MAANG and sustain for years to come
             </div>
 
-            <div className="grid grid-cols-[1fr_9fr] h-175 mt-10 ">
+            <div className="grid grid-cols-[1fr_9fr] h-fit md:h-175 mt-10 ">
                 {/* scrollbar div */}
                 <div className="flex justify-center h-full">
                     <div
@@ -90,7 +90,7 @@ export default function TrainingModules() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 h-180  ">
+                <div className="grid grid-cols-2 h-fit md:h-180  ">
                     {/* content div */}
                     <div
                         ref={scrollContainerRef}

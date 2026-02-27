@@ -73,8 +73,8 @@ export default function ClockTimer ({ targetDate }: CountdownTimerProps) {
 
 const TimeBox = ({ label, value }: { label: string; value: number }) => (
   <div>
-    <div className="rounded-xl bg-gray-900 text-white px-4 py-2 w-25 flex flex-col items-center">
-        <div className="text-4xl font-light  py-3">
+    <div className="rounded-xl bg-gray-900 text-white px-2 md:px-4 py-1 md:py-2 w-16 md:w-25 flex flex-col items-center">
+        <div className="text-2xl md:text-4xl font-light  py-3">
           {String(value).padStart(2, "0")}
         </div>
       </div>

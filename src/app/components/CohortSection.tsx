@@ -17,8 +17,8 @@ const members: CohortMember[] = [
 
 export default function CohortSection() {
     return (
-        <section className="relative isolate w-full rounded-2xl p-10 my-20 overflow-hidden">
-                <div className="mb-10 text-center text-5xl tracking-tight font-medium text-white">
+        <section className="relative isolate w-full rounded-2xl p-4 md:p-10 my-20 overflow-hidden">
+                <div className="mb-10 text-center text-3xl md:text-5xl tracking-tight font-medium text-white">
                     Meet the November Cohort
                 </div>
             {/* Blurred background */}
@@ -32,7 +32,7 @@ export default function CohortSection() {
                     className="absolute inset-0 bg-[url('/cohortBg.svg')] bg-no-repeat bg-cover bg-top blur-[150px] scale-105 "
                 />
 
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 px-10 ">
+                <div className="grid grid-cols-1 gap-4 md:gap-6 sm:grid-cols-2 md:px-10 ">
                     {members.map((member, index) => (
                         <CohortCard key={index} member={member} />
                     ))}

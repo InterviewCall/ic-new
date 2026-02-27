@@ -3,16 +3,16 @@ import Image from "next/image"
 
 export default function InterviewCallSystem() {
     return (
-        <div className="relative isolate w-full">
+        <div className="relative isolate w-full px-4 md:px-0">
             {/* Blur background */}
             <div className="absolute top-20 inset-x-0 mx-auto -z-10 h-96 w-96 rounded-full bg-[#011D4A]/90 blur-3xl" />
 
             {/* Text */}
-            <div className="relative z-10 text-center tracking-tighter text-7xl text-white my-20">
-                The InterviewCall <br /> System
+            <div className="relative z-10 text-center tracking-tighter text-4xl md:text-7xl text-white my-20">
+                The InterviewCall <br className="hidden md:block"/> System
             </div>
 
-            <div className="grid grid-cols-3 gap-x-10">
+            <div className="grid md:grid-cols-3 gap-10">
                 <Card imageSrc="/system1.svg" title="Learn" />
                 <Card imageSrc="/system2.svg" title="Solve" />
                 <Card imageSrc="/system3.svg" title="Lead" />
@@ -37,13 +37,13 @@ export default function InterviewCallSystem() {
 
             {/* mock */}
             <div className="w-full flex flex-col items-center">
-                <div className="relative my-20 isolate w-1/2 flex flex-col items-center  rounded-2xl border border-white/10 bg-[linear-gradient(to_bottom_right,#091524,#020910_60%,#000000_100%)] p-8 text-center">
+                <div className="relative my-20 isolate w-full md:w-1/2 flex flex-col items-center  rounded-2xl border border-white/10 bg-[linear-gradient(to_bottom_right,#091524,#020910_60%,#000000_100%)] p-4 md:p-8 text-center">
 
                     {/* Glow */}
                     {/* <div className="absolute inset-0 -z-10 rounded-2xl bg-[#1d488f] blur-[120px] opacity-60" /> */}
 
                     {/* Text */}
-                    <h2 className="text-4xl font-medium text-white leading-snug tracking-tight">
+                    <h2 className="text-3xl md:text-4xl font-medium text-white leading-snug tracking-tight">
                         Try a real mock.
                         <br />
                         <span className="font-normal text-white/80">

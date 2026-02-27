@@ -3,15 +3,15 @@ import { FaPlay } from "react-icons/fa";
 
 export default function MeetYourInstructors() {
     return (
-        <div className=" w-full text-white flex flex-col items-center py-24">
-            <div className="text-7xl  tracking-tighter">
+        <div className=" w-full text-white flex flex-col items-center py-24 px-3 md:px-0">
+            <div className="w-full text-center text-4xl md:text-7xl  tracking-tighter">
                 Meet Your Instructors
             </div>
-            <div className="text-4xl mb-10 font-extralight text-gray-300 tracking-tighter">
+            <div className="w-full text-center text-2xl md:text-4xl mb-10 font-extralight text-gray-300 tracking-tighter">
                 Learn from the best. Trained by those who hire.
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-10 mt-10">
+            <div className="w-full flex overflow-x-scroll flex-nowrap md:flex-wrap hide-scroll items-center md:justify-center gap-10 mt-10">
                 <ProfileCard companyLogoUrl="/instructors/uber.svg" imageUrl="/instructors/pfp1.svg" name="Ankush Jain" role="Software Engineer" />
                 <ProfileCard companyLogoUrl="/instructors/google.svg" imageUrl="/instructors/pfp2.svg" name="Rohan Gupta" role="Software Engineer" />
                 <ProfileCard companyLogoUrl="/instructors/uber.svg" imageUrl="/instructors/pfp1.svg" name="Pratham S" role="Software Engineer" />
@@ -39,14 +39,14 @@ function ProfileCard({
     companyLogoUrl
 }: ProfileCardProps) {
     return (
-        <div className="relative w-64 rounded-2xl overflow-hidden border border-white/10 bg-linear-to-b from-[#0B0F17] to-[#081727] shadow-lg">
+        <div className="shrink-0 relative w-44 md:w-64 rounded-2xl overflow-hidden border border-white/10 bg-linear-to-b from-[#0B0F17] to-[#081727] shadow-lg">
 
             <Image
                 src={imageUrl}
                 alt={name}
                 width={400}
                 height={500}
-                className="object-cover w-full h-90"
+                className="object-cover w-full md:h-90"
             />
 
             <div className="absolute inset-0 flex items-center justify-center">
