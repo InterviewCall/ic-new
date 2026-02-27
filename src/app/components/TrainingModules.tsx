@@ -75,7 +75,7 @@ export default function TrainingModules() {
                 {/* why section mobile */}
                 {
                     isOpen && (
-                        <div className=" fixed    top-0 flex items-center justify-center inset-0 z-30">
+                        <div className=" fixed  md:hidden  top-0 flex items-center justify-center inset-0 z-30">
                             <div className="bg-black/40 backdrop-blur-xs fixed w-full h-full">
 
                             </div>
@@ -91,7 +91,7 @@ export default function TrainingModules() {
                                                 height={100}
                                                 className="h-auto w-1/4 mb-6"
                                             />
-                                            <div className="hover:cursor-pointer p-1 mr-3 text-center bg-red-800 rounded-full" onClick={() => { setIsOpen(false) }}>
+                                            <div className="hover:cursor-pointer p-1 mr-3 flex items-center justify-center text-center bg-red-800 rounded-full" onClick={() => { setIsOpen(false) }}>
                                                 <X />
                                             </div>
                                         </div>
