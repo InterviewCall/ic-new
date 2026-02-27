@@ -38,7 +38,7 @@ export default function JourneyComparison() {
                                 </p>
                             </div>
                         </div>
-                        <Image src={"/10lpa.svg"} alt="10LPA" width={50} height={50} className="w-full " />
+                        <Image src={"/10lpa.svg"} alt="10LPA" width={50} height={50} className="w-full h-full object-cover" />
                     </div>
 
                     {/* 30L card */}

@@ -5,13 +5,13 @@ import ClockWrapper from "./ClockWrapper";
 
 export default function JoinCohortSection() {
     return (
-        <div className="w-full my-20 px-4 md:px-0">
+        <div className="w-full mt-0 md:mt-20 mb-20 md:mb-20 px-4 md:px-0">
             <div className="text-center text-3xl md:text-7xl w-full md:leading-18">
                 Only 50 students per <br className="hidden md:inline"/>
                 cohort <br className="hidden md:inline"/>
                 Ready to become one?
             </div>
-            <div className="flex justify-between md:justify-center items-center gap-x-8 md:gap-x-24 my-20 md:text-2xl text-white/80">
+            <div className="flex justify-between md:justify-center items-center gap-x-8 md:gap-x-24 my-10 md:my-20 md:text-2xl text-white/80">
 
                 <button className="w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#012444] to-[#014394] border border-blue-600/10 hover:cursor-pointer">
                     Apply Now
