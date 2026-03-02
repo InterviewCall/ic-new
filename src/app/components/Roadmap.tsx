@@ -51,22 +51,22 @@ const roadmap = {
 
 export default function Roadmap() {
     return (
-        <div className="flex w-full flex-col items-center">
-            <div className="text-center  text-7xl mb-2">
+        <div className="flex w-full flex-col items-center px-3">
+            <div className="text-center w-full text-4xl md:text-7xl mb-2">
                 How It Looks
             </div>
-            <div className="grid grid-cols-[6fr_4fr_6fr]">
+            <div className="w-full grid md:grid-cols-[6fr_4fr_6fr]">
                 {/* 1st col */}
                 <div className="w-full   " >
                     {
                         roadmap.left.map((item, index) => <ConceptCard key={index} topSpacing={item.topSpacing} duration={item.duration} heading={item.heading} icon={item.icon} subHeading={item.subHeading} />)
                     }
-                    <div className="h-20 bg-transparent">
+                    <div className="hidden md:block h-20 bg-transparent">
 
                     </div>
                 </div>
                 {/* Balls */}
-                <div className="w-full relative    flex flex-col items-center" >
+                <div className="hidden md:flex w-full relative flex-col items-center" >
                     {/* blue balls */}
                     <div className="w-px h-full bg-[#0750CD]"></div>
                     <div className="absolute top-50 h-20 w-20 bg-[radial-gradient(circle_at_center,#013EF2,#0A89FF)] rounded-full shadow-[0_0_60px_40px_rgba(1,62,242,0.7)]"></div>
@@ -86,13 +86,12 @@ export default function Roadmap() {
                 sidebar2 maybe 
                 <div className="w-full   " ></div> */}
             </div>
-            <button className="hover:cursor-pointer flex items-center gap-x-3 text-2xl bg-linear-to-r from-[#13141B] tracking-wider to-[#070A0E] rounded-full border border-white/20 px-16 py-6 ">
+            <button className="hover:cursor-pointer my-3 md:my-0 flex items-center gap-x-3 text-2xl bg-linear-to-r from-[#13141B] tracking-wider to-[#070A0E] rounded-2xl md:rounded-full border border-white/20 px-8 md:px-16 py-6 ">
                 <div>
-                View Full Curriculum 
-
+                    View Full Curriculum
                 </div>
                 <div>
-                    <FaAngleRight size={30}/>
+                    <FaAngleRight size={30} />
                 </div>
             </button>
         </div>
@@ -104,9 +103,9 @@ type ConceptCardProps = { duration: string, icon: string, heading: string, subHe
 
 function ConceptCard({ duration, icon, heading, subHeading, topSpacing }: ConceptCardProps) {
     return (
-        <div className="flex flex-col items-center w-full">
+        <div className="my-3 md:my-0 flex flex-col items-center w-full">
             <div
-                className="bg-transparent"
+                className="hidden md:block bg-transparent"
                 style={{ height: topSpacing ? `${topSpacing}px` : undefined }}
             ></div>
 

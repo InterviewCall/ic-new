@@ -3,12 +3,12 @@ import Image from "next/image";
 import PodcastVideo from "./PodcastVideo";
 export default function StudentSuccessStories() {
     return (
-        <div className="w-full text-white">
-            <div className="text-6xl font-medium tracking-tight text-center">
+        <div className="w-full text-white px-2 md:px-0">
+            <div className="text-4xl w-full  md:text-6xl font-medium tracking-tight text-center">
                 Student Sucess Stories
             </div>
 
-            <div className="font-extralight tracking-wide my-3 text-center text-2xl">
+            <div className="font-extralight tracking-wide my-3 text-center text-xl leading-tight md:leading-normal md:text-2xl">
                 Real Transformations , Real careers, Real Impact
             </div>
             <PodcastVideo
@@ -22,7 +22,7 @@ export default function StudentSuccessStories() {
                 }}
             />
 
-            <div className="grid grid-cols-2 gap-5 my-10">
+            <div className="grid md:grid-cols-2 gap-5 my-10">
                 <TestimonialCard designation="SDE at Microsoft" image="/test.svg" name="Ishita Srivastava"
                     text={["Six months ago I’d never",
                         "coded. Today I’m building",
@@ -60,19 +60,19 @@ function TestimonialCard({ image, text, name, designation }: { image: string, te
 
             {/* Content */}
             <div className="relative z-20 p-6 space-y-4">
-                <div className="flex items-center h-8 gap-x-1 ">
+                <div className="flex items-center h-6 md:h-8 gap-x-1 ">
                     <Image src="/colon.svg" alt="" width={100} height={100} className="h-full w-auto" />
                     <Image src="/colon.svg" alt="" width={100} height={100} className="h-full w-auto" />
                 </div>
 
-                <div className="px-2 text-white/80 text-3xl font-extralight w-95/100 leading-9 ">
+                <div className="px-2 text-white/80 text-2xl md:text-3xl font-extralight w-95/100 md:leading-9 ">
                     {/* Six months ago I’d never <br />
                         coded. Today I’m building <br />
                         features used by millions. */}
-                    {text.map((item, idx) => <div key={idx}>{item}</div>)}
+                    {text.map((item, idx) => <div className="inline md:block" key={idx}>{item}</div>)}
                 </div>
 
-                <div className="px-2 text-xl text-white/80 leading-6 mt-4">
+                <div className="px-2 text-base md:text-xl text-white/80 leading-6 mt-4">
                     <div>
                         -{name}
                     </div>

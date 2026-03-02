@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function CommunitySection() {
     return (
-        <section className="w-full rounded-3xl bg-linear-to-b from-[#050B14] to-[#02060C] p-10">
-            <h2 className="mb-10 text-center text-6xl font-medium text-white">
+        <section className="w-full rounded-3xl bg-linear-to-b from-[#050B14] to-[#02060C] px-4 md:px-10 p-10">
+            <h2 className="mb-10 w-full text-center text-3xl md:text-6xl font-medium text-white">
                 Community & Belonging
             </h2>
 

@@ -5,18 +5,18 @@ import ClockWrapper from "./ClockWrapper";
 
 export default function JoinCohortSection() {
     return (
-        <div className="w-full my-20">
-            <div className="text-center text-7xl w-full leading-18">
-                Only 50 students per <br />
-                cohort <br />
+        <div className="w-full mt-0 md:mt-20 mb-20 md:mb-20 px-4 md:px-0">
+            <div className="text-center text-3xl md:text-7xl w-full md:leading-18">
+                Only 50 students per <br className="hidden md:inline"/>
+                cohort <br className="hidden md:inline"/>
                 Ready to become one?
             </div>
-            <div className="flex justify-center items-center gap-x-24 my-20 text-2xl text-white/80">
+            <div className="flex justify-between md:justify-center items-center gap-x-8 md:gap-x-24 my-10 md:my-20 md:text-2xl text-white/80">
 
-                <button className="w-64 py-4 rounded-xl bg-linear-to-br from-[#012444] to-[#014394] border border-blue-600/10 hover:cursor-pointer">
+                <button className="w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#012444] to-[#014394] border border-blue-600/10 hover:cursor-pointer">
                     Apply Now
                 </button>
-                <button className="w-64 py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border border-gray-600/10 hover:cursor-pointer">
+                <button className="w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border border-gray-600/10 hover:cursor-pointer">
                     Book Intro Call
                 </button>
             </div>
@@ -25,7 +25,7 @@ export default function JoinCohortSection() {
                 July Batch closes in
             </div>
           {/* <ClockTimer targetDate="2025-12-31T23:59:59"/> */}
-          <div className="flex justify-center mt-10">
+          <div className="flex w-full justify-center mt-10">
             <ClockWrapper/>
           </div>
 
@@ -40,12 +40,12 @@ export default function JoinCohortSection() {
 
             </div>
 
-            <div className="flex items-center mt-10 justify-evenly h-12">
-                <Image alt="" src={'/bwMeta.svg'} width={0} height={0} className="w-auto h-full" />
-                <Image alt="" src={'/bwGoogle.svg'} width={0} height={0} className="w-auto h-full" />
-                <Image alt="" src={'/bwAmazon.svg'} width={0} height={0} className="w-auto h-full" />
-                <Image alt="" src={'/bwNetflix.svg'} width={0} height={0} className="w-auto h-full" />
-                <Image alt="" src={'/bwApple.svg'} width={0} height={0} className="w-auto h-full" />
+            <div className="flex flex-wrap md:flex-nowrap items-center gap-8 mt-10 justify-evenly md:h-12">
+                <Image alt="" src={'/bwMeta.svg'} width={0} height={0} className="h-10 w-auto md:h-full" />
+                <Image alt="" src={'/bwGoogle.svg'} width={0} height={0} className="h-10 w-auto md:h-full" />
+                <Image alt="" src={'/bwAmazon.svg'} width={0} height={0} className="h-10 w-auto md:h-full" />
+                <Image alt="" src={'/bwNetflix.svg'} width={0} height={0} className="h-10 w-auto md:h-full" />
+                <Image alt="" src={'/bwApple.svg'} width={0} height={0} className="h-10 w-auto md:h-full" />
 
             </div>
 
