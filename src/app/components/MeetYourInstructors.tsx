@@ -11,7 +11,7 @@ export default function MeetYourInstructors() {
                 Learn from the best. Trained by those who hire.
             </div>
 
-            <div className="w-full flex overflow-x-scroll flex-nowrap md:flex-wrap hide-scroll items-center md:justify-center gap-10 mt-10">
+            <div className="w-full flex flex-wrap hide-scroll items-center justify-center gap-10 mt-10">
                 <ProfileCard companyLogoUrl="/instructors/uber.svg" imageUrl="/instructors/pfp1.svg" name="Ankush Jain" role="Software Engineer" />
                 <ProfileCard companyLogoUrl="/instructors/google.svg" imageUrl="/instructors/pfp2.svg" name="Rohan Gupta" role="Software Engineer" />
                 <ProfileCard companyLogoUrl="/instructors/uber.svg" imageUrl="/instructors/pfp1.svg" name="Pratham S" role="Software Engineer" />
@@ -39,7 +39,7 @@ function ProfileCard({
     companyLogoUrl
 }: ProfileCardProps) {
     return (
-        <div className="shrink-0 relative w-44 md:w-64 rounded-2xl overflow-hidden border border-white/10 bg-linear-to-b from-[#0B0F17] to-[#081727] shadow-lg">
+        <div className="shrink-0 relative w-full md:w-64 rounded-2xl overflow-hidden border border-white/10 bg-linear-to-b from-[#0B0F17] to-[#081727] shadow-lg">
 
             <Image
                 src={imageUrl}

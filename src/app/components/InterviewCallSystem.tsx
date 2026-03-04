@@ -18,15 +18,15 @@ export default function InterviewCallSystem() {
                 <Card imageSrc="/system3.svg" title="Lead" />
             </div>
 
-            <div className=" grid grid-cols-[2fr_3fr] gap-x-5 mt-20 text-3xl items-center ">
+            <div className=" grid grid-cols-[1.5fr_3fr] gap-x-5 mt-20 text-3xl items-center ">
                 <div className="text-right text-[#AFC6E3]">
                     Other Programs/<br />
                     YouTube break<br />
                     the chain
                 </div>
-                <div className="relative h-64  w-full text-white/80 text-4xl">
-                    <div className="absolute -top-36">
-                        <Image alt="" src={'/chain.svg'} width={0} height={0} className="w-full h-auto" />
+                <div className="relative h-full  w-full text-white/80 text-4xl">
+                    <div className="flex flex-col items-center justify-center h-full w-full ">
+                        <Image alt="" src={'/cropchain.svg'} width={1000} height={1000} className=" w-9/10 md:w-full max-w-180 h-auto" />
                         <div className="bottom-0  inset-x-0 mx-auto text-center">
                             IC completes it
                         </div>
@@ -74,7 +74,7 @@ export default function InterviewCallSystem() {
 function Card({ imageSrc, title }: { imageSrc: string, title: string }) {
     return (
         <div className="flex justify-center">
-            <div className="w-52 h-52 rounded-xl bg-linear-to-br from-black/50 to-[#011D4A] border border-blue-500/20 flex flex-col items-center p-6 justify-around">
+            <div className="w-64 md:w-52 h-64 md:h-52 rounded-xl bg-linear-to-br from-black/50 to-[#011D4A] border border-blue-500/20 flex flex-col items-center p-6 justify-center md:justify-around">
                 <Image alt="" src={imageSrc} width={0} height={0} className="h-24 w-auto" />
                 <div className="p-4 text-3xl text-white font-medium text-center">
                     {title}

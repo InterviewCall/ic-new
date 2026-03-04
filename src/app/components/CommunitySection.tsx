@@ -67,15 +67,15 @@ function UpcomingClassesCard() {
         <div className="rounded-2xl p-6 border border-white/20">
             <div className="rounded-2xl bg-linear-to-br from-[#0f1622] to-[#05080C] p-6 border border-white/10">
                 <div className="mb-4 flex items-center justify-between">
-                    <div className="text-white text-2xl tracking-tight">Upcoming Classes</div>
-                    <button className="text-lg text-white/50 hover:underline hover:cursor-pointer ">
+                    <div className="text-white text-lg md:text-2xl tracking-tight">Upcoming Classes</div>
+                    <button className="text-sm md:text-lg text-white/50 hover:underline hover:cursor-pointer ">
                         Register Now
                     </button>
                 </div>
 
                 <div className="space-y-4 ">
                     {classes.map((item, i) => (
-                        <div key={i} className="flex gap-3 ">
+                        <div key={i} className="flex gap-2 md:gap-3 ">
                             <Image
                                 src="/cohortPfp1.svg"
                                 alt=""
@@ -83,11 +83,11 @@ function UpcomingClassesCard() {
                                 height={100}
                                 className="h-15 w-auto rounded-full"
                             />
-                            <div className="p-3 border border-white/5 w-full rounded-lg space-y-1 bg-linear-to-bl from-[#0A111E] to-[#050911]">
-                                <div className="text-lg text-[#99C9E7]">
+                            <div className="p-2 md:p-3 border border-white/5 w-full rounded-lg space-y-1 bg-linear-to-bl from-[#0A111E] to-[#050911]">
+                                <div className="text-sm md:text-lg text-[#99C9E7]">
                                     {item.name} · {item.time}
                                 </div>
-                                <div className="text-base text-white/80">
+                                <div className="text-xs md:text-base text-white/80">
                                     {item.title}
                                 </div>
                             </div>
@@ -164,7 +164,7 @@ function LearningExperience() {
                                 alt=""
                                 width={0}
                                 height={0}
-                                className="opacity-80 w-full h-auto rounded-2xl"
+                                className="opacity-80 w-full h-auto md:h-full object-cover rounded-2xl"
                             />
 
                             {(
@@ -179,7 +179,7 @@ function LearningExperience() {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-6 border border-white/30 rounded-2xl p-6 bg-linear-to-br from-[#0A121D] to-[#050911]">
+                <div className="grid md:grid-cols-2 gap-6 border border-white/30 rounded-2xl p-6 bg-linear-to-br from-[#0A121D] to-[#050911]">
                     <div className="bg-linear-to-br from-[#080b0e] to-[#0F131A] rounded-2xl flex flex-col items-center p-6 w-full">
                         <Image alt="" src={'/code.svg'} width={100} height={100} className=" w-full h-auto rounded-2xl" />
 
@@ -193,8 +193,8 @@ function LearningExperience() {
 
                         </div>
                         <div className=" text-base text leading-5 font-normal text-white/80 bg-gray-900 rounded-2xl p-4">
-                            Good use of Whiteboard 
-                            design in the classes to 
+                            Good use of Whiteboard
+                            design in the classes to
                             understand hard problems.
                         </div>
                         <div className="mt-6 text-center text-2xl font-medium  text-white">
@@ -204,9 +204,9 @@ function LearningExperience() {
 
                     <div className="w-full ">
                         <Image alt="" src={'/whiteboard.svg'} width={0} height={0} className="w-full h-auto rounded-2xl" />
-                            <div className="mt-4 text-2xl text-center">
-                                Whiteboard Design
-                            </div>
+                        <div className="mt-4 text-2xl text-center">
+                            Whiteboard Design
+                        </div>
                     </div>
                 </div>
             </div>
@@ -222,14 +222,18 @@ function LearningExperience() {
 
 function TestimonialCard() {
     return (
-        <div className="relative col-span-2 rounded-2xl bg-linear-to-br from-[#0A121D] to-[#050911] p-10">
-            <span className="h-fit top-10 absolute">
-                <Image alt="" src={'/colon.svg'} width={0} height={0} className="inline h-10 w-fit" />
-                <Image alt="" src={'/colon.svg'} width={0} height={0} className="inline h-10 w-fit" />
+        <div className="relative col-span-2 rounded-2xl bg-linear-to-br from-[#0A121D] to-[#050911] w-full p-10">
+            <div className="w-full grid grid-cols-[1fr_5fr] items-start gap-x-5">
 
-            </span>
-            <span className=" block mt-2 ml-16 text-5xl text-white">
-                I landed my dream job after InterviewCall.{`"`}</span>
+                <div className="w-full rounded-xl bg-[#] text-sm text-white flex items-center justify-center md:gap-x-1">
+                    <Image alt="" src={'/colon.svg'} width={0} height={0} className="inline h-6 md:h-10 w-auto" />
+                    <Image alt="" src={'/colon.svg'} width={0} height={0} className="inline h-6 md:h-10 w-fit" />
+
+                </div>
+                <div className=" block mt-2 text-3xl md:text-5xl text-white">
+                    I landed my dream job after InterviewCall.{`"`}
+                </div>
+            </div>
         </div>
     );
 }

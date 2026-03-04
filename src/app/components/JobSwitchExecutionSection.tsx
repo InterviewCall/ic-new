@@ -18,7 +18,7 @@ export default function JobSwitchExectionSection() {
                     </div>
                 </div>
 
-                <div className="grid md:grid-cols-3  divide-x divide-white/10 border border-white/10 rounded-2xl my-10">
+                <div className="grid md:grid-cols-3 divide-y md:divide-x divide-white/10 border border-white/10 rounded-2xl my-10">
                     <FeatureCard logo={<Briefcase />} heading="Application Strategy">
                         <div className="text-xl text-[#C1C0CE] font-extralight"><b>3</b> Jobs of interest</div>
                         <div className="text-xl text-[#C1C0CE] font-extralight"><b>7</b> High fit targets</div>

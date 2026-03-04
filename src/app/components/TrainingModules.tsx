@@ -18,20 +18,20 @@ export default function TrainingModules() {
     //     console.log(position)
     // },[position])
 
-    useEffect(() => {
-        if (scrollContainerRef.current) {
-            const container = scrollContainerRef.current;
-            const maxScroll = container.scrollHeight - container.clientHeight;
-            container.scrollTop = ((100 - position) / 100) * maxScroll;
-        }
-    })
+    // useEffect(() => {
+    //     if (scrollContainerRef.current) {
+    //         const container = scrollContainerRef.current;
+    //         const maxScroll = container.scrollHeight - container.clientHeight;
+    //         container.scrollTop = ((100 - position) / 100) * maxScroll;
+    //     }
+    // })
 
     useEffect(() => {
         if (isDragging && scrollContainerRef.current) {
             const container = scrollContainerRef.current;
             const maxScroll = container.scrollHeight - container.clientHeight;
             // 
-            container.scrollTop = ((100 - position) / 100) * maxScroll;
+            container.scrollTop = ((position)/100) * maxScroll;
         }
     }, [position, isDragging]);
 
@@ -39,7 +39,7 @@ export default function TrainingModules() {
         if (isDragging || !scrollContainerRef.current) return;
         const container = scrollContainerRef.current;
         const scrollPercentage = (container.scrollTop / (container.scrollHeight - container.clientHeight)) * 100;
-        setPosition(100 - scrollPercentage);
+        setPosition(scrollPercentage);
     };
 
     useEffect(() => {
@@ -146,7 +146,7 @@ export default function TrainingModules() {
                     >
                         {/* <div className="w-full h-px bg-blue-500/10 shadow-[0_0_20px_1px_rgba(59,130,246,0.6)] sticky top-0 z-10"></div> */}
 
-                        {monthWiseModulesArray.slice().reverse().map((module) => (
+                        {monthWiseModulesArray.map((module) => (
                             <div key={module.id} className="mb-20">
                                 <div className="grid grid-cols-[1fr_15fr_15fr]">
                                     <div></div>

@@ -15,7 +15,7 @@ export default function JourneyComparison() {
                 </h2>
 
                 {/* Top images */}
-                <div className="mt-10 flex gap-1">
+                <div className="mt-10 mx-4 flex gap-1">
                     <div className="flex-1  rounded-l-3xl overflow-hidden border border-white/10 bg-white/5 backdrop-blur-xl">
                         <Image src={'/comp10.svg'} alt="" height={100} width={100} className="w-full" />
                     </div>
