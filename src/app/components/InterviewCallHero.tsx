@@ -18,9 +18,36 @@ export default function InterviewCallHero() {
         <div className="flex items-center gap-2 text-white font-semibold text-lg">
           <Image src={"/interviewCallFullLogo.svg"} alt="" width={100} height={100} className="w-35 md:w-60" />
         </div>
-        <button className="rounded-xl bg-[#183678] transition px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer">
+        {/* <button className="rounded-xl bg-[#183678] transition px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer">
           Request Callback
-        </button>
+        </button> */}
+
+        <motion.button
+          initial="rest"
+          whileHover="hover"
+          whileTap={{ scale: 0.98 }}
+          variants={{
+            rest: { y: 0, scale: 1 },
+            hover: { y: -2, scale: 1.02 },
+          }}
+          transition={{ type: "spring", stiffness: 350, damping: 22 }}
+          className="relative overflow-hidden rounded-xl bg-[#183678] px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer"
+        >
+          <motion.span
+            variants={{
+              rest: { x: "-120%", opacity: 0 },
+              hover: { x: "120%", opacity: 1 },
+            }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent)",
+            }}
+          />
+          <span className="relative z-10">Request Callback</span>
+        </motion.button>
+        
       </div>
       <div className="w-full flex justify-center">
         <div className="w-9/10 md:w-[85%] my-5 rounded-3xl backdrop-blur-2xl  shadow-2xl border border-white/30">
