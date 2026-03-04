@@ -14,7 +14,6 @@ export default function TrainingModules() {
     const [isDragging, setIsDragging] = useState<boolean>(false);
     const [selectedModule, setSelectedModule] = useState<number | null>(101);
     const [isOpen, setIsOpen] = useState(false);
-    const [bug, setBug] = useState(-1);
 
     // useEffect(()=>{
     //     console.log(position)
@@ -46,7 +45,6 @@ export default function TrainingModules() {
         const container = scrollContainerRef.current;
         const scrollPercentage = (container.scrollTop / (container.scrollHeight - container.clientHeight)) * 100;
         setPosition(scrollPercentage);
-        setBug(0);
     };
 
     useEffect(() => {
@@ -68,7 +66,6 @@ export default function TrainingModules() {
             let percentage = (offsetY / rect.height) * 100;
             percentage = Math.max(0, Math.min(100, percentage));
             setPosition(percentage);
-            setBug(1);
         };
 
         const handleMouseMove = (e: MouseEvent) => handleMove(e.clientY);
@@ -93,9 +90,8 @@ export default function TrainingModules() {
                 Our in depth training modules
             </div>
             <div className="text-center text-2xl font-light tracking-wide mt-2 text-white/70">
-                To get into MAANG and sustain for years to come {position}
+                To get into MAANG and sustain for years to come
             </div>
-        {bug}
             <div className="grid grid-cols-[9fr_1fr] md:grid-cols-[1fr_9fr] h-fit md:h-175 mt-10 relative">
                 {/* why section mobile */}
                 {
