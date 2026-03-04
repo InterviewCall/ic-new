@@ -114,7 +114,7 @@ function ConceptCard({ duration, icon, heading, subHeading, topSpacing }: Concep
                 <div>
                     <Image src={icon} alt="" height={100} width={100} className="h-16 " />
                 </div>
-                <div className="text-5xl text-white">
+                <div className="text-5xl md:text-5xl text-white">
                     {heading}
                 </div>
 
