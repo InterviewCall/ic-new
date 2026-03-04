@@ -13,6 +13,7 @@ export default function TrainingModules() {
     const [isDragging, setIsDragging] = useState<boolean>(false);
     const [selectedModule, setSelectedModule] = useState<number | null>(101);
     const [isOpen, setIsOpen] = useState(false);
+    const [bug, setBug] = useState(-1);
 
     // useEffect(()=>{
     //     console.log(position)
@@ -33,13 +34,18 @@ export default function TrainingModules() {
             // 
             container.scrollTop = ((position)/100) * maxScroll;
         }
+         
+        // setBug(2);
     }, [position, isDragging]);
+
+
 
     const handleScroll = () => {
         if (isDragging || !scrollContainerRef.current) return;
         const container = scrollContainerRef.current;
         const scrollPercentage = (container.scrollTop / (container.scrollHeight - container.clientHeight)) * 100;
         setPosition(scrollPercentage);
+        setBug(0);
     };
 
     useEffect(() => {
@@ -50,6 +56,8 @@ export default function TrainingModules() {
             let percentage = (offsetY / rect.height) * 100;
             percentage = Math.max(0, Math.min(100, percentage));
             setPosition(percentage);
+            setBug(1);
+            console.log("rect.height", rect.height, "offsetY", e.clientY - rect.top, 'offsetY/rect.height', (e.clientY - rect.top) / rect.height, "percentage", percentage);
         };
 
         const handleMouseUp = () => setIsDragging(false);
@@ -68,9 +76,9 @@ export default function TrainingModules() {
                 Our in depth training modules
             </div>
             <div className="text-center text-2xl font-light tracking-wide mt-2 text-white/70">
-                To get into MAANG and sustain for years to come
+                To get into MAANG and sustain for years to come {position}
             </div>
-
+        {bug}
             <div className="grid grid-cols-[9fr_1fr] md:grid-cols-[1fr_9fr] h-fit md:h-175 mt-10 relative">
                 {/* why section mobile */}
                 {
@@ -210,7 +218,6 @@ export default function TrainingModules() {
                 {/* scrollbar div mobile */}
                 <div className="flex md:hidden justify-center h-full">
                     <div
-                        ref={trackRef}
                         className="relative h-full w-[1.5px] bg-[#1CABFF] rounded-full"
                     >
                         {/* Scoll Button */}
@@ -230,3 +237,4 @@ export default function TrainingModules() {
         </div>
     );
 }
+
