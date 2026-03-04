@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Reveal from "./Reveal";
+import { motion } from "framer-motion";
 
 const logos = [
   { name: "Google", src: "/heroCompany/google.svg" },
@@ -24,21 +27,35 @@ export default function InterviewCallHero() {
           {/* Header */}
 
           {/* Content */}
-          <div className=" px-6 md:px-8 py-10 md:py-16 flex flex-col  items-center text-start tracking-tighter">
+          <div className="px-6 md:px-8 py-10 md:py-16 flex flex-col  items-center text-start tracking-tighter">
             <div className="w-full sm:w-85/100">
-              <h1 className="hidden md:block text-5xl md:text-[70px]  font-medium  text-white leading-tighter ">
-                Crack Top Tech Jobs. <br /> Learn DSA, System Design <br /> from Engineering Managers.
+              <h1 className="hidden md:block text-3xl md:text-[70px]  font-medium  text-white leading-tighter ">
+                {/* Crack Top Tech Jobs. <br /> Learn DSA, System Design <br /> from Engineering Managers. */}
+
+                <Reveal delay={0.0}><span className="block">Crack Top Tech Jobs.</span></Reveal>
+                <Reveal delay={0.08}><span className="block">Learn DSA, System Design</span></Reveal>
+                <Reveal delay={0.16}><span className="block">from Engineering Managers.</span></Reveal>
               </h1>
+
               <h1 className="block md:hidden text-4xl md:text-6xl  text-white leading-tighter  text-start">
-                Crack Top Tech Jobs After training from Engineering Managers at <span className="text-3xl">MAANG</span>
+                <Reveal delay={0.08}><span className="block">Crack Top Tech Jobs After training from Engineering Managers</span></Reveal>
               </h1>
 
-              <p className="mt-6 text-2xl font-light tracking-normal md:tracking-tight leading-tight text-white/80 max-w-xl">
-                Engineering Managers from Google, Microsoft, Sony & more personally
-                coach and place you.
-              </p>
+              <Reveal delay={0.26} className="hidden md:block">
+                <p className="mt-6 text-2xl font-light tracking-normal md:tracking-tight leading-tight text-white/80 max-w-xl">
+                  Engineering Managers from Google, Microsoft, Sony & more personally
+                  coach and place you.
+                </p>
+              </Reveal>
 
-              <div className="mt-8 w-full flex flex-wrap items-center gap-3 md:gap-6">
+              <Reveal delay={0.20} className="block md:hidden">
+                <p className="mt-6 text-2xl font-light tracking-normal md:tracking-tight leading-tight text-white/80 max-w-xl">
+                  Engineering Managers from Google, Microsoft, Sony & more personally
+                  coach and place you.
+                </p>
+              </Reveal>
+
+              {/* <div className="mt-8 w-full flex flex-wrap items-center gap-3 md:gap-6">
                 <div className="w-full md:w-fit p-px rounded-xl bg-linear-to-tr from-[#53BCFF] to-[#2A99FF] overflow-hidden">
                   <button className="flex gradient-border  text-lg sm:text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-[radial-gradient(circle,#0F4BC1,#2461C5)] transition md:px-6 py-3 text-white font-medium md:font-light">
                     Apply for Next Cohort
@@ -50,17 +67,63 @@ export default function InterviewCallHero() {
                   View Curriculum
                   <ArrowRight size={16} />
                 </button>
+              </div> */}
+
+              <div className="mt-8 w-full flex flex-wrap items-center gap-3 md:gap-6">
+                <div className="w-full md:w-fit p-px rounded-xl bg-linear-to-tr from-[#53BCFF] to-[#2A99FF] overflow-hidden">
+                  <motion.button
+                    whileHover={{ y: -2 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                    className="hover:cursor-pointer flex text-lg sm:text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-[radial-gradient(circle,#0F4BC1,#2461C5)] md:px-6 py-3 text-white font-medium md:font-light"
+                  >
+                    Apply for Next Cohort
+                    <ArrowRight size={18} />
+                  </motion.button>
+                </div>
+
+                <motion.button
+                  whileHover={{ x: 3 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                  className="hover:cursor-pointer flex items-center bg-[#091b42] border border-white/30 md:border-0 rounded-xl md:rounded-none md:px-6 py-3 md:w-fit md:bg-transparent justify-center md:justify-start w-full text-lg gap-2 tracking-normal text-white md:text-white/80 hover:text-white"
+                >
+                  View Curriculum
+                  <ArrowRight size={16} />
+                </motion.button>
               </div>
 
               <div className="mt-8 md:mt-10 md:flex justify-between items-center">
                 <div className="text-lg md:text-lg text-white/50 text-center tracking-normal md:text-start font-extralight md:font-light">
                   Trained by engineers from
                 </div>
-                <div className="flex mt-1 items-center justify-evenly gap-4 md:gap-8 text-white/50 font-semibold text-lg">
+                {/* <div className="flex mt-1 items-center justify-evenly gap-4 md:gap-8 text-white/50 font-semibold text-lg">
                   {
                     logos.map((logo, idx) => {
                       return <Image src={logo.src} alt={logo.name} key={idx} width={100} height={100} className="w-20 h-auto md:w-30 " />
                     })}
+                </div> */}
+                <div className="flex mt-1 items-center justify-evenly gap-4 md:gap-8 text-white/50 font-semibold text-lg">
+                  {logos.map((logo, idx) => (
+                    <motion.div
+                      key={logo.name}
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: false, amount: 0.2, margin: "0px 0px -10% 0px" }}
+                      transition={{ delay: idx * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      whileHover={{ y: -2, scale: 1.03 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="cursor-pointer select-none"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        width={100}
+                        height={100}
+                        className="w-20 h-auto md:w-30 opacity-70 hover:opacity-100 transition"
+                      />
+                    </motion.div>
+                  ))}
                 </div>
               </div>
             </div>

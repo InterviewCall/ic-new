@@ -19,8 +19,6 @@
   }
 }
 
-@import "tailwindcss";
-
 :root {
   --background: #000000;
   --foreground: #000;
@@ -63,3 +61,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   border-image: linear-gradient(to right, #53BCFF, #2A99FF) 1;
 } 
 
+.text-sweep {
+  background: linear-gradient(90deg, rgba(255,255,255,0.55), rgba(255,255,255,1), rgba(255,255,255,0.55));
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: sweep 1.4s ease-out 0.2s 1;
+}
+@keyframes sweep {
+  from { background-position: 0% 50%; }
+  to { background-position: 100% 50%; }
+}
