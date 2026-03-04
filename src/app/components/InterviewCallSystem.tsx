@@ -18,15 +18,15 @@ export default function InterviewCallSystem() {
                 <Card imageSrc="/system3.svg" title="Lead" />
             </div>
 
-            <div className=" grid grid-cols-[2fr_3fr] gap-x-5 mt-20 text-3xl items-center ">
+            <div className=" grid grid-cols-[1.5fr_3fr] gap-x-5 mt-20 text-3xl items-center ">
                 <div className="text-right text-[#AFC6E3]">
                     Other Programs/<br />
                     YouTube break<br />
                     the chain
                 </div>
-                <div className="relative h-64  w-full text-white/80 text-4xl">
-                    <div className="absolute -top-36">
-                        <Image alt="" src={'/chain.svg'} width={0} height={0} className="w-full h-auto" />
+                <div className="relative h-full  w-full text-white/80 text-4xl">
+                    <div className="flex flex-col items-center justify-center h-full w-full">
+                        <Image alt="" src={'/cropchain.svg'} width={1000} height={1000} className="w-full max-w-180 h-auto" />
                         <div className="bottom-0  inset-x-0 mx-auto text-center">
                             IC completes it
                         </div>

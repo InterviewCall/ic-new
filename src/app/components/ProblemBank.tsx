@@ -221,7 +221,7 @@ function Comparison() {
                 </div>
             </div>
             <div className="w-full my-4 md:my-0 flex items-center justify-center md:block">
-                <Image alt="Alt" src={'/rightArrow.svg'} width={0} height={0} className="w-20 md:w-full rotate-90 h-auto" />
+                <Image alt="Alt" src={'/rightArrow.svg'} width={0} height={0} className="w-20 md:w-full rotate-90 md:rotate-0 h-auto" />
             </div>
 
             <div className="block md:hidden text-3xl font-light text-[#98C1EF]">
