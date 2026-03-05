@@ -7,7 +7,8 @@ import { X } from "lucide-react";
 
 
 export default function TrainingModules() {
-    const trackRef = useRef<HTMLDivElement | null>(null);
+    const desktopTrackRef = useRef<HTMLDivElement | null>(null);
+    const mobileTrackRef = useRef<HTMLDivElement | null>(null);
     const scrollContainerRef = useRef<HTMLDivElement | null>(null);
     const [position, setPosition] = useState<number>(0);
     const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -33,7 +34,11 @@ export default function TrainingModules() {
             // 
             container.scrollTop = ((position)/100) * maxScroll;
         }
+         
+        // setBug(2);
     }, [position, isDragging]);
+
+
 
     const handleScroll = () => {
         if (isDragging || !scrollContainerRef.current) return;
@@ -43,22 +48,39 @@ export default function TrainingModules() {
     };
 
     useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            if (!isDragging || !trackRef.current) return;
-            const rect = trackRef.current.getBoundingClientRect();
-            const offsetY = e.clientY - rect.top;
+        const handleMove = (clientY: number) => {
+            if (!isDragging) return;
+
+            let track = desktopTrackRef.current;
+            // foor mob
+            if (!track || track.getBoundingClientRect().height === 0) {
+                track = mobileTrackRef.current;
+            }
+
+            if (!track) return;
+
+            const rect = track.getBoundingClientRect();
+            if (rect.height === 0) return;
+
+            const offsetY = clientY - rect.top;
             let percentage = (offsetY / rect.height) * 100;
             percentage = Math.max(0, Math.min(100, percentage));
             setPosition(percentage);
         };
 
-        const handleMouseUp = () => setIsDragging(false);
+        const handleMouseMove = (e: MouseEvent) => handleMove(e.clientY);
+        const handleTouchMove = (e: TouchEvent) => handleMove(e.touches[0].clientY);
+        const handleUp = () => setIsDragging(false);
 
         window.addEventListener("mousemove", handleMouseMove);
-        window.addEventListener("mouseup", handleMouseUp);
+        window.addEventListener("mouseup", handleUp);
+        window.addEventListener("touchmove", handleTouchMove);
+        window.addEventListener("touchend", handleUp);
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
-            window.removeEventListener("mouseup", handleMouseUp);
+            window.removeEventListener("mouseup", handleUp);
+            window.removeEventListener("touchmove", handleTouchMove);
+            window.removeEventListener("touchend", handleUp);
         };
     }, [isDragging]);
 
@@ -70,7 +92,6 @@ export default function TrainingModules() {
             <div className="text-center text-2xl font-light tracking-wide mt-2 text-white/70">
                 To get into MAANG and sustain for years to come
             </div>
-
             <div className="grid grid-cols-[9fr_1fr] md:grid-cols-[1fr_9fr] h-fit md:h-175 mt-10 relative">
                 {/* why section mobile */}
                 {
@@ -119,12 +140,13 @@ export default function TrainingModules() {
                 {/* scrollbar div desktop */}
                 <div className="hidden md:flex justify-center h-full">
                     <div
-                        ref={trackRef}
+                        ref={desktopTrackRef}
                         className="relative h-full w-[1.5px] bg-[#1CABFF] rounded-full"
                     >
                         {/* Scoll Button */}
                         <div
                             onMouseDown={() => setIsDragging(true)}
+                            onTouchStart={() => setIsDragging(true)}
                             style={{ top: `${position}%`, transform: "translateY(-50%)" }}
                             className="absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full cursor-pointer z-20"
                         >
@@ -210,12 +232,13 @@ export default function TrainingModules() {
                 {/* scrollbar div mobile */}
                 <div className="flex md:hidden justify-center h-full">
                     <div
-                        ref={trackRef}
+                        ref={mobileTrackRef}
                         className="relative h-full w-[1.5px] bg-[#1CABFF] rounded-full"
                     >
                         {/* Scoll Button */}
                         <div
                             onMouseDown={() => setIsDragging(true)}
+                            onTouchStart={() => setIsDragging(true)}
                             style={{ top: `${position}%`, transform: "translateY(-50%)" }}
                             className="absolute left-1/2 -translate-x-1/2 w-10 h-10 rounded-full cursor-pointer z-20"
                         >
