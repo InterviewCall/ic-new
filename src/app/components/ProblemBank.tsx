@@ -1,4 +1,9 @@
+'use client';
+
 import Image from "next/image";
+import { useState } from "react";
+import CohortStepForm from "./forms/CohortForms";
+import SystemOverviewCard from "./SystemOverviewCard";
 
 
 const content = [
@@ -60,13 +65,28 @@ const content = [
 
 
 export default function ProblemBank() {
+    const [showCohortForm, setShowCohortForm] = useState(false);
+    const [showSystemOverview, setShowSystemOverview] = useState(false);
     return (
-        <section className="w-full relative text-white flex flex-col items-center rounded-2xl px-4 md:px-0">
+        
+        <div className="w-full relative text-white flex flex-col items-center rounded-2xl px-4 md:px-0">
+            {showCohortForm && 
+            <div className="fixed top-0 z-100 w-full h-full">
+                <CohortStepForm closeForm={() => setShowCohortForm(false)} />
+            </div>}
+
+
+            {showSystemOverview && 
+            <div className="fixed top-0 z-100 w-full min-h-full h-full overflow-y-auto hide-scroll   ">
+                <SystemOverviewCard isOpen={showSystemOverview} onClose={() => setShowSystemOverview(false)} />
+            </div>}
+
+
             <div className="absolute top-20 inset-x-0 mx-auto -z-10 h-96 w-96 rounded-full bg-[#011D4A]/60 blur-3xl" />
 
             {/* Header */}
             <div className="w-full mx-auto text-center space-y-4 my-20 mb-10 md:mb-32 ">
-                <h2 className="text-3xl md:text-5xl w-full tracking-tighter">
+                <h2 className="text-3xl md:text-5xl w-full tracking-tighter ">
                     The Problem Bank You Actually Need
                 </h2>
                 <p className="text-white/60 text-center text-xl md:text-2xl leading-6 font-light">
@@ -136,7 +156,7 @@ export default function ProblemBank() {
                                     className="w-full h-auto opacity-80"
                                 />
                             </div>
-                            <button className="w-full md:w-fit text-center md:text-start md:inline-flex mt-6 text-lg md:text-xl items-center gap-2 bg-blue-600 hover:bg-blue-500 transition px-5 py-3 rounded-lg  font-medium">
+                            <button onClick={()=>{setShowSystemOverview(true)}} className="hover:cursor-pointer  w-full md:w-fit text-center md:text-start md:inline-flex mt-6 text-lg md:text-xl items-center gap-2 bg-blue-600 hover:bg-blue-500 transition px-5 py-3 rounded-lg  font-medium">
                                 View system breakdown →
                             </button>
                         </div>
@@ -147,7 +167,7 @@ export default function ProblemBank() {
             {/* Bottom Cards */}
             <div className="w-full mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                 {content.map((content, idx) => (
-                    <Card key={idx} heading={content.heading} subHeading={content.subHeading} texts={content.text} />
+                    <Card key={idx} heading={content.heading} subHeading={content.subHeading} texts={content.text} onClick={()=>{setShowSystemOverview(true)}} />
                 ))}
             </div>
             <div className="relative w-full flex flex-col items-center">
@@ -159,7 +179,7 @@ export default function ProblemBank() {
                 <div className="text-[22px] md:text-2xl font-light text-[#98C1EF] ">
                     Get access after eligibility call
                 </div>
-                <button className="py-2.5 md:py-3.5  px-4 md:px-6 relative bg-radial from-black to-white/5 w-full text-2xl mt-3 rounded-2xl border border-white/10  overflow-hidden">
+                <button onClick={()=>{setShowCohortForm(true);}} className="hover:cursor-pointer py-2.5 md:py-3.5  px-4 md:px-6 relative bg-radial from-black to-white/5 w-full text-2xl mt-3 rounded-2xl border border-white/10  overflow-hidden">
                     <div className="absolute bottom-10 inset-0 flex items-center justify-center z-0">
                         <div className="h-8 w-32 rounded-full bg-[#437adf] blur-[30px]" />
                     </div>
@@ -169,12 +189,12 @@ export default function ProblemBank() {
                     </span>
                 </button>
             </div>
-        </section>
+        </div>
     );
 };
 
 
-function Card({ heading, subHeading, texts }: { heading: string, subHeading: string, texts: string[] }) {
+function Card({ heading, subHeading, texts, onClick }: { heading: string, subHeading: string, texts: string[], onClick: () => void }) {
     return (
         <div className="z-10 border border-white/10 rounded-xl p-5 flex gap-4 bg-[linear-gradient(to_bottom_left,#192A4B_0%,#0C1325_30%)] shadow-[0_0_30px_6px_rgba(7,29,56,0.35)]">
             <div className="w-full h-full flex flex-col justify-between">
@@ -191,7 +211,7 @@ function Card({ heading, subHeading, texts }: { heading: string, subHeading: str
                         </ul>
                     </div>
                 </div>
-                <button className="text-blue-400 text-xl font-light mt-5 md:mt-2 text-center md:text-right w-full bottom-0">
+                <button onClick={onClick} className="hover:cursor-pointer text-blue-400 text-xl font-light mt-5 md:mt-2 text-center md:text-right w-full bottom-0">
                     View system →
                 </button>
             </div>

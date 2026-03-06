@@ -2,10 +2,27 @@
 
 import Image from "next/image";
 import ClockWrapper from "./ClockWrapper";
+import { useState } from "react";
+import CohortStepForm from "./forms/CohortForms";
+import BookACallStepForm from "./forms/BookACallForms";
 
 export default function JoinCohortSection() {
+    const [showCohortForm, setShowCohortForm] = useState(false);
+    const [showBookACallForm, setShowBookACallForm] = useState(false);
+
+    
     return (
-        <div className="w-full mt-0 md:mt-20 mb-20 md:mb-20 px-4 md:px-0">
+        <div className="relative w-full mt-0 md:mt-20 mb-20 md:mb-20 px-4 md:px-0">
+            {showCohortForm && 
+                <div className="fixed top-0 left-0 z-100 w-full h-full">
+                    <CohortStepForm closeForm={() => setShowCohortForm(false)} />
+                </div>}
+
+            {showBookACallForm && 
+                <div className="fixed top-0 left-0 z-100 w-full h-full">
+                    <BookACallStepForm closeForm={() => setShowBookACallForm(false)} />
+                </div>
+            }
             <div className="text-center text-3xl md:text-7xl w-full md:leading-18">
                 Only 50 students per <br className="hidden md:inline"/>
                 cohort <br className="hidden md:inline"/>
@@ -13,10 +30,10 @@ export default function JoinCohortSection() {
             </div>
             <div className="flex justify-between md:justify-center items-center gap-x-8 md:gap-x-24 my-10 md:my-20 md:text-2xl text-white/80">
 
-                <button className="w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#012444] to-[#014394] border border-blue-600/10 hover:cursor-pointer">
+                <button onClick={()=>{setShowCohortForm(true);}} className="w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#012444] to-[#014394] border border-blue-600/10 hover:cursor-pointer">
                     Apply Now
                 </button>
-                <button className="w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border border-gray-600/10 hover:cursor-pointer">
+                <button onClick={()=>{setShowBookACallForm(true)}} className="w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border border-gray-600/10 hover:cursor-pointer">
                     Book Intro Call
                 </button>
             </div>

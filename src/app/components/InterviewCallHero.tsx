@@ -1,6 +1,10 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
+import CohortStepForm from "./forms/CohortForms";
+import BookACallStepForm from "./forms/BookACallForms";
 
 const logos = [
   { name: "Google", src: "/heroCompany/google.svg" },
@@ -9,13 +13,39 @@ const logos = [
 ];
 
 export default function InterviewCallHero() {
+      const [showCohortForm, setShowCohortForm] = useState(false);
+      const [showBookACallForm, setShowBookACallForm] = useState(false);
+
+  
+  // useEffect(()=>{
+  //   hidePopup();
+  // })
+
   return (
-    <div className="min-h-200 w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top  items-center justify-center ">
+    <div className="relative min-h-200 w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top  items-center justify-center ">
+      {/* {isFormOpen && <CohortStepForm closeForm={()=> setIsFormOpen(false)} />} */}
+      {showCohortForm &&(
+        <div className="">
+          <CohortStepForm closeForm={() => setShowCohortForm(false)} />
+        </div>
+      )}
+      {showBookACallForm &&(
+        <div className="">
+          <BookACallStepForm closeForm={() => setShowBookACallForm(false)} />
+        </div>
+      )}
+
       <div className="flex items-center justify-between px-4 md:px-14 py-8 pb-3 md:pb-6 md:py-8">
         <div className="flex items-center gap-2 text-white font-semibold text-lg">
-          <Image src={"/interviewCallFullLogo.svg"} alt="" width={100} height={100} className="w-35 md:w-60" />
+          <Image
+            src={"/interviewCallFullLogo.svg"}
+            alt=""
+            width={100}
+            height={100}
+            className="w-35 md:w-60"
+          />
         </div>
-        <button className="rounded-xl bg-[#183678] transition px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer">
+        <button onClick={()=>{setShowBookACallForm(true)}} className="rounded-xl bg-[#183678] transition px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer">
           Request Callback
         </button>
       </div>
@@ -27,20 +57,27 @@ export default function InterviewCallHero() {
           <div className=" px-6 md:px-8 py-10 md:py-16 flex flex-col  items-center text-start tracking-tighter">
             <div className="w-full sm:w-85/100">
               <h1 className="hidden md:block text-5xl md:text-[70px]  font-medium  text-white leading-tighter ">
-                Crack Top Tech Jobs. <br /> Learn DSA, System Design <br /> from Engineering Managers.
+                Crack Top Tech Jobs. <br /> Learn DSA, System Design <br /> from
+                Engineering Managers.
               </h1>
               <h1 className="block md:hidden text-4xl md:text-6xl  text-white leading-tighter  text-start">
-                Crack Top Tech Jobs After training from Engineering Managers at <span className="text-3xl">MAANG</span>
+                Crack Top Tech Jobs After training from Engineering Managers at{" "}
+                <span className="text-3xl">MAANG</span>
               </h1>
 
               <p className="mt-6 text-2xl font-light tracking-normal md:tracking-tight leading-tight text-white/80 max-w-xl">
-                Engineering Managers from Google, Microsoft, Sony & more personally
-                coach and place you.
+                Engineering Managers from Google, Microsoft, Sony & more
+                personally coach and place you.
               </p>
 
               <div className="mt-8 w-full flex flex-wrap items-center gap-3 md:gap-6">
                 <div className="w-full md:w-fit p-px rounded-xl bg-linear-to-tr from-[#53BCFF] to-[#2A99FF] overflow-hidden">
-                  <button className="flex gradient-border  text-lg sm:text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-[radial-gradient(circle,#0F4BC1,#2461C5)] transition md:px-6 py-3 text-white font-medium md:font-light">
+                  <button
+                    onClick={() => {
+                      setShowCohortForm(true);
+                    }}
+                    className="flex gradient-border  text-lg sm:text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-[radial-gradient(circle,#0F4BC1,#2461C5)] transition md:px-6 py-3 text-white font-medium md:font-light"
+                  >
                     Apply for Next Cohort
                     <ArrowRight size={18} />
                   </button>
@@ -57,10 +94,18 @@ export default function InterviewCallHero() {
                   Trained by engineers from
                 </div>
                 <div className="flex mt-1 items-center justify-evenly gap-4 md:gap-8 text-white/50 font-semibold text-lg">
-                  {
-                    logos.map((logo, idx) => {
-                      return <Image src={logo.src} alt={logo.name} key={idx} width={100} height={100} className="w-20 h-auto md:w-30 " />
-                    })}
+                  {logos.map((logo, idx) => {
+                    return (
+                      <Image
+                        src={logo.src}
+                        alt={logo.name}
+                        key={idx}
+                        width={100}
+                        height={100}
+                        className="w-20 h-auto md:w-30 "
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </div>
@@ -69,6 +114,4 @@ export default function InterviewCallHero() {
       </div>
     </div>
   );
-};
-
-
+}

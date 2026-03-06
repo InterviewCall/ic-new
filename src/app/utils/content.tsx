@@ -424,3 +424,32 @@ export const whyMap: Record<number, { text: string; topic: string[] }> = {
     ],
   },
 };
+
+export const WORK_STATUS_OPTIONS = [
+  { label: "Employed Full-Time", value: "employed_full_time" },
+  { label: "Employed Part-Time", value: "employed_part_time" },
+  { label: "Self-Employed / Freelance", value: "self_employed" },
+  { label: "Unemployed – Actively Looking", value: "unemployed_looking" },
+  { label: "Unemployed – Not Looking", value: "unemployed_not_looking" },
+  { label: "Student", value: "student" },
+];
+
+export const YEARS_OF_EXPERIENCE_OPTIONS = [
+  { label: "Less than 1 year", value: "less_than_1" },
+  { label: "1 – 2 years", value: "1_2" },
+  { label: "3 – 5 years", value: "3_5" },
+  { label: "6 – 10 years", value: "6_10" },
+  { label: "11 – 15 years", value: "11_15" },
+  { label: "15+ years", value: "15_plus" },
+];
+
+export const TARGET_ROLE_OPTIONS = [
+  { label: "Software Engineer", value: "software_engineer" },
+  { label: "Product Manager", value: "product_manager" },
+  { label: "Data Scientist", value: "data_scientist" },
+  { label: "UX / UI Designer", value: "ux_ui_designer" },
+  { label: "DevOps Engineer", value: "devops_engineer" },
+  { label: "Marketing Manager", value: "marketing_manager" },
+  { label: "Business Analyst", value: "business_analyst" },
+  { label: "Other", value: "other" },
+];
