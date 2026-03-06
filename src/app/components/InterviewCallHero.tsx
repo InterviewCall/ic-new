@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
 import React, { useState } from "react";
-import CohortStepForm from "./forms/CohortForms";
-import BookACallStepForm from "./forms/BookACallForms";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { motion } from "framer-motion";
+import CohortStepForm from "./forms/CohortForms";
+import BookACallStepForm from "./forms/BookACallForms";
 
 const logos = [
   { name: "Google", src: "/heroCompany/google.svg" },

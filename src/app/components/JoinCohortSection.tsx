@@ -5,6 +5,7 @@ import ClockWrapper from "./ClockWrapper";
 import { useState } from "react";
 import CohortStepForm from "./forms/CohortForms";
 import BookACallStepForm from "./forms/BookACallForms";
+import ModalWrapper from "./ModalWrapper";
 
 export default function JoinCohortSection() {
     const [showCohortForm, setShowCohortForm] = useState(false);
@@ -13,7 +14,8 @@ export default function JoinCohortSection() {
     
     return (
         <div className="relative w-full mt-0 md:mt-20 mb-20 md:mb-20 px-4 md:px-0">
-            {showCohortForm && 
+            <ModalWrapper>
+                {showCohortForm && 
                 <div className="fixed top-0 left-0 z-100 w-full h-full">
                     <CohortStepForm closeForm={() => setShowCohortForm(false)} />
                 </div>}
@@ -23,6 +25,7 @@ export default function JoinCohortSection() {
                     <BookACallStepForm closeForm={() => setShowBookACallForm(false)} />
                 </div>
             }
+            </ModalWrapper>
             <div className="text-center text-3xl md:text-7xl w-full md:leading-18">
                 Only 50 students per <br className="hidden md:inline"/>
                 cohort <br className="hidden md:inline"/>
