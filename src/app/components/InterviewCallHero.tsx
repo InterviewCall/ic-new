@@ -22,7 +22,7 @@ export default function InterviewCallHero() {
           Request Callback
         </button> */}
 
-        <motion.button
+        {/* <motion.button
           initial="rest"
           whileHover="hover"
           whileTap={{ scale: 0.98 }}
@@ -46,8 +46,33 @@ export default function InterviewCallHero() {
             }}
           />
           <span className="relative z-10">Request Callback</span>
+        </motion.button> */}
+
+        <motion.button
+          whileHover={{ y: -2, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 350, damping: 22 }}
+          className="relative overflow-hidden rounded-xl bg-[#183678] px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer"
+        >
+          <motion.span
+            className="pointer-events-none absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent)",
+            }}
+            initial={{ x: "-140%" }}
+            animate={{ x: ["-140%", "140%"] }}
+            transition={{
+              duration: 1,
+              ease: [0.16, 1, 0.3, 1],
+              repeat: Infinity,
+              repeatType: "reverse", // left->right then right->left
+              // repeatDelay: 0.4,      // small pause so it feels premium
+            }}
+          />
+          <span className="relative z-10">Request Callback</span>
         </motion.button>
-        
+
       </div>
       <div className="w-full flex justify-center">
         <div className="w-9/10 md:w-[85%] my-5 rounded-3xl backdrop-blur-2xl  shadow-2xl border border-white/30">
@@ -97,7 +122,7 @@ export default function InterviewCallHero() {
               </div> */}
 
               <div className="mt-8 w-full flex flex-wrap items-center gap-3 md:gap-6">
-                <div className="w-full md:w-fit p-px rounded-xl bg-linear-to-tr from-[#53BCFF] to-[#2A99FF] overflow-hidden">
+                {/* <div className="w-full md:w-fit p-px rounded-xl bg-linear-to-tr from-[#53BCFF] to-[#2A99FF] overflow-hidden">
                   <motion.button
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.98 }}
@@ -107,6 +132,37 @@ export default function InterviewCallHero() {
                     Apply for Next Cohort
                     <ArrowRight size={18} />
                   </motion.button>
+                </div> */}
+
+                 <div className="w-full md:w-fit">
+                  {/* Outer wrapper = border thickness */}
+                  <div className="relative rounded-xl p-0.5 overflow-hidden">
+                    {/* Rotating full-border gradient layer (oversized so corners never clip) */}
+                    <motion.div
+                      className="absolute -inset-10 rounded-[40px]"
+                      style={{
+                        // Hard stops = less blending = removes whitish glow
+                        background:
+                          "conic-gradient(from 0deg, #53BCFF 0deg 90deg, #2A99FF 90deg 180deg, #53BCFF 180deg 270deg, #2A99FF 270deg 360deg)",
+                        willChange: "transform",
+                      }}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 2.2, ease: "linear", repeat: Infinity }}
+                    />
+
+                    {/* Inner fill covers center so only border ring is visible */}
+                    <div className="relative rounded-[10px] bg-[radial-gradient(circle,#0F4BC1,#2461C5)]">
+                      <motion.button
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                        className="flex w-full md:w-fit items-center justify-center gap-2 rounded-[10px] bg-transparent md:px-6 py-3 text-lg sm:text-xl text-white font-medium md:font-light tracking-normal hover:cursor-pointer"
+                      >
+                        Apply for Next Cohort
+                        <ArrowRight size={18} />
+                      </motion.button>
+                    </div>
+                  </div>
                 </div>
 
                 <motion.button

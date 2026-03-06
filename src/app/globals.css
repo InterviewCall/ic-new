@@ -72,3 +72,33 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   from { background-position: 0% 50%; }
   to { background-position: 100% 50%; }
 }
+
+.animated-border {
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-border {
+  background: conic-gradient(
+    from 0deg,
+    #53bcff,
+    #2a99ff,
+    #53bcff,
+    #2a99ff,
+    #53bcff
+  );
+  animation: border-rotate 2.2s linear infinite;
+}
+
+@keyframes border-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .animated-border {
+    animation: none;
+  }
+}
