@@ -155,7 +155,7 @@ export default function Roadmap() {
                                 subHeading={item.subHeading}
                             />
                         ))}
-                        <div className="h-20"></div>
+                        <div className="hidden md:block h-20"></div>
                     </div>
                 </div>
 
@@ -186,7 +186,7 @@ export default function Roadmap() {
                                 subHeading={item.subHeading}
                             />
                         ))}
-                        <div className="h-20"></div>
+                        <div className="hidden md:block h-20"></div>
 
                     </div>
                     {/*

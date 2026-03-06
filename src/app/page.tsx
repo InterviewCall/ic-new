@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import ProblemBank from "./components/ProblemBank";
 import RoleMatchedMentors from "./components/RoleMatchedMentor";
 import JobSwitchExectionSection from "./components/JobSwitchExecutionSection";
+import Reveal from "./components/Reveal";
 
 // import dynamic from "next/dynamic";
 
@@ -53,7 +54,9 @@ export default function Home() {
               className={`w-full flex flex-col items-center ${css}`}
             >
               <div className="w-full md:w-8/10 ">
-                <Component />
+                <Reveal duration={0.75}>
+                  <Component />
+                </Reveal>
               </div>
             </div>
           ))}
