@@ -54,8 +54,7 @@ export default function Home() {
               className={`w-full flex flex-col items-center ${css}`}
             >
               <div className="w-full md:w-8/10 ">
-              <div id="portal-root" className="relative">
-              </div>
+              <div id="portal-root" className="relative"></div>
                 <Reveal duration={0.75}>
                   <Component />
                 </Reveal>

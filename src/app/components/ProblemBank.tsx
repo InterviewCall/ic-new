@@ -75,13 +75,15 @@ export default function ProblemBank() {
                 {showCohortForm && 
                     <div className="fixed top-0 left-0 z-100 w-full h-full">
                         <CohortStepForm closeForm={() => setShowCohortForm(false)} />
-                    </div>}
+                    </div>
+                }
 
 
                 {showSystemOverview &&
                     <div className="fixed top-0 left-0 z-100 w-full min-h-full h-full overflow-y-auto hide-scroll   ">
                         <SystemOverviewCard isOpen={showSystemOverview} onClose={() => setShowSystemOverview(false)} />
-                    </div>}
+                    </div>
+                }
             </ModalWrapper>
 
 

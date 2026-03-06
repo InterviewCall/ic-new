@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { monthWiseModulesArray, whyMap } from "../utils/content";
 import { X } from "lucide-react";
+import ModalWrapper from "./ModalWrapper";
 
 
 export default function TrainingModules() {
@@ -32,9 +33,9 @@ export default function TrainingModules() {
             const container = scrollContainerRef.current;
             const maxScroll = container.scrollHeight - container.clientHeight;
             // 
-            container.scrollTop = ((position)/100) * maxScroll;
+            container.scrollTop = ((position) / 100) * maxScroll;
         }
-         
+
         // setBug(2);
     }, [position, isDragging]);
 
@@ -94,49 +95,51 @@ export default function TrainingModules() {
             </div>
             <div className="grid grid-cols-[9fr_1fr] md:grid-cols-[1fr_9fr] h-fit md:h-175 mt-10 relative">
                 {/* why section mobile */}
-                {
-                    isOpen && (
-                        <div className=" fixed  md:hidden  top-0 flex items-center justify-center inset-0 z-30">
-                            <div className="bg-black/40 backdrop-blur-xs fixed w-full h-full">
+                <ModalWrapper>
+                    {
+                        isOpen && (
+                            <div className=" fixed  md:hidden  top-0 flex items-center justify-center inset-0 z-30">
+                                <div className="bg-black/40 backdrop-blur-xs fixed w-full h-full">
 
-                            </div>
-                            <div className="flex items-start ">
-                                <div className="bg-[#030F15]  relative isolate border top-0 h border-white/30 rounded-2xl p-6 text-3xl bg-linear-to-br from-[#06121A] to-[#08111] overflow-hidden">
-                                    <div className="relative isolate p-6 bg-linear-to-tr from-[#041018] to-[#030F15] rounded-2xl space-y-2">
-                                        <div className="flex justify-between">
+                                </div>
+                                <div className="flex items-start ">
+                                    <div className="bg-[#030F15]  relative isolate border top-0 h border-white/30 rounded-2xl p-6 text-3xl bg-linear-to-br from-[#06121A] to-[#08111] overflow-hidden">
+                                        <div className="relative isolate p-6 bg-linear-to-tr from-[#041018] to-[#030F15] rounded-2xl space-y-2">
+                                            <div className="flex justify-between">
 
-                                            <Image
-                                                src={'/design2.svg'}
-                                                alt=""
-                                                width={100}
-                                                height={100}
-                                                className="h-auto w-1/4 mb-6"
-                                            />
-                                            <div className="hover:cursor-pointer p-1 mr-3 flex items-center justify-center text-center bg-red-800 rounded-full" onClick={() => { setIsOpen(false) }}>
-                                                <X />
+                                                <Image
+                                                    src={'/design2.svg'}
+                                                    alt=""
+                                                    width={100}
+                                                    height={100}
+                                                    className="h-auto w-1/4 mb-6"
+                                                />
+                                                <div className="hover:cursor-pointer p-1 mr-3 flex items-center justify-center text-center bg-red-800 rounded-full" onClick={() => { setIsOpen(false) }}>
+                                                    <X />
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div className="my-3">Why learn this:</div>
+                                            <div className="my-3">Why learn this:</div>
 
-                                        <div className="z-10 text-xl text-[#5B7D92] space-y-4 mb-6">
-                                            {selectedModule && whyMap[selectedModule]?.text}
-                                        </div>
-
-                                        {selectedModule && whyMap[selectedModule]?.topic.map((topic, tIndex) => (
-                                            <div
-                                                key={tIndex}
-                                                className="px-2.5 py-1 rounded-xl text-lg bg-[#B76A00] w-fit mb-2"
-                                            >
-                                                {topic}
+                                            <div className="z-10 text-xl text-[#5B7D92] space-y-4 mb-6">
+                                                {selectedModule && whyMap[selectedModule]?.text}
                                             </div>
-                                        ))}
+
+                                            {selectedModule && whyMap[selectedModule]?.topic.map((topic, tIndex) => (
+                                                <div
+                                                    key={tIndex}
+                                                    className="px-2.5 py-1 rounded-xl text-lg bg-[#B76A00] w-fit mb-2"
+                                                >
+                                                    {topic}
+                                                </div>
+                                            ))}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    )
-                }
+                        )
+                    }
+                </ModalWrapper>
                 {/* scrollbar div desktop */}
                 <div className="hidden md:flex justify-center h-full">
                     <div
