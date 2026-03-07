@@ -1,4 +1,6 @@
 import Image from "next/image";
+import AlumniStoryCard from "./AlumniStoryCard";
+import LiveStudentsCard from "./LiveStudentCard";
 
 export default function CommunitySection() {
     return (
@@ -26,17 +28,6 @@ export default function CommunitySection() {
     );
 }
 
-function LiveStudentsCard() {
-    return (
-        <div className="flex flex-col items-center justify-center rounded-2xl bg-[#0A1220] p-10 text-center shadow-inner">
-            <div className="text-[170px] font-semibold  bg-linear-to-br from-[#93E8FF] to-[#4CACFF] bg-clip-text text-transparent
-                drop-shadow-[0_0_30px_rgba(95,168,255,2)]">142</div>
-            <div className="mt-2 text-lg text-white/70">
-                students learning <br /> right now
-            </div>
-        </div>
-    );
-}
 
 
 function UpcomingClassesCard() {
@@ -98,26 +89,6 @@ function UpcomingClassesCard() {
         </div>
     );
 }
-
-
-function AlumniStoryCard() {
-    return (
-        <div className="relative flex items-center justify-center rounded-2xl bg-[#0A1220] p-8">
-            <div className="rounded-xl bg-[#0F1C2E] px-6 py-4 text-sm text-white flex items-center gap-x-5">
-                <Image alt="" src={'/cohortPfp1.svg'} width={70} height={70} className="rounded-full" />
-                <div className="text-lg">
-                    Alumni story <br /> preview
-                </div>
-            </div>
-
-            {/* dotted glow */}
-            <div className="pointer-events-none absolute inset-0 flex items-end justify-center pb-6">
-                <div className="h-24 w-24 rounded-full bg-blue-500/20 blur-2xl" />
-            </div>
-        </div>
-    );
-}
-
 
 function VictoriesCard() {
     const items = [

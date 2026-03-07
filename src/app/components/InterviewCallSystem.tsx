@@ -36,7 +36,7 @@ export default function InterviewCallSystem() {
             </div>
 
             {/* mock */}
-            <div className="w-full flex flex-col items-center">
+            <div className="hidden w-full  flex-col items-center">
                 <div className="relative my-20 isolate w-full md:w-1/2 flex flex-col items-center  rounded-2xl border border-white/10 bg-[linear-gradient(to_bottom_right,#091524,#020910_60%,#000000_100%)] p-4 md:p-8 text-center">
 
                     {/* Glow */}

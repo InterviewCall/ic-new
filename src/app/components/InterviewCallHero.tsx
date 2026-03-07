@@ -1,9 +1,13 @@
-"use client";
+'use client';
 
+import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { motion } from "framer-motion";
+import CohortStepForm from "./forms/CohortForms";
+import BookACallStepForm from "./forms/BookACallForms";
+import ModalWrapper from "./ModalWrapper";
 
 const logos = [
   { name: "Google", src: "/heroCompany/google.svg" },
@@ -12,11 +16,39 @@ const logos = [
 ];
 
 export default function InterviewCallHero() {
+  const [showCohortForm, setShowCohortForm] = useState(false);
+  const [showBookACallForm, setShowBookACallForm] = useState(false);
+
+
+  // useEffect(()=>{
+  //   hidePopup();
+  // })
+
   return (
-    <div className="min-h-200 w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top  items-center justify-center ">
+    <div className="relative min-h-200 w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top  items-center justify-center ">
+      {/* {isFormOpen && <CohortStepForm closeForm={()=> setIsFormOpen(false)} />} */}
+      <ModalWrapper>
+        {showCohortForm && (
+          <div className="fixed top-0 left-0 z-100 w-full h-full">
+            <CohortStepForm closeForm={() => setShowCohortForm(false)} />
+          </div>
+        )}
+        {showBookACallForm && (
+          <div className="fixed top-0 left-0 z-100 w-full h-full">
+            <BookACallStepForm closeForm={() => setShowBookACallForm(false)} />
+          </div>
+        )}
+      </ModalWrapper>
+
       <div className="flex items-center justify-between px-4 md:px-14 py-8 pb-3 md:pb-6 md:py-8">
         <div className="flex items-center gap-2 text-white font-semibold text-lg">
-          <Image src={"/interviewCallFullLogo.svg"} alt="" width={100} height={100} className="w-35 md:w-60" />
+          <Image
+            src={"/interviewCallFullLogo.svg"}
+            alt=""
+            width={100}
+            height={100}
+            className="w-35 md:w-60"
+          />
         </div>
         {/* <button className="rounded-xl bg-[#183678] transition px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer">
           Request Callback
@@ -52,6 +84,7 @@ export default function InterviewCallHero() {
           whileHover={{ y: -2, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 350, damping: 22 }}
+          onClick={() => { setShowBookACallForm(true); }}
           className="relative overflow-hidden rounded-xl bg-[#183678] px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer"
         >
           <motion.span
@@ -70,7 +103,7 @@ export default function InterviewCallHero() {
               // repeatDelay: 0.4,      // small pause so it feels premium
             }}
           />
-          <span className="relative z-10">Request Callback</span>
+          <span className="relative z-10 ">Request Callback</span>
         </motion.button>
 
       </div>
@@ -109,7 +142,12 @@ export default function InterviewCallHero() {
 
               {/* <div className="mt-8 w-full flex flex-wrap items-center gap-3 md:gap-6">
                 <div className="w-full md:w-fit p-px rounded-xl bg-linear-to-tr from-[#53BCFF] to-[#2A99FF] overflow-hidden">
-                  <button className="flex gradient-border  text-lg sm:text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-[radial-gradient(circle,#0F4BC1,#2461C5)] transition md:px-6 py-3 text-white font-medium md:font-light">
+                  <button
+                    onClick={() => {
+                      setShowCohortForm(true);
+                    }}
+                    className="flex gradient-border  text-lg sm:text-xl w-full md:w-fit justify-center items-center tracking-normal gap-2 rounded-xl bg-[radial-gradient(circle,#0F4BC1,#2461C5)] transition md:px-6 py-3 text-white font-medium md:font-light"
+                  >
                     Apply for Next Cohort
                     <ArrowRight size={18} />
                   </button>
@@ -134,7 +172,7 @@ export default function InterviewCallHero() {
                   </motion.button>
                 </div> */}
 
-                 <div className="w-full md:w-fit">
+                <div className="w-full md:w-fit">
                   {/* Outer wrapper = border thickness */}
                   <div className="relative rounded-xl p-0.5 overflow-hidden">
                     {/* Rotating full-border gradient layer (oversized so corners never clip) */}
@@ -151,7 +189,9 @@ export default function InterviewCallHero() {
                     />
 
                     {/* Inner fill covers center so only border ring is visible */}
-                    <div className="relative rounded-[10px] bg-[radial-gradient(circle,#0F4BC1,#2461C5)]">
+                    <div 
+                      onClick={() => { setShowCohortForm(true) }}
+                      className="relative rounded-[10px] bg-[radial-gradient(circle,#0F4BC1,#2461C5)]">
                       <motion.button
                         whileHover={{ y: -2 }}
                         whileTap={{ scale: 0.98 }}
@@ -215,6 +255,4 @@ export default function InterviewCallHero() {
       </div>
     </div>
   );
-};
-
-
+}
