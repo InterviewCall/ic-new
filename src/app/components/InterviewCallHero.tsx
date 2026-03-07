@@ -84,7 +84,7 @@ export default function InterviewCallHero() {
           whileHover={{ y: -2, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 350, damping: 22 }}
-          onClick={() => { setShowBookACallForm(true); alert("Book a call form coming soon!") }}
+          onClick={() => { setShowBookACallForm(true); }}
           className="relative overflow-hidden rounded-xl bg-[#183678] px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer"
         >
           <motion.span

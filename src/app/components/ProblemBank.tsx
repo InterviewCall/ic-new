@@ -216,7 +216,7 @@ function Card({ heading, subHeading, texts, onClick }: { heading: string, subHea
                         </ul>
                     </div>
                 </div>
-                <button onClick={onClick} className="hover:cursor-pointer text-blue-400 text-xl font-light mt-5 md:mt-2 text-center md:text-right w-full bottom-0">
+                <button onClick={onClick} className="hover:scale-102 hover:-translate-x-1 transform duration-150 hover:cursor-pointer text-blue-400 text-xl font-light mt-5 md:mt-2 text-center md:text-right w-full bottom-0">
                     View system →
                 </button>
             </div>

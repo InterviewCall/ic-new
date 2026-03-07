@@ -3,7 +3,7 @@ import { useForm, FormProvider } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import InputFieldTyped from "../InputFieldTyped";
 import InputFieldDropdown from "../InputFieldDropdown";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { TARGET_ROLE_OPTIONS, WORK_STATUS_OPTIONS, YEARS_OF_EXPERIENCE_OPTIONS } from "@/app/utils/content";
 import { BasicDetailsFormData, basicDetailsSchema, CohortFormData, WorkProfileFormData, workProfileSchema } from "@/validation/CohortFormValidators";
 import { X } from "lucide-react";
@@ -38,7 +38,7 @@ function clearStorage() {
     localStorage.removeItem(LS_STEP_KEY);
     localStorage.removeItem(LS_BASIC_KEY);
     localStorage.removeItem(LS_WORK_KEY);
-  } catch {}
+  } catch { }
 }
 
 export default function CohortStepForm({ closeForm }: { closeForm: () => void }) {
@@ -46,22 +46,28 @@ export default function CohortStepForm({ closeForm }: { closeForm: () => void })
   const [basicDetailsData, setBasicDetailsData] = useState<BasicDetailsFormData | null>(() => getStoredBasicDetails());
   const [workProfileData, setWorkProfileData] = useState<Partial<WorkProfileFormData>>(() => getStoredWorkProfile());
 
-  const handleSetStep = (stepOrUpdater: SetStateAction<number>) => {
-    const next = typeof stepOrUpdater === "function" ? stepOrUpdater(currentStep) : stepOrUpdater;
-    try { localStorage.setItem(LS_STEP_KEY, String(next)); } catch {}
-    setCurrentStep(next);
+  const handleSetStep = (step: number) => {
+    try {
+      localStorage.setItem(LS_STEP_KEY, String(step));
+    } catch { }
+
+    setCurrentStep(step);
   };
 
-  const handleSetBasicDetails = (dataOrUpdater: SetStateAction<BasicDetailsFormData | null>) => {
-    const next = typeof dataOrUpdater === "function" ? dataOrUpdater(basicDetailsData) : dataOrUpdater;
-    try { localStorage.setItem(LS_BASIC_KEY, JSON.stringify(next)); } catch {}
-    setBasicDetailsData(next);
+  const handleSetBasicDetails = (data: BasicDetailsFormData | null) => {
+    try {
+      localStorage.setItem(LS_BASIC_KEY, JSON.stringify(data));
+    } catch { }
+
+    setBasicDetailsData(data);
   };
 
-  const handleSetWorkProfile = (dataOrUpdater: SetStateAction<Partial<WorkProfileFormData>>) => {
-    const next = typeof dataOrUpdater === "function" ? dataOrUpdater(workProfileData) : dataOrUpdater;
-    try { localStorage.setItem(LS_WORK_KEY, JSON.stringify(next)); } catch {}
-    setWorkProfileData(next);
+  const handleSetWorkProfile = (data: Partial<WorkProfileFormData>) => {
+    try {
+      localStorage.setItem(LS_WORK_KEY, JSON.stringify(data));
+    } catch { }
+
+    setWorkProfileData(data);
   };
 
   const handleClose = (currentFormData?: BasicDetailsFormData | WorkProfileFormData) => {
@@ -109,8 +115,8 @@ function CohortBasicDetailsForm({
   setBasicDetailsData,
   closeForm,
 }: {
-  setCurrentStep: Dispatch<SetStateAction<number>>;
-  setBasicDetailsData: Dispatch<SetStateAction<BasicDetailsFormData | null>>;
+  setCurrentStep: (step: number) => void;
+  setBasicDetailsData: (data: BasicDetailsFormData | null) => void;
   closeForm: (data?: BasicDetailsFormData) => void;
 }) {
   const methods = useForm<BasicDetailsFormData>({
@@ -172,8 +178,8 @@ function CohortWorkProfileForm({
 }: {
   basicDetailsData: BasicDetailsFormData;
   workProfileData: Partial<WorkProfileFormData>;
-  setWorkProfileData: Dispatch<SetStateAction<Partial<WorkProfileFormData>>>;
-  setCurrentStep: Dispatch<SetStateAction<number>>;
+  setWorkProfileData: (data: Partial<WorkProfileFormData>) => void;
+  setCurrentStep: (step: number) => void;
   closeForm: (data?: WorkProfileFormData) => void;
   onFinalSubmit: () => void;
 }) {
