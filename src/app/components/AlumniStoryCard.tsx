@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function AlumniStoryCard() {
     return (
-        <div className="relative flex items-center justify-center rounded-4xl h-125">
+        <div className="relative max-md:hidden flex items-center justify-center rounded-4xl h-125">
                 <Image src={'/indiaMap.svg'} alt="" height={1000} width={1000} className="absolute rounded-4xl left-0 h-full w-full object-cover" />
                 <Dot left="254" top="85" alumniSrc={'/cohortPfp1.svg'} name={'Rohit'} />
                 <Dot left="222" top="103" alumniSrc={'/cohortPfp1.svg'} name={'Shreya'} />

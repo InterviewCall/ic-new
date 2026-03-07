@@ -29,9 +29,9 @@ export default function LiveStudentsCard() {
   const baseCount = 2;
 
   const ref = useRef<HTMLDivElement | null>(null);
-  const isInView = useInView(ref, { once: true, amount: 0.35 });
+  const isInView = useInView(ref, { once: false, amount: 0.35 });
 
-  const motionValue = useMotionValue(0);
+  const motionValue = useMotionValue<number>(0);
 
   const [liveStudents, setLiveStudents] = useState(baseCount);
   const [displayStudents, setDisplayStudents] = useState(0);
@@ -76,6 +76,8 @@ export default function LiveStudentsCard() {
 
   useEffect(() => {
     if (!isInView) return;
+
+    motionValue.set(0);
 
     const controls = animate(motionValue, liveStudents, {
       duration: 1.2,
