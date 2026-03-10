@@ -153,7 +153,7 @@ function CohortBasicDetailsForm({
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white"
+              className="w-full py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white hover:cursor-pointer"
             >
               Continue
             </button>
@@ -210,7 +210,7 @@ function CohortWorkProfileForm({
   };
 
   return (
-    <div className="relative w-full md:w-100 border border-white/10 bg-radial from-[#001E52] to-[#000B22] rounded-lg flex items-center justify-center p-6">
+    <div className="relative w-full max-h-[90vh] overflow-y-scroll md:w-100 border border-white/10 bg-radial from-[#001E52] to-[#000B22] rounded-lg flex  justify-center px-6 pt-6 hide-scroll">
       <div className="absolute h-6 w-6 top-5 right-5 hover:cursor-pointer" onClick={() => closeForm(getValues())}>
         <X />
       </div>
@@ -246,7 +246,7 @@ function CohortWorkProfileForm({
               <button
                 type="button"
                 onClick={handleBack}
-                className="w-1/3 py-3 rounded-lg border border-[#104680] text-[#C0CADF] text-lg hover:bg-white/5 transition-colors"
+                className="w-1/3 py-3 rounded-lg border border-[#104680] text-[#C0CADF] text-lg hover:bg-white/5 transition-colors hover:cursor-pointer"
               >
                 Back
               </button>
@@ -254,13 +254,13 @@ function CohortWorkProfileForm({
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-2/3 py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white"
+                className="hover:cursor-pointer w-2/3 py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white"
               >
                 Submit
               </button>
             </div>
 
-            <div className="text-xs font-extralight tracking-wider">
+            <div className="text-xs font-extralight tracking-wider pb-6">
               By submitting, you agree to our <span className="text-[#5BBFFB]">Privacy Policy.</span>
             </div>
           </form>

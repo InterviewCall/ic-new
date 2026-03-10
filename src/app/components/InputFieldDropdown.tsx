@@ -1,5 +1,6 @@
 'use client';
 import { useFormContext } from "react-hook-form";
+import { useState, useRef, useEffect } from "react";
 
 interface SelectFieldProps {
   name: string;
@@ -13,59 +14,94 @@ export default function InputFieldDropdown({
   options,
 }: SelectFieldProps) {
   const {
-    register,
+    setValue,
+    watch,
     formState: { errors },
   } = useFormContext();
 
+  const [open, setOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const selected = watch(name);
   const error = errors[name as keyof typeof errors];
 
+  const selectedLabel = options.find((o) => o.value === selected)?.label;
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  const handleSelect = (value: string) => {
+    setValue(name, value, { shouldValidate: true });
+    setOpen(false);
+  };
+
   return (
-    <div className="flex flex-col gap-1.5 w-full">
-      <div className="w-full relative">
-        {/* Custom chevron icon */}
-        <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+    <div className="flex flex-col gap-1.5 w-full ">
+      {/* Wrapper must be relative so the absolute list anchors to it */}
+      <div className="relative w-full" ref={dropdownRef}>
+        {/* Trigger button */}
+        <div
+          tabIndex={0}
+          role="button"
+          onClick={() => setOpen((prev) => !prev)}
+          className={`
+            flex items-center justify-between
+            w-full px-4 py-3 rounded-lg
+            border cursor-pointer outline-none
+            bg-[radial-gradient(ellipse_at_center,#022052,#071939)]
+            text-lg select-none
+            ${error ? "border-rose-500" : "border-[#104680]"}
+            ${selectedLabel ? "text-[#C0CADF]" : "text-[#C0CADF]/60"}
+          `}
+        >
+          <span>{selectedLabel ?? placeholder}</span>
           <svg
-            className="w-4 h-4 text-[#C0CADF]"
+            className={`w-4 h-4 text-[#C0CADF] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 9l-7 7-7-7"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
           </svg>
         </div>
 
-        <select
-          {...register(name)}
-          defaultValue=""
-          className={`
-            appearance-none border border-[#104680] w-full
-            bg-radial from-[#022052] to-[#071939]
-            text-[#C0CADF] text-lg
-            rounded-lg px-4 py-3 outline-none
-            cursor-pointer
-            ${error ? "border-rose-500" : "border-slate-700"}
-          `}
-        >
-          {/* Placeholder option */}
-          <option value="" disabled className="text-[#C0CADF] bg-[#071939]">
-            {placeholder}
-          </option>
-
-          {options.map((opt) => (
-            <option
-              key={opt.value}
-              value={opt.value}
-              className="text-white bg-[#071939]"
-            >
-              {opt.label}
-            </option>
-          ))}
-        </select>
+        {/* Absolutely positioned list — does NOT affect parent height */}
+        {open && (
+          <ul
+            className="
+             top-full left-0 w-full mt-1
+              z-100
+              rounded-lg border border-[#104680]
+              bg-[#071939]
+              shadow-[0_8px_32px_rgba(0,0,0,0.5)]
+              p-1
+              max-h-42 overflow-y-auto hide-scroll
+            "
+          >
+            {options.map((opt) => (
+              <li key={opt.value}>
+                <button
+                  type="button"
+                  onClick={() => handleSelect(opt.value)}
+                  className={`
+                    hover:cursor-pointer w-full text-left text-lg px-4 py-2 rounded-md
+                    text-[#C0CADF] hover:bg-[#104680]/40 hover:text-white
+                    transition-colors duration-150
+                    ${selected === opt.value ? "bg-[#104680]/30 text-white" : ""}
+                  `}
+                >
+                  {opt.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
 
       {error && (
