@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
@@ -18,7 +18,6 @@ const logos = [
 export default function InterviewCallHero() {
   const [showCohortForm, setShowCohortForm] = useState(false);
   const [showBookACallForm, setShowBookACallForm] = useState(false);
-
 
   // useEffect(()=>{
   //   hidePopup();
@@ -80,7 +79,7 @@ export default function InterviewCallHero() {
           <span className="relative z-10">Request Callback</span>
         </motion.button> */}
 
-        <motion.button
+        {/* <motion.button
           whileHover={{ y: -2, scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 350, damping: 22 }}
@@ -104,8 +103,35 @@ export default function InterviewCallHero() {
             }}
           />
           <span className="relative z-10 ">Request Callback</span>
-        </motion.button>
+        </motion.button> */}
+        <motion.button
+          whileHover={{ y: -2, scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          transition={{ type: "spring", stiffness: 350, damping: 22 }}
+          onClick={() => {
+            setShowBookACallForm(true);
+          }}
+          className="relative overflow-hidden rounded-xl bg-[#183678] px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer"
+        >
+          <motion.span
+            className="pointer-events-none absolute top-0 left-0 z-1 h-full w-[14%]"
+            style={{
+              background:
+                "linear-gradient(102deg, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0.45) 50%, hsla(0,0%,100%,0) 100%)",
+              transform: "translateX(-240%) rotate(20deg)",
+              transformOrigin: "center",
+            }}
+            animate={{ x: ["0%", "760%"] }}
+            transition={{
+              duration: 1.05,
+              ease: "linear",
+              repeat: Infinity,
+              repeatDelay: 0,
+            }}
+          />
 
+          <span className="relative z-2">Request Callback</span>
+        </motion.button>
       </div>
       <div className="w-full flex justify-center">
         <div className="w-9/10 md:w-[85%] my-5 rounded-3xl backdrop-blur-2xl  shadow-2xl border border-white/30">
@@ -117,26 +143,36 @@ export default function InterviewCallHero() {
               <h1 className="hidden md:block text-3xl md:text-[70px]  font-medium  text-white leading-tighter ">
                 {/* Crack Top Tech Jobs. <br /> Learn DSA, System Design <br /> from Engineering Managers. */}
 
-                <Reveal delay={0.0}><span className="block">Crack Top Tech Jobs.</span></Reveal>
-                <Reveal delay={0.08}><span className="block">Learn DSA, System Design</span></Reveal>
-                <Reveal delay={0.16}><span className="block">from Engineering Managers.</span></Reveal>
+                <Reveal delay={0.0}>
+                  <span className="block">Crack Top Tech Jobs.</span>
+                </Reveal>
+                <Reveal delay={0.08}>
+                  <span className="block">Learn DSA, System Design</span>
+                </Reveal>
+                <Reveal delay={0.16}>
+                  <span className="block">from Engineering Managers.</span>
+                </Reveal>
               </h1>
 
               <h1 className="block md:hidden text-4xl md:text-6xl  text-white leading-tighter  text-start">
-                <Reveal delay={0.08}><span className="block">Crack Top Tech Jobs After training from Engineering Managers</span></Reveal>
+                <Reveal delay={0.08}>
+                  <span className="block">
+                    Crack Top Tech Jobs After training from Engineering Managers
+                  </span>
+                </Reveal>
               </h1>
 
               <Reveal delay={0.26} className="hidden md:block">
                 <p className="mt-6 text-2xl font-light tracking-normal md:tracking-tight leading-tight text-white/80 max-w-xl">
-                  Engineering Managers from Google, Microsoft, Sony & more personally
-                  coach and place you.
+                  Engineering Managers from Google, Microsoft, Sony & more
+                  personally coach and place you.
                 </p>
               </Reveal>
 
-              <Reveal delay={0.20} className="block md:hidden">
+              <Reveal delay={0.2} className="block md:hidden">
                 <p className="mt-6 text-2xl font-light tracking-normal md:tracking-tight leading-tight text-white/80 max-w-xl">
-                  Engineering Managers from Google, Microsoft, Sony & more personally
-                  coach and place you.
+                  Engineering Managers from Google, Microsoft, Sony & more
+                  personally coach and place you.
                 </p>
               </Reveal>
 
@@ -176,7 +212,7 @@ export default function InterviewCallHero() {
                   {/* Outer wrapper = border thickness */}
                   <div className="relative rounded-xl p-0.5 overflow-hidden">
                     {/* Rotating full-border gradient layer (oversized so corners never clip) */}
-                    <motion.div
+                    {/* <motion.div
                       className="absolute -inset-10 rounded-[40px]"
                       style={{
                         // Hard stops = less blending = removes whitish glow
@@ -185,21 +221,168 @@ export default function InterviewCallHero() {
                         willChange: "transform",
                       }}
                       animate={{ rotate: 360 }}
-                      transition={{ duration: 2.2, ease: "linear", repeat: Infinity }}
-                    />
+                      transition={{
+                        duration: 2.2,
+                        ease: "linear",
+                        repeat: Infinity,
+                      }}
+                    /> */}
 
                     {/* Inner fill covers center so only border ring is visible */}
-                    <div 
-                      onClick={() => { setShowCohortForm(true) }}
-                      className="relative rounded-[10px] bg-[radial-gradient(circle,#0F4BC1,#2461C5)]">
-                      <motion.button
+                    <div
+                      onClick={() => {
+                        setShowCohortForm(true);
+                      }}
+                      className="relative rounded-[10px] bg-[radial-gradient(circle,#0F4BC1,#2461C5)]"
+                    >
+                      {/* <motion.button
                         whileHover={{ y: -2 }}
                         whileTap={{ scale: 0.98 }}
-                        transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 350,
+                          damping: 22,
+                        }}
                         className="flex w-full md:w-fit items-center justify-center gap-2 rounded-[10px] bg-transparent md:px-6 py-3 text-lg sm:text-xl text-white font-medium md:font-light tracking-normal hover:cursor-pointer"
                       >
                         Apply for Next Cohort
                         <ArrowRight size={18} />
+                      </motion.button> */}
+
+                      <motion.button
+                        whileHover={{ y: -2 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 350,
+                          damping: 22,
+                        }}
+                        className="relative flex w-full md:w-fit items-center justify-center gap-2 overflow-hidden rounded-[14px] border-0 bg-transparent px-4 md:px-6 py-3 text-lg sm:text-xl text-white font-medium md:font-light tracking-normal outline-none ring-0 hover:cursor-pointer focus:outline-none focus:ring-0"
+                      >
+                        <svg
+                          width="100%"
+                          height="100%"
+                          viewBox="0 0 248 64"
+                          fill="none"
+                          className="pointer-events-none absolute inset-0 z-0"
+                          preserveAspectRatio="none"
+                        >
+                          <defs>
+                            <filter
+                              id="softGlowWhite"
+                              x="-40%"
+                              y="-40%"
+                              width="180%"
+                              height="180%"
+                            >
+                              <feGaussianBlur
+                                stdDeviation="1.8"
+                                result="blur"
+                              />
+                              <feMerge>
+                                <feMergeNode in="blur" />
+                                <feMergeNode in="SourceGraphic" />
+                              </feMerge>
+                            </filter>
+                          </defs>
+
+                          <motion.rect
+                            x="1"
+                            y="1"
+                            width="245"
+                            height="61"
+                            rx="12.5"
+                            stroke="#fff"
+                            strokeWidth="2.3"
+                            strokeDasharray="40 560"
+                            animate={{ strokeDashoffset: [120, -480] }}
+                            transition={{
+                              duration: 2.35,
+                              ease: "linear",
+                              repeat: Infinity,
+                            }}
+                            opacity="0.85"
+                          />
+
+                          <motion.rect
+                            x="1"
+                            y="1"
+                            width="245"
+                            height="61"
+                            rx="12.5"
+                            stroke="#fff"
+                            strokeWidth="2"
+                            strokeDasharray="5 595"
+                            animate={{ strokeDashoffset: [115, -485] }}
+                            transition={{
+                              duration: 2.35,
+                              ease: "linear",
+                              repeat: Infinity,
+                            }}
+                            opacity="0.75"
+                            filter="url(#softGlowWhite)"
+                          />
+
+                          <motion.rect
+                            x="1"
+                            y="1"
+                            width="245"
+                            height="61"
+                            rx="12.5"
+                            stroke="#fff"
+                            strokeWidth="1.7"
+                            strokeDasharray="5 595"
+                            animate={{ strokeDashoffset: [110, -490] }}
+                            transition={{
+                              duration: 2.35,
+                              ease: "linear",
+                              repeat: Infinity,
+                            }}
+                            opacity="0.65"
+                          />
+
+                          <motion.rect
+                            x="1"
+                            y="1"
+                            width="245"
+                            height="61"
+                            rx="12.5"
+                            stroke="#fff"
+                            strokeWidth="1.5"
+                            strokeDasharray="5 595"
+                            animate={{ strokeDashoffset: [105, -495] }}
+                            transition={{
+                              duration: 2.35,
+                              ease: "linear",
+                              repeat: Infinity,
+                            }}
+                            opacity="0.58"
+                            filter="url(#softGlowWhite)"
+                          />
+
+                          <motion.rect
+                            x="1"
+                            y="1"
+                            width="245"
+                            height="61"
+                            rx="12.5"
+                            stroke="#fff"
+                            strokeWidth="1.4"
+                            strokeDasharray="5 595"
+                            animate={{ strokeDashoffset: [100, -500] }}
+                            transition={{
+                              duration: 2.35,
+                              ease: "linear",
+                              repeat: Infinity,
+                            }}
+                            opacity="0.5"
+                          />
+                        </svg>
+
+                        <span className="relative z-10 flex items-center gap-2">
+                          <span className="font-medium">Apply for Next Cohort</span>
+                          <ArrowRight size={18} />
+                        </span>
                       </motion.button>
                     </div>
                   </div>
@@ -232,8 +415,16 @@ export default function InterviewCallHero() {
                       key={logo.name}
                       initial={{ opacity: 0, y: 10 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: false, amount: 0.2, margin: "0px 0px -10% 0px" }}
-                      transition={{ delay: idx * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                      viewport={{
+                        once: false,
+                        amount: 0.2,
+                        margin: "0px 0px -10% 0px",
+                      }}
+                      transition={{
+                        delay: idx * 0.08,
+                        duration: 0.6,
+                        ease: [0.16, 1, 0.3, 1],
+                      }}
                       whileHover={{ y: -2, scale: 1.03 }}
                       whileTap={{ scale: 0.98 }}
                       className="cursor-pointer select-none"
