@@ -131,12 +131,12 @@ export default function Roadmap() {
 
     return (
         <div className="flex w-full flex-col items-center px-3">
-            <div className="text-center w-full text-4xl md:text-7xl mb-2">
+            <div className="text-center w-full text-4xl md:text-7xl mb-2 md:mb-16">
                 How It Looks
             </div>
             <div className="w-full grid md:grid-cols-[6fr_4fr_6fr] md:h-188 relative ">
-                <div className="absolute top-0 w-full h-20 bg-linear-to-b from-[#0a0e16] to-transparent "></div>
-                <div className="absolute bottom-0 w-full h-20 bg-linear-to-t from-[#060914] to-transparent "></div>
+                <div className="absolute hidden md:block top-0 w-full h-20 bg-linear-to-b from-[#0a0e16] to-transparent "></div>
+                <div className="absolute hidden md:block bottom-0 w-full h-20 bg-linear-to-t from-[#060914] to-transparent "></div>
 
                 {/* Left col */}
                 <div
@@ -161,7 +161,7 @@ export default function Roadmap() {
 
                 {/* Centre — draggable ball on vertical track */}
                 <div className="hidden md:flex w-full relative flex-col items-center justify-center ">
-                    <div ref={desktopTrackRef} className="w-px h-full bg-[#0750CD]"></div>
+                    <div ref={desktopTrackRef} className="w-px h-full bg-radial from-[#0750CD] from-0% via-[#0750CD] via-50% to-transparent to-99%"></div>
                     <BallOnTrack
                         position={position}
                         trackRef={desktopTrackRef}
@@ -202,7 +202,7 @@ export default function Roadmap() {
                 </div>
             </div>
 
-            <button className="hover:cursor-pointer my-3 md:my-0 flex items-center gap-x-3 text-2xl bg-linear-to-r from-[#13141B] tracking-wider to-[#070A0E] rounded-2xl md:rounded-full border border-white/20 px-8 md:px-16 py-6">
+            <button className="hover:cursor-pointer my-3 md:my-12 flex items-center gap-x-3 text-2xl bg-linear-to-r from-[#13141B] tracking-wider to-[#070A0E] rounded-2xl md:rounded-full border border-white/20 px-8 md:px-16 py-6">
                 <div>View Full Curriculum</div>
                 <div>
                     <FaAngleRight size={30} />
