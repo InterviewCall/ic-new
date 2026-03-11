@@ -131,7 +131,7 @@ export default function Roadmap() {
 
     return (
         <div className="flex w-full flex-col items-center px-3">
-            <div className="text-center w-full text-4xl md:text-7xl mb-2 md:mb-16">
+            <div className="text-center w-full text-4xl md:text-7xl mb-2 md:mb-36">
                 How It Looks
             </div>
             <div className="w-full grid md:grid-cols-[6fr_4fr_6fr] md:h-188 relative ">
@@ -202,7 +202,7 @@ export default function Roadmap() {
                 </div>
             </div>
 
-            <button className="hover:cursor-pointer my-3 md:my-12 flex items-center gap-x-3 text-2xl bg-linear-to-r from-[#13141B] tracking-wider to-[#070A0E] rounded-2xl md:rounded-full border border-white/20 px-8 md:px-16 py-6">
+            <button className="hover:cursor-pointer my-3 md:mt-32 flex items-center gap-x-3 text-2xl bg-linear-to-r from-[#13141B] tracking-wider to-[#070A0E] rounded-2xl md:rounded-full border border-white/20 px-8 md:px-16 py-6">
                 <div>View Full Curriculum</div>
                 <div>
                     <FaAngleRight size={30} />
@@ -213,7 +213,53 @@ export default function Roadmap() {
 }
 
 
-const BALL_RADIUS = 40; 
+// const BALL_RADIUS = 40; 
+// function BallOnTrack({
+//     position,
+//     trackRef,
+//     onDragStart,
+// }: {
+//     position: number;
+//     trackRef: React.RefObject<HTMLDivElement | null>;
+//     onDragStart: () => void;
+// }) {
+//     const [clampedTop, setClampedTop] = useState<string>("0px");
+
+//     useEffect(() => {
+//         const track = trackRef.current;
+//         if (!track) return;
+
+//         const h = track.getBoundingClientRect().height;
+//         if (h === 0) return;
+
+//         const rawPx = (position / 100) * h;
+//         const clampedPx = Math.max(BALL_RADIUS, Math.min(h - BALL_RADIUS, rawPx));
+
+//         setClampedTop(`${clampedPx}px`);
+//     }, [position, trackRef]);
+
+//     return (
+//         <div
+//             onMouseDown={onDragStart}
+//             style={{ top: clampedTop, transform: "translateY(-50%)" }}
+//             className="absolute h-20 w-20 bg-[radial-gradient(circle_at_center,#013EF2,#0A89FF)] rounded-full shadow-[0_0_60px_40px_rgba(1,62,242,0.7)] cursor-grab active:cursor-grabbing"
+//         />
+//     );
+// }
+
+const BALL_RADIUS = 40;
+
+function interpolateColor(start: string, end: string, factor: number) {
+    const s = start.match(/\w\w/g)?.map((x) => parseInt(x, 16)) || [0, 0, 0];
+    const e = end.match(/\w\w/g)?.map((x) => parseInt(x, 16)) || [0, 0, 0];
+
+    const result = s.map((val, i) =>
+        Math.round(val + factor * (e[i] - val))
+    );
+
+    return `#${result.map((v) => v.toString(16).padStart(2, "0")).join("")}`;
+}
+
 function BallOnTrack({
     position,
     trackRef,
@@ -238,11 +284,38 @@ function BallOnTrack({
         setClampedTop(`${clampedPx}px`);
     }, [position, trackRef]);
 
+    const startInner = "#013EF2";   
+    const startOuter = "#0A89FF"; 
+    
+    const midInner = "#0FA958"; 
+    const midOuter = "#7DFFB2";   
+
+    const endInner = "#E2820B";  
+    const endOuter = "#FDD233";
+
+    let innerColor = "";
+    let outerColor = "";
+
+    if (position <= 50) {
+        const t = position / 50;
+        innerColor = interpolateColor(startInner, midInner, t);
+        outerColor = interpolateColor(startOuter, midOuter, t);
+    } else {
+        const t = (position - 50) / 50;
+        innerColor = interpolateColor(midInner, endInner, t);
+        outerColor = interpolateColor(midOuter, endOuter, t);
+    }
+
     return (
         <div
             onMouseDown={onDragStart}
-            style={{ top: clampedTop, transform: "translateY(-50%)" }}
-            className="absolute h-20 w-20 bg-[radial-gradient(circle_at_center,#013EF2,#0A89FF)] rounded-full shadow-[0_0_60px_40px_rgba(1,62,242,0.7)] cursor-grab active:cursor-grabbing"
+            style={{
+                top: clampedTop,
+                transform: "translateY(-50%)",
+                background: `radial-gradient(circle at center, ${innerColor}, ${outerColor})`,
+                boxShadow: `0 0 60px 40px ${outerColor}66`,
+            }}
+            className="absolute h-20 w-20 rounded-full cursor-grab active:cursor-grabbing"
         />
     );
 }
