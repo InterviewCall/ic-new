@@ -119,7 +119,7 @@ export default function JoinCohortSection() {
                     onClick={() => {
                         dispatch(openBookACallForm());
                     }}
-                    className="relative overflow-hidden w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border border-gray-600/10 hover:cursor-pointer"
+                    className="relative border-white/50 overflow-hidden w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border  hover:cursor-pointer"
                 >
                     {/* Shine animation */}
                     <motion.span
