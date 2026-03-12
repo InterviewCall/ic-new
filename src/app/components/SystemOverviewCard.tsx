@@ -1,7 +1,9 @@
 "use client";
 
+import { openCohortForm } from "@/lib/redux/slices/ShowCohortFormSlice";
 import { X } from "lucide-react";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
 
 export default function SystemOverviewCard({
   isOpen,
@@ -10,10 +12,12 @@ export default function SystemOverviewCard({
   isOpen: boolean;
   onClose: () => void;
 }) {
+  const dispatch = useDispatch();
+
   if (!isOpen) return null;
 
   return (
-    <div className="w-full min-h-full h-full flex flex-col items-center justify- bg-black/40 backdrop-blur-xl py-4 overflow-y-auto">
+    <div className="w-full min-h-full h-full flex flex-col items-center justify-  backdrop-blur-md py-4 overflow-y-auto">
       <div className="w-full md:w-1/2  border border-[#3C4A60] rounded-xl py-6 px-10 bg-[linear-gradient(to_bottom_right,#17213C_0%,#030612_50%)] text-white relative">
 
         {/* Close Button */}
@@ -96,7 +100,7 @@ export default function SystemOverviewCard({
           </div>
 
           <div className="flex justify-center mt-4">
-            <button className="w-64 py-2 text-xl border border-[#5E96D4] rounded-full bg-radial from-[#19459D] to-[#0A1635] transition">
+            <button onClick={()=>{dispatch(openCohortForm()); onClose()}} className="w-64 hover:cursor-pointer py-2 text-xl border border-[#5E96D4] rounded-full bg-radial from-[#19459D] to-[#0A1635] transition">
               Enroll to unlock
             </button>
           </div>

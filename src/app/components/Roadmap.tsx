@@ -1,8 +1,10 @@
 'use client';
 
+import { openCohortForm } from "@/lib/redux/slices/ShowCohortFormSlice";
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react";
 import { FaAngleRight } from "react-icons/fa";
+import { useDispatch } from "react-redux";
 
 const roadmap = {
     left: [
@@ -58,6 +60,8 @@ export default function Roadmap() {
     const desktopTrackRef = useRef<HTMLDivElement>(null);
     const scrollContainerLeftRef = useRef<HTMLDivElement>(null);
     const scrollContainerRightRef = useRef<HTMLDivElement>(null);
+
+    const dispatch = useDispatch();
 
     const getMaxScrollRange = () => {
         const left = scrollContainerLeftRef.current;
@@ -202,7 +206,7 @@ export default function Roadmap() {
                 </div>
             </div>
 
-            <button className="hover:cursor-pointer my-3 md:mt-32 flex items-center gap-x-3 text-2xl bg-linear-to-r from-[#13141B] tracking-wider to-[#070A0E] rounded-2xl md:rounded-full border border-white/20 px-8 md:px-16 py-6">
+            <button onClick={()=>{dispatch(openCohortForm())}} className="hover:cursor-pointer my-3 md:mt-32 flex items-center gap-x-3 text-2xl bg-linear-to-r from-[#13141B] tracking-wider to-[#070A0E] rounded-2xl md:rounded-full border border-white/20 px-8 md:px-16 py-6">
                 <div>View Full Curriculum</div>
                 <div>
                     <FaAngleRight size={30} />

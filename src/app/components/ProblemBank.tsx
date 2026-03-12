@@ -1,10 +1,9 @@
 'use client';
 
 import Image from "next/image";
-import { useState } from "react";
-import CohortStepForm from "./forms/CohortForms";
-import SystemOverviewCard from "./SystemOverviewCard";
-import ModalWrapper from "./ModalWrapper";
+import { useAppDispatch } from "@/lib/redux/hooks";
+import { openCohortForm } from "@/lib/redux/slices/ShowCohortFormSlice";
+import { openSystemBreakdown } from "@/lib/redux/slices/ShowSystemBreakdown";
 
 
 const content = [
@@ -66,12 +65,11 @@ const content = [
 
 
 export default function ProblemBank() {
-    const [showCohortForm, setShowCohortForm] = useState(false);
-    const [showSystemOverview, setShowSystemOverview] = useState(false);
+    const dispatch = useAppDispatch();
     return (
 
         <div className="w-full relative text-white flex flex-col items-center rounded-2xl px-4 md:px-0">
-            <ModalWrapper>
+            {/* <ModalWrapper>
                 {showCohortForm && 
                     <div className="fixed top-0 left-0 z-100 w-full h-full">
                         <CohortStepForm closeForm={() => setShowCohortForm(false)} />
@@ -84,7 +82,7 @@ export default function ProblemBank() {
                         <SystemOverviewCard isOpen={showSystemOverview} onClose={() => setShowSystemOverview(false)} />
                     </div>
                 }
-            </ModalWrapper>
+            </ModalWrapper> */}
 
 
             <div className="absolute top-20 inset-x-0 mx-auto -z-10 h-96 w-96 rounded-full bg-[#011D4A]/60 blur-3xl" />
@@ -161,7 +159,7 @@ export default function ProblemBank() {
                                     className="w-full h-auto opacity-80"
                                 />
                             </div>
-                            <button onClick={() => { setShowSystemOverview(true) }} className="hover:cursor-pointer  w-full md:w-fit text-center md:text-start md:inline-flex mt-6 text-lg md:text-xl items-center gap-2 bg-blue-600 hover:bg-blue-500 transition px-5 py-3 rounded-lg  font-medium">
+                            <button onClick={() => dispatch(openSystemBreakdown())} className="hover:cursor-pointer  w-full md:w-fit text-center md:text-start md:inline-flex mt-6 text-lg md:text-xl items-center gap-2 bg-blue-600 hover:bg-blue-500 transition px-5 py-3 rounded-lg  font-medium">
                                 View system breakdown →
                             </button>
                         </div>
@@ -172,7 +170,7 @@ export default function ProblemBank() {
             {/* Bottom Cards */}
             <div className="w-full mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
                 {content.map((content, idx) => (
-                    <Card key={idx} heading={content.heading} subHeading={content.subHeading} texts={content.text} onClick={() => { setShowSystemOverview(true) }} />
+                    <Card key={idx} heading={content.heading} subHeading={content.subHeading} texts={content.text} onClick={() => dispatch(openSystemBreakdown())} />
                 ))}
             </div>
             <div className="relative w-full flex flex-col items-center">
@@ -184,7 +182,7 @@ export default function ProblemBank() {
                 <div className="text-[22px] md:text-2xl font-light text-[#98C1EF] ">
                     Get access after eligibility call
                 </div>
-                <button onClick={() => { setShowCohortForm(true); }} className="hover:cursor-pointer py-2.5 md:py-3.5  px-4 md:px-6 relative bg-radial from-black to-white/5 w-full text-2xl mt-3 rounded-2xl border border-white/10  overflow-hidden">
+                <button onClick={() => dispatch(openCohortForm())} className="hover:cursor-pointer py-2.5 md:py-3.5  px-4 md:px-6 relative bg-radial from-black to-white/5 w-full text-2xl mt-3 rounded-2xl border border-white/10  overflow-hidden">
                     <div className="absolute bottom-10 inset-0 flex items-center justify-center z-0">
                         <div className="h-8 w-32 rounded-full bg-[#437adf] blur-[30px]" />
                     </div>

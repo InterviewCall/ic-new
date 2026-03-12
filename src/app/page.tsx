@@ -16,6 +16,7 @@ import ProblemBank from "./components/ProblemBank";
 import RoleMatchedMentors from "./components/RoleMatchedMentor";
 import JobSwitchExectionSection from "./components/JobSwitchExecutionSection";
 import Reveal from "./components/Reveal";
+import PopUpWrapper from "./components/PopUpWrapper";
 
 // import dynamic from "next/dynamic";
 
@@ -44,6 +45,7 @@ const sections = [
 export default function Home() {
   return (
     <div className="w-full h-full overflow-x-hidden ">
+
       <InterviewCallHero />
       <HeroMarque />
       <div className="w-full flex flex-col items-center ">
@@ -53,8 +55,9 @@ export default function Home() {
               key={index}
               className={`w-full flex flex-col items-center ${css}`}
             >
-              <div className="w-full md:w-8/10 ">
-              <div id="portal-root" className="relative"></div>
+              <div className="w-full md:w-8/10 relative">
+                <PopUpWrapper />
+
                 <Reveal duration={0.75}>
                   <Component />
                 </Reveal>
