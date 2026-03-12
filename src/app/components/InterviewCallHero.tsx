@@ -122,13 +122,13 @@ export default function InterviewCallHero() {
             className="pointer-events-none absolute top-0 left-0 z-1 h-full w-[14%]"
             style={{
               background:
-                "linear-gradient(102deg, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0.45) 50%, hsla(0,0%,100%,0) 100%)",
+                "linear-gradient(102deg, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0.28) 50%, hsla(0,0%,100%,0) 100%)",
               transform: "translateX(-240%) rotate(20deg)",
               transformOrigin: "center",
             }}
             animate={{ x: ["0%", "760%"] }}
             transition={{
-              duration: 1.05,
+              duration: 1.4,
               ease: "linear",
               repeat: Infinity,
               repeatDelay: 0,
