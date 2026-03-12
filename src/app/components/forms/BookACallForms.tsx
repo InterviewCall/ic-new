@@ -88,7 +88,7 @@ const handleSetWorkProfile = (data: Partial<WorkProfileFormData>) => {
   };
 
   return (
-    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-md bg-black/50 justify-center">
+    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-md justify-center">
       {currentStep === 1 && (
         <BookACallBasicDetailsForm
           setCurrentStep={handleSetStep}
@@ -246,7 +246,7 @@ function BookACallWorkProfileForm({
               <button
                 type="button"
                 onClick={handleBack}
-                className="w-1/3 py-3 rounded-lg border border-[#104680] text-[#C0CADF] text-lg hover:bg-white/5 transition-colors hover:cursor-pointer"
+                className="w-1/3 py-3 rounded-lg border border-white/10 hover:border-[#104680]/60 text-[#C0CADF] text-lg hover:bg-white/5 transition-colors hover:cursor-pointer"
               >
                 Back
               </button>

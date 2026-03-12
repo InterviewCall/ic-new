@@ -1,9 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import exampleReducer from "./slices/exampleSlice";
+import showCohortFormReducer from "./slices/ShowCohortFormSlice";
+import showBookACallFormReducer from "./slices/ShowBookACallFormSlice";
+import showSystemBreakdownReducer from "./slices/ShowSystemBreakdown";
 
 export const store = configureStore({
   reducer: {
-    example: exampleReducer,
+    showCohortForm: showCohortFormReducer,
+    showBookACallForm: showBookACallFormReducer,
+    showSystemBreakdown: showSystemBreakdownReducer,
   },
 });
 

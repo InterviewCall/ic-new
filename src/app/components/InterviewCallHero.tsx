@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Reveal from "./Reveal";
 import { motion } from "framer-motion";
-import CohortStepForm from "./forms/CohortForms";
-import BookACallStepForm from "./forms/BookACallForms";
-import ModalWrapper from "./ModalWrapper";
+import { openBookACallForm } from "@/lib/redux/slices/ShowBookACallFormSlice";
+import { openCohortForm } from "@/lib/redux/slices/ShowCohortFormSlice";
+import { useDispatch } from "react-redux";
+// import CohortStepForm from "./forms/CohortForms";
+// import BookACallStepForm from "./forms/BookACallForms";
+// import ModalWrapper from "./ModalWrapper";
 
 const logos = [
   { name: "Google", src: "/heroCompany/google.svg" },
@@ -16,8 +18,11 @@ const logos = [
 ];
 
 export default function InterviewCallHero() {
-  const [showCohortForm, setShowCohortForm] = useState(false);
-  const [showBookACallForm, setShowBookACallForm] = useState(false);
+
+  const dispatch = useDispatch();
+
+  // const [showCohortForm, setShowCohortForm] = useState(false);
+  // const [showBookACallForm, setShowBookACallForm] = useState(false);
 
   // useEffect(()=>{
   //   hidePopup();
@@ -26,7 +31,7 @@ export default function InterviewCallHero() {
   return (
     <div className="relative min-h-200 w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top  items-center justify-center ">
       {/* {isFormOpen && <CohortStepForm closeForm={()=> setIsFormOpen(false)} />} */}
-      <ModalWrapper>
+      {/* <ModalWrapper>
         {showCohortForm && (
           <div className="fixed top-0 left-0 z-100 w-full h-full">
             <CohortStepForm closeForm={() => setShowCohortForm(false)} />
@@ -37,7 +42,7 @@ export default function InterviewCallHero() {
             <BookACallStepForm closeForm={() => setShowBookACallForm(false)} />
           </div>
         )}
-      </ModalWrapper>
+      </ModalWrapper> */}
 
       <div className="flex items-center justify-between px-4 md:px-14 py-8 pb-3 md:pb-6 md:py-8">
         <div className="flex items-center gap-2 text-white font-semibold text-lg">
@@ -109,7 +114,7 @@ export default function InterviewCallHero() {
           whileTap={{ scale: 0.98 }}
           transition={{ type: "spring", stiffness: 350, damping: 22 }}
           onClick={() => {
-            setShowBookACallForm(true);
+            dispatch(openBookACallForm());
           }}
           className="relative overflow-hidden rounded-xl bg-[#183678] px-4 md:px-7 py-2 md:py-3 text-sm md:text-xl text-white font-medium md:font-light hover:cursor-pointer"
         >
@@ -231,7 +236,7 @@ export default function InterviewCallHero() {
                     {/* Inner fill covers center so only border ring is visible */}
                     <div
                       onClick={() => {
-                        setShowCohortForm(true);
+                        dispatch(openCohortForm());
                       }}
                       className="relative rounded-[10px] bg-[radial-gradient(circle,#0F4BC1,#2461C5)]"
                     >
