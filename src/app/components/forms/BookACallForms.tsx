@@ -4,6 +4,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import InputFieldTyped from "../InputFieldTyped";
 import InputFieldDropdown from "../InputFieldDropdown";
 import { useState } from "react";
+import { motion } from "framer-motion";
+
 import { TARGET_ROLE_OPTIONS, WORK_STATUS_OPTIONS, YEARS_OF_EXPERIENCE_OPTIONS } from "@/app/utils/content";
 import { BasicDetailsFormData, basicDetailsSchema, CohortFormData, WorkProfileFormData, workProfileSchema } from "@/validation/CohortFormValidators";
 import { X } from "lucide-react";
@@ -38,7 +40,7 @@ function clearStorage() {
     localStorage.removeItem(LS_STEP_KEY);
     localStorage.removeItem(LS_BASIC_KEY);
     localStorage.removeItem(LS_WORK_KEY);
-  } catch {}
+  } catch { }
 }
 
 export default function BookACallStepForm({ closeForm }: { closeForm: () => void }) {
@@ -47,28 +49,28 @@ export default function BookACallStepForm({ closeForm }: { closeForm: () => void
   const [workProfileData, setWorkProfileData] = useState<Partial<WorkProfileFormData>>(() => getStoredWorkProfile());
 
   const handleSetStep = (step: number) => {
-  try {
-    localStorage.setItem(LS_STEP_KEY, String(step));
-  } catch {}
+    try {
+      localStorage.setItem(LS_STEP_KEY, String(step));
+    } catch { }
 
-  setCurrentStep(step);
-};
+    setCurrentStep(step);
+  };
 
-const handleSetBasicDetails = (data: BasicDetailsFormData | null) => {
-  try {
-    localStorage.setItem(LS_BASIC_KEY, JSON.stringify(data));
-  } catch {}
+  const handleSetBasicDetails = (data: BasicDetailsFormData | null) => {
+    try {
+      localStorage.setItem(LS_BASIC_KEY, JSON.stringify(data));
+    } catch { }
 
-  setBasicDetailsData(data);
-};
+    setBasicDetailsData(data);
+  };
 
-const handleSetWorkProfile = (data: Partial<WorkProfileFormData>) => {
-  try {
-    localStorage.setItem(LS_WORK_KEY, JSON.stringify(data));
-  } catch {}
+  const handleSetWorkProfile = (data: Partial<WorkProfileFormData>) => {
+    try {
+      localStorage.setItem(LS_WORK_KEY, JSON.stringify(data));
+    } catch { }
 
-  setWorkProfileData(data);
-};
+    setWorkProfileData(data);
+  };
 
   const handleClose = (currentFormData?: BasicDetailsFormData | WorkProfileFormData) => {
     if (currentStep === 1 && currentFormData) {
@@ -118,13 +120,13 @@ function BookACallBasicDetailsForm({
   setCurrentStep: (step: number) => void;
   setBasicDetailsData: (data: BasicDetailsFormData | null) => void;
   closeForm: (data?: BasicDetailsFormData) => void;
-})  {
+}) {
   const methods = useForm<BasicDetailsFormData>({
     resolver: zodResolver(basicDetailsSchema),
     defaultValues: getStoredBasicDetails() ?? undefined,
   });
 
-  const { handleSubmit, formState: { isSubmitting }, getValues } = methods;
+  const { handleSubmit, formState: {  }, getValues } = methods;
 
   const onSubmit = (data: BasicDetailsFormData) => {
     setBasicDetailsData(data);
@@ -150,13 +152,148 @@ function BookACallBasicDetailsForm({
             <InputFieldTyped name="email" type="email" placeholder="Email" />
             <InputFieldTyped name="phone" type="tel" placeholder="Phone" />
 
-            <button
+            {/* <button
               type="submit"
               disabled={isSubmitting}
               className="w-full py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white hover:cursor-pointer"
             >
               Continue
-            </button>
+            </button> */}
+
+            <motion.button
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{
+                type: "spring",
+                stiffness: 350,
+                damping: 22,
+              }}
+              className="relative flex w-full bg-radial py-3 from-[#0A45B8] to-[#052E8A]  hover:cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-[14px] border-0 bg-transparent text-lg text-white tracking-wide outline-none ring-0  focus:outline-none focus:ring-0"
+            >
+              <svg
+                width="100%"
+                height="100%"
+                viewBox="0 0 248 64"
+                fill="none"
+                className="pointer-events-none absolute inset-0 z-0"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <filter
+                    id="softGlowWhite"
+                    x="-40%"
+                    y="-40%"
+                    width="180%"
+                    height="180%"
+                  >
+                    <feGaussianBlur
+                      stdDeviation="1.8"
+                      result="blur"
+                    />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+
+                <motion.rect
+                  x="1"
+                  y="1"
+                  width="245"
+                  height="61"
+                  rx="12.5"
+                  stroke="#fff"
+                  strokeWidth="2.3"
+                  strokeDasharray="40 560"
+                  animate={{ strokeDashoffset: [120, -480] }}
+                  transition={{
+                    duration: 2.35,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
+                  opacity="0.85"
+                />
+
+                <motion.rect
+                  x="1"
+                  y="1"
+                  width="245"
+                  height="61"
+                  rx="12.5"
+                  stroke="#fff"
+                  strokeWidth="2"
+                  strokeDasharray="5 595"
+                  animate={{ strokeDashoffset: [115, -485] }}
+                  transition={{
+                    duration: 2.35,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
+                  opacity="0.75"
+                  filter="url(#softGlowWhite)"
+                />
+
+                <motion.rect
+                  x="1"
+                  y="1"
+                  width="245"
+                  height="61"
+                  rx="12.5"
+                  stroke="#fff"
+                  strokeWidth="1.7"
+                  strokeDasharray="5 595"
+                  animate={{ strokeDashoffset: [110, -490] }}
+                  transition={{
+                    duration: 2.35,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
+                  opacity="0.65"
+                />
+
+                <motion.rect
+                  x="1"
+                  y="1"
+                  width="245"
+                  height="61"
+                  rx="12.5"
+                  stroke="#fff"
+                  strokeWidth="1.5"
+                  strokeDasharray="5 595"
+                  animate={{ strokeDashoffset: [105, -495] }}
+                  transition={{
+                    duration: 2.35,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
+                  opacity="0.58"
+                  filter="url(#softGlowWhite)"
+                />
+
+                <motion.rect
+                  x="1"
+                  y="1"
+                  width="245"
+                  height="61"
+                  rx="12.5"
+                  stroke="#fff"
+                  strokeWidth="1.4"
+                  strokeDasharray="5 595"
+                  animate={{ strokeDashoffset: [100, -500] }}
+                  transition={{
+                    duration: 2.35,
+                    ease: "linear",
+                    repeat: Infinity,
+                  }}
+                  opacity="0.5"
+                />
+              </svg>
+
+              <span className="relative z-10 flex items-center w-full h-full gap-2 ">
+                <span className="text-medium w-full">Conitnue</span>
+              </span>
+            </motion.button>
 
             <div className="text-xs font-extralight tracking-wider">
               We never share your details with third parties.
@@ -192,7 +329,7 @@ function BookACallWorkProfileForm({
     },
   });
 
-  const { handleSubmit, getValues, formState: { isSubmitting } } = methods;
+  const { handleSubmit, getValues, formState: {  } } = methods;
 
   const handleBack = () => {
     setWorkProfileData(getValues());
@@ -246,18 +383,152 @@ function BookACallWorkProfileForm({
               <button
                 type="button"
                 onClick={handleBack}
-                className="w-1/3 py-3 rounded-lg border border-white/10 hover:border-[#104680]/60 text-[#C0CADF] text-lg hover:bg-white/5 transition-colors hover:cursor-pointer"
+                className="w-1/3 py-3 rounded-lg border border-white/50 hover:border-[#104680]/60 text-[#C0CADF] text-lg hover:bg-white/5 transition-colors hover:cursor-pointer"
               >
                 Back
               </button>
 
-              <button
+              {/* <button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-2/3 py-3  rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white hover:cursor-pointer"
               >
                 Submit
-              </button>
+              </button> */}
+              <motion.button
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 350,
+                  damping: 22,
+                }}
+                className="relative flex w-full bg-radial from-[#0A45B8] to-[#052E8A]  hover:cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-[14px] border-0 bg-transparent text-lg text-white tracking-wide outline-none ring-0  focus:outline-none focus:ring-0"
+              >
+                <svg
+                  width="100%"
+                  height="100%"
+                  viewBox="0 0 248 64"
+                  fill="none"
+                  className="pointer-events-none absolute inset-0 z-0"
+                  preserveAspectRatio="none"
+                >
+                  <defs>
+                    <filter
+                      id="softGlowWhite"
+                      x="-40%"
+                      y="-40%"
+                      width="180%"
+                      height="180%"
+                    >
+                      <feGaussianBlur
+                        stdDeviation="1.8"
+                        result="blur"
+                      />
+                      <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                      </feMerge>
+                    </filter>
+                  </defs>
+
+                  <motion.rect
+                    x="1"
+                    y="1"
+                    width="245"
+                    height="61"
+                    rx="12.5"
+                    stroke="#fff"
+                    strokeWidth="2.3"
+                    strokeDasharray="40 560"
+                    animate={{ strokeDashoffset: [120, -480] }}
+                    transition={{
+                      duration: 2.35,
+                      ease: "linear",
+                      repeat: Infinity,
+                    }}
+                    opacity="0.85"
+                  />
+
+                  <motion.rect
+                    x="1"
+                    y="1"
+                    width="245"
+                    height="61"
+                    rx="12.5"
+                    stroke="#fff"
+                    strokeWidth="2"
+                    strokeDasharray="5 595"
+                    animate={{ strokeDashoffset: [115, -485] }}
+                    transition={{
+                      duration: 2.35,
+                      ease: "linear",
+                      repeat: Infinity,
+                    }}
+                    opacity="0.75"
+                    filter="url(#softGlowWhite)"
+                  />
+
+                  <motion.rect
+                    x="1"
+                    y="1"
+                    width="245"
+                    height="61"
+                    rx="12.5"
+                    stroke="#fff"
+                    strokeWidth="1.7"
+                    strokeDasharray="5 595"
+                    animate={{ strokeDashoffset: [110, -490] }}
+                    transition={{
+                      duration: 2.35,
+                      ease: "linear",
+                      repeat: Infinity,
+                    }}
+                    opacity="0.65"
+                  />
+
+                  <motion.rect
+                    x="1"
+                    y="1"
+                    width="245"
+                    height="61"
+                    rx="12.5"
+                    stroke="#fff"
+                    strokeWidth="1.5"
+                    strokeDasharray="5 595"
+                    animate={{ strokeDashoffset: [105, -495] }}
+                    transition={{
+                      duration: 2.35,
+                      ease: "linear",
+                      repeat: Infinity,
+                    }}
+                    opacity="0.58"
+                    filter="url(#softGlowWhite)"
+                  />
+
+                  <motion.rect
+                    x="1"
+                    y="1"
+                    width="245"
+                    height="61"
+                    rx="12.5"
+                    stroke="#fff"
+                    strokeWidth="1.4"
+                    strokeDasharray="5 595"
+                    animate={{ strokeDashoffset: [100, -500] }}
+                    transition={{
+                      duration: 2.35,
+                      ease: "linear",
+                      repeat: Infinity,
+                    }}
+                    opacity="0.5"
+                  />
+                </svg>
+
+                <span className="relative z-10 flex items-center w-full h-full gap-2 ">
+                  <span className="text-medium w-full">Submit</span>
+                </span>
+              </motion.button>
             </div>
 
             <div className="text-xs font-extralight tracking-wider pb-6">
