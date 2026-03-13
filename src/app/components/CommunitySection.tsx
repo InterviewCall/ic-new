@@ -9,7 +9,7 @@ export default function CommunitySection() {
                 Community & Belonging
             </h2>
 
-            <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 lg:grid-cols-[auto_1fr]">
                 {/* Left column */}
                 <div className="grid gap-6">
                     <LiveStudentsCard />

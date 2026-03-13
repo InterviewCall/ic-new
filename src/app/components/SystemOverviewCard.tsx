@@ -100,7 +100,7 @@ export default function SystemOverviewCard({
           </div>
 
           <div className="flex justify-center mt-4">
-            <button onClick={()=>{dispatch(openCohortForm()); onClose()}} className="w-64 hover:cursor-pointer py-2 text-xl border border-[#5E96D4] rounded-full bg-radial from-[#19459D] to-[#0A1635] transition">
+            <button onClick={()=>{dispatch(openCohortForm());}} className="w-64 hover:cursor-pointer py-2 text-xl border border-[#5E96D4] rounded-full bg-radial from-[#19459D] to-[#0A1635] transition">
               Enroll to unlock
             </button>
           </div>

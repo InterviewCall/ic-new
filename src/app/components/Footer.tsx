@@ -19,7 +19,7 @@ export default function Footer() {
                             Stay updated on openings,<br />
                             wins & early access
                         </div>
-                        <button className="rounded-2xl mt-4 md:mt-0 w-36 h-12 text-xl bg-blue-500">Subscribe</button>
+                        <button disabled className="rounded-2xl mt-4 md:mt-0 w-36 h-12 text-xl bg-blue-500 hover:cursor-not-allowed ">Subscribe</button>
                     </div>
                     <div className="px-2 text-xl text-white/60 leading-snug my-2">
                         <div>

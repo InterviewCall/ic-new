@@ -28,7 +28,7 @@ export default function PopUpWrapper() {
             {
                 systemBreakdownIsOpen && (
 
-                    <div className="fixed bg-black/5 top-0 left-0 z-100 w-full min-h-full h-full overflow-y-auto hide-scroll   ">
+                    <div className="fixed bg-black/5 top-0 left-0 z-50 w-full min-h-full h-full overflow-y-auto hide-scroll   ">
                         <SystemOverviewCard isOpen={systemBreakdownIsOpen} onClose={handleCloseSystemBreakdown} />
                     </div>
                 )
@@ -36,7 +36,7 @@ export default function PopUpWrapper() {
 
             {
                 cohortFormIsOpen && (
-                    <div className="fixed bg-black/5 w-full h-full top-0 left-0">
+                    <div className="fixed z-100 bg-black/5 w-full h-full top-0 left-0">
                         <CohortStepForm closeForm={handleCloseCohortForm} />
                     </div>
                 )
