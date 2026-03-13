@@ -15,41 +15,29 @@ export default function PopUpWrapper() {
     const bookACallFormIsOpen = useAppSelector((state) => state.showBookACallForm.isOpen);
     const systemBreakdownIsOpen = useAppSelector((state) => state.showSystemBreakdown.isOpen);
 
-
     const handleCloseCohortForm = () => dispatch(closeCohortForm());
     const handleCloseBookACallForm = () => dispatch(closeBookACallForm());
     const handleCloseSystemBreakdown = () => dispatch(closeSystemBreakdown());
 
-
-
-
     return (
-        <div className="relative z-100 w-full h-full bg-transparent">
-            {
-                systemBreakdownIsOpen && (
+        <>
+            {systemBreakdownIsOpen ? (
+                <div className="fixed bg-black/5 top-0 left-0 z-[50] w-full min-h-full h-screen sm:h-full overflow-y-auto hide-scroll">
+                    <SystemOverviewCard isOpen={systemBreakdownIsOpen} onClose={handleCloseSystemBreakdown} />
+                </div>
+            ): null }
 
-                    <div className="fixed bg-black/5 top-0 left-0 z-50 w-full min-h-full h-full overflow-y-auto hide-scroll   ">
-                        <SystemOverviewCard isOpen={systemBreakdownIsOpen} onClose={handleCloseSystemBreakdown} />
-                    </div>
-                )
-            }
+            {cohortFormIsOpen ? (
+                <div className="fixed bg-black/5 w-full h-screen sm:h-full top-0 left-0 z-[60]">
+                    <CohortStepForm closeForm={handleCloseCohortForm} />
+                </div>
+            ): null}
 
-            {
-                cohortFormIsOpen && (
-                    <div className="fixed z-100 bg-black/5 w-full h-full top-0 left-0">
-                        <CohortStepForm closeForm={handleCloseCohortForm} />
-                    </div>
-                )
-            }
-
-            {
-                bookACallFormIsOpen && (
-                    <div className="fixed bg-black/5 top-0 left-0 z-100 w-full h-full">
-                        <BookACallStepForm closeForm={handleCloseBookACallForm} />
-                    </div>
-                )
-            }
-        </div>
-
-    )
+            {bookACallFormIsOpen ? (
+                <div className="fixed bg-black/5 top-0 left-0 z-[70] w-full h-screen sm:h-full">
+                    <BookACallStepForm closeForm={handleCloseBookACallForm} />
+                </div>
+            ): null}
+        </>
+    );
 }

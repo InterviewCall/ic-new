@@ -1,22 +1,23 @@
 
-import InterviewCallHero from "./components/InterviewCallHero";
-import JourneyComparison from "./components/JourneyComparison";
-import HeroMarque from "./components/HeroMarque";
-import StatsTrustSection from "./components/StatsTrustSection";
-import Roadmap from "./components/Roadmap";
-import MeetYourInstructors from "./components/MeetYourInstructors";
-import StudentSuccessStories from "./components/StudentSuccessStories";
-import TrainingModules from "./components/TrainingModules";
-import CohortSection from "./components/CohortSection";
-import CommunitySection from "./components/CommunitySection";
-import InterviewCallSystem from "./components/InterviewCallSystem";
-import JoinCohortSection from "./components/JoinCohortSection";
-import Footer from "./components/Footer";
-import ProblemBank from "./components/ProblemBank";
-import RoleMatchedMentors from "./components/RoleMatchedMentor";
-import JobSwitchExectionSection from "./components/JobSwitchExecutionSection";
-import Reveal from "./components/Reveal";
-import PopUpWrapper from "./components/PopUpWrapper";
+import InterviewCallHero from "../components/InterviewCallHero";
+import JourneyComparison from "../components/JourneyComparison";
+import HeroMarque from "../components/HeroMarque";
+import StatsTrustSection from "../components/StatsTrustSection";
+import Roadmap from "../components/Roadmap";
+import MeetYourInstructors from "../components/MeetYourInstructors";
+import StudentSuccessStories from "../components/StudentSuccessStories";
+import TrainingModules from "../components/TrainingModules";
+import CohortSection from "../components/CohortSection";
+import CommunitySection from "../components/CommunitySection";
+import InterviewCallSystem from "../components/InterviewCallSystem";
+import JoinCohortSection from "../components/JoinCohortSection";
+import Footer from "../components/Footer";
+import ProblemBank from "../components/ProblemBank";
+import RoleMatchedMentors from "../components/RoleMatchedMentor";
+import JobSwitchExectionSection from "../components/JobSwitchExecutionSection";
+import Reveal from "../components/Reveal";
+import PopUpWrapper from "../components/PopUpWrapper";
+// import { useMotionAnimationSync } from "./components/AnimationMotionSync";
 
 // import dynamic from "next/dynamic";
 
@@ -44,7 +45,7 @@ const sections = [
 
 export default function Home() {
   return (
-    <div className="w-full h-full overflow-x-hidden ">
+    <div  className="w-full h-full overflow-x-hidden ">
 
       <InterviewCallHero />
       <HeroMarque />

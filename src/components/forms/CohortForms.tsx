@@ -4,11 +4,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import InputFieldTyped from "../InputFieldTyped";
 import InputFieldDropdown from "../InputFieldDropdown";
 import { useState } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
-import { TARGET_ROLE_OPTIONS, WORK_STATUS_OPTIONS, YEARS_OF_EXPERIENCE_OPTIONS } from "@/app/utils/content";
+import { TARGET_ROLE_OPTIONS, WORK_STATUS_OPTIONS, YEARS_OF_EXPERIENCE_OPTIONS } from "@/utils/content";
 import { BasicDetailsFormData, basicDetailsSchema, CohortFormData, WorkProfileFormData, workProfileSchema } from "@/validation/CohortFormValidators";
 import { X } from "lucide-react";
+// import InfinityBorderButton from "../InfinityBorderButtton";
 
 const LS_STEP_KEY = "cohort_step";
 const LS_BASIC_KEY = "cohort_basic_details";
@@ -90,24 +91,25 @@ export default function CohortStepForm({ closeForm }: { closeForm: () => void })
   };
 
   return (
-    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-md bg- justify-center">
-      {currentStep === 1 && (
+    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-x bg-black/10 justify-center">
+      {currentStep === 1 ? (
         <CohortBasicDetailsForm
           setCurrentStep={handleSetStep}
           setBasicDetailsData={handleSetBasicDetails}
           closeForm={handleClose}
+          handleSetStep={handleSetStep}
         />
-      )}
-      {currentStep === 2 && (
+      ) : null}
+      {currentStep === 2 ? (
         <CohortWorkProfileForm
           basicDetailsData={basicDetailsData!}
           workProfileData={workProfileData}
           setWorkProfileData={handleSetWorkProfile}
-          setCurrentStep={handleSetStep}
+          setCurrentStep={(val: number)=>{setCurrentStep(val); handleSetStep(val);}}
           closeForm={handleClose}
           onFinalSubmit={handleFinalSubmit}
         />
-      )}
+      ) : null}
     </div>
   );
 }
@@ -116,10 +118,12 @@ function CohortBasicDetailsForm({
   setCurrentStep,
   setBasicDetailsData,
   closeForm,
+  handleSetStep,
 }: {
   setCurrentStep: (step: number) => void;
   setBasicDetailsData: (data: BasicDetailsFormData | null) => void;
   closeForm: (data?: BasicDetailsFormData) => void;
+  handleSetStep: (step: number) => void;
 }) {
   const methods = useForm<BasicDetailsFormData>({
     resolver: zodResolver(basicDetailsSchema),
@@ -152,15 +156,15 @@ function CohortBasicDetailsForm({
             <InputFieldTyped name="email" type="email" placeholder="Email" />
             <InputFieldTyped name="phone" type="tel" placeholder="Phone" />
 
-            {/* <button
+            <button
+              onClick={() => {handleSetStep(2); }}
               type="submit"
-              disabled={isSubmitting}
               className="w-full py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white hover:cursor-pointer"
             >
               Continue
-            </button> */}
+            </button>
 
-            <motion.button
+            {/* <motion.button
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{
@@ -293,7 +297,14 @@ function CohortBasicDetailsForm({
               <span className="relative z-10 flex items-center w-full h-full gap-2 ">
                 <span className="text-medium w-full">Conitnue</span>
               </span>
-            </motion.button>
+            </motion.button> */}
+
+            {/* <div className="w-full rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white hover:cursor-pointer">
+              <InfinityBorderButton>
+                Continue
+              </InfinityBorderButton>
+            </div> */}
+
 
             <div className="text-xs font-extralight tracking-wider">
               We never share your details with third parties.
@@ -334,6 +345,7 @@ function CohortWorkProfileForm({
   const handleBack = () => {
     setWorkProfileData(getValues());
     setCurrentStep(1);
+    
   };
 
   const onSubmit = async (data: WorkProfileFormData) => {
@@ -388,14 +400,13 @@ function CohortWorkProfileForm({
                 Back
               </button>
 
-              {/* <button
+              <button
                 type="submit"
-                disabled={isSubmitting}
                 className="hover:cursor-pointer w-2/3 py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white"
               >
                 Submit
-              </button> */}
-              <motion.button
+              </button>
+              {/* <motion.button
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{
@@ -528,7 +539,7 @@ function CohortWorkProfileForm({
                 <span className="relative z-10 flex items-center w-full h-full gap-2 ">
                   <span className="text-medium w-full">Submit</span>
                 </span>
-              </motion.button>
+              </motion.button> */}
             </div>
 
             <div className="text-xs font-extralight tracking-wider pb-6">
