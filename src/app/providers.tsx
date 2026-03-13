@@ -1,7 +1,7 @@
 "use client";
 
 import ReduxProvider from "@/lib/redux/provider";
-import { UseMotionAnimationSync } from "./components/AnimationMotionSync";
+import { UseMotionAnimationSync } from "../components/AnimationMotionSync";
 
 
 export default function Providers({

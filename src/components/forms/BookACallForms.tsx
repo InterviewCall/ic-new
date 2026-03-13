@@ -6,7 +6,7 @@ import InputFieldDropdown from "../InputFieldDropdown";
 import { useState } from "react";
 // import { motion } from "framer-motion";
 
-import { TARGET_ROLE_OPTIONS, WORK_STATUS_OPTIONS, YEARS_OF_EXPERIENCE_OPTIONS } from "@/app/utils/content";
+import { TARGET_ROLE_OPTIONS, WORK_STATUS_OPTIONS, YEARS_OF_EXPERIENCE_OPTIONS } from "@/utils/content";
 import { BasicDetailsFormData, basicDetailsSchema, CohortFormData, WorkProfileFormData, workProfileSchema } from "@/validation/CohortFormValidators";
 import { X } from "lucide-react";
 
