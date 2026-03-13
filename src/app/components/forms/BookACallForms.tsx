@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import InputFieldTyped from "../InputFieldTyped";
 import InputFieldDropdown from "../InputFieldDropdown";
 import { useState } from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 import { TARGET_ROLE_OPTIONS, WORK_STATUS_OPTIONS, YEARS_OF_EXPERIENCE_OPTIONS } from "@/app/utils/content";
 import { BasicDetailsFormData, basicDetailsSchema, CohortFormData, WorkProfileFormData, workProfileSchema } from "@/validation/CohortFormValidators";
@@ -90,7 +90,7 @@ export default function BookACallStepForm({ closeForm }: { closeForm: () => void
   };
 
   return (
-    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-md justify-center">
+    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-x bg-black/10 justify-center">
       {currentStep === 1 && (
         <BookACallBasicDetailsForm
           setCurrentStep={handleSetStep}
@@ -152,15 +152,14 @@ function BookACallBasicDetailsForm({
             <InputFieldTyped name="email" type="email" placeholder="Email" />
             <InputFieldTyped name="phone" type="tel" placeholder="Phone" />
 
-            {/* <button
+            <button
               type="submit"
-              disabled={isSubmitting}
               className="w-full py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white hover:cursor-pointer"
             >
               Continue
-            </button> */}
+            </button>
 
-            <motion.button
+            {/* <motion.button
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{
@@ -293,7 +292,7 @@ function BookACallBasicDetailsForm({
               <span className="relative z-10 flex items-center w-full h-full gap-2 ">
                 <span className="text-medium w-full">Conitnue</span>
               </span>
-            </motion.button>
+            </motion.button> */}
 
             <div className="text-xs font-extralight tracking-wider">
               We never share your details with third parties.
@@ -388,14 +387,13 @@ function BookACallWorkProfileForm({
                 Back
               </button>
 
-              {/* <button
+              <button
                 type="submit"
-                disabled={isSubmitting}
                 className="w-2/3 py-3  rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white hover:cursor-pointer"
               >
                 Submit
-              </button> */}
-              <motion.button
+              </button>
+              {/* <motion.button
                 whileHover={{ y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{
@@ -528,7 +526,7 @@ function BookACallWorkProfileForm({
                 <span className="relative z-10 flex items-center w-full h-full gap-2 ">
                   <span className="text-medium w-full">Submit</span>
                 </span>
-              </motion.button>
+              </motion.button> */}
             </div>
 
             <div className="text-xs font-extralight tracking-wider pb-6">

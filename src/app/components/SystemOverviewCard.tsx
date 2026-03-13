@@ -17,7 +17,7 @@ export default function SystemOverviewCard({
   if (!isOpen) return null;
 
   return (
-    <div className="w-full min-h-full h-full flex flex-col items-center justify-  backdrop-blur-md py-4 overflow-y-auto">
+    <div className="w-full min-h-full h-full flex flex-col items-center justify-  backdrop-blur-x bg-black/10 py-4 overflow-y-auto">
       <div className="w-full md:w-1/2  border border-[#3C4A60] rounded-xl py-6 px-10 bg-[linear-gradient(to_bottom_right,#17213C_0%,#030612_50%)] text-white relative">
 
         {/* Close Button */}

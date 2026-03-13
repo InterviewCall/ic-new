@@ -17,6 +17,7 @@ import RoleMatchedMentors from "./components/RoleMatchedMentor";
 import JobSwitchExectionSection from "./components/JobSwitchExecutionSection";
 import Reveal from "./components/Reveal";
 import PopUpWrapper from "./components/PopUpWrapper";
+// import { useMotionAnimationSync } from "./components/AnimationMotionSync";
 
 // import dynamic from "next/dynamic";
 
@@ -44,7 +45,7 @@ const sections = [
 
 export default function Home() {
   return (
-    <div className="w-full h-full overflow-x-hidden ">
+    <div  className="w-full h-full overflow-x-hidden ">
 
       <InterviewCallHero />
       <HeroMarque />

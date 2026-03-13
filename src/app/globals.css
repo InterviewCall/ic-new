@@ -103,3 +103,31 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     animation: none;
   }
 }
+
+
+/* Add these keyframes to your globals.css / index.css */
+
+@keyframes dash-trail {
+  from { stroke-dashoffset: 120; }
+  to   { stroke-dashoffset: -480; }
+}
+
+@keyframes dash-dot-1 {
+  from { stroke-dashoffset: 115; }
+  to   { stroke-dashoffset: -485; }
+}
+
+@keyframes dash-dot-2 {
+  from { stroke-dashoffset: 110; }
+  to   { stroke-dashoffset: -490; }
+}
+
+@keyframes dash-dot-3 {
+  from { stroke-dashoffset: 105; }
+  to   { stroke-dashoffset: -495; }
+}
+
+@keyframes dash-dot-4 {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: -500; }
+}
