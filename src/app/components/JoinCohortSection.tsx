@@ -112,38 +112,94 @@ export default function JoinCohortSection() {
                     </span>
                 </button>
 
-                <motion.button
-                    whileHover={{ y: -2, scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 350, damping: 22 }}
+                <button
                     onClick={() => {
                         dispatch(openBookACallForm());
                     }}
-                    className="relative border-white/50 overflow-hidden w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border  hover:cursor-pointer"
+                    className="relative hover:-translate-y-0.5 transition duration-150 w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border border-blue-600/10 hover:cursor-pointer overflow-hidden"
                 >
-                    {/* Shine animation */}
-                    <motion.span
-                        className="pointer-events-none absolute top-0 left-0 z-1 h-full w-[14%]"
-                        style={{
-                            background:
-                                "linear-gradient(102deg, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0.45) 50%, hsla(0,0%,100%,0) 100%)",
-                            transform: "translateX(-240%) rotate(20deg)",
-                            transformOrigin: "center",
-                        }}
-                        animate={{ x: ["0%", "760%"] }}
-                        transition={{
-                            duration: 1.05,
-                            ease: "linear",
-                            repeat: Infinity,
-                            repeatDelay: 0,
-                        }}
-                    />
+                    {/* Animated Border */}
+                    <svg
+                        width="100%"
+                        height="100%"
+                        viewBox="0 0 248 64"
+                        fill="none"
+                        className="pointer-events-none absolute inset-0 z-0"
+                        preserveAspectRatio="none"
+                    >
+                        <defs>
+                            <filter id="softGlowWhite" x="-40%" y="-40%" width="180%" height="180%">
+                                <feGaussianBlur stdDeviation="1.8" result="blur" />
+                                <feMerge>
+                                    <feMergeNode in="blur" />
+                                    <feMergeNode in="SourceGraphic" />
+                                </feMerge>
+                            </filter>
+                        </defs>
 
-                    {/* Text */}
-                    <span className="relative z-2">
+                        <motion.rect
+                            x="1"
+                            y="1"
+                            width="245"
+                            height="61"
+                            rx="12.5"
+                            stroke="#fff"
+                            strokeWidth="2.3"
+                            strokeDasharray="40 560"
+                            animate={{ strokeDashoffset: [120, -480] }}
+                            transition={{
+                                duration: 2.35,
+                                ease: "linear",
+                                repeat: Infinity,
+                            }}
+                            opacity="0.85"
+                        />
+
+                        <motion.rect
+                            x="1"
+                            y="1"
+                            width="245"
+                            height="61"
+                            rx="12.5"
+                            stroke="#fff"
+                            strokeWidth="2"
+                            strokeDasharray="5 595"
+                            animate={{ strokeDashoffset: [115, -485] }}
+                            transition={{
+                                duration: 2.35,
+                                ease: "linear",
+                                repeat: Infinity,
+                            }}
+                            opacity="0.75"
+                            filter="url(#softGlowWhite)"
+                        />
+
+                        <motion.rect
+                            x="1"
+                            y="1"
+                            width="245"
+                            height="61"
+                            rx="12.5"
+                            stroke="#fff"
+                            strokeWidth="1.7"
+                            strokeDasharray="5 595"
+                            animate={{ strokeDashoffset: [110, -490] }}
+                            transition={{
+                                duration: 2.35,
+                                ease: "linear",
+                                repeat: Infinity,
+                            }}
+                            opacity="0.65"
+                        />
+                    </svg>
+
+                    {/* Button Text */}
+                    <span className="relative z-10">
                         Book Intro Call
                     </span>
-                </motion.button>
+                </button>
+
+
 
                 {/* <button onClick={()=>{setShowBookACallForm(true)}} className="w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border border-gray-600/10 hover:cursor-pointer">
                     Book Intro Call
@@ -180,4 +236,39 @@ export default function JoinCohortSection() {
 
         </div>
     )
-}
+};
+
+
+
+// <motion.button
+//     whileHover={{ y: -2, scale: 1.02 }}
+//     whileTap={{ scale: 0.98 }}
+//     transition={{ type: "spring", stiffness: 350, damping: 22 }}
+//     onClick={() => {
+//         dispatch(openBookACallForm());
+//     }}
+//     className="relative border-white/50 overflow-hidden w-full md:w-64 py-2 md:py-4 rounded-xl bg-linear-to-br from-[#091724] to-[#02060c] border  hover:cursor-pointer"
+// >
+//     {/* Shine animation */}
+//     <motion.span
+//         className="pointer-events-none absolute top-0 left-0 z-1 h-full w-[14%]"
+//         style={{
+//             background:
+//                 "linear-gradient(102deg, hsla(0,0%,100%,0) 0%, hsla(0,0%,100%,0.45) 50%, hsla(0,0%,100%,0) 100%)",
+//             transform: "translateX(-240%) rotate(20deg)",
+//             transformOrigin: "center",
+//         }}
+//         animate={{ x: ["0%", "760%"] }}
+//         transition={{
+//             duration: 1.05,
+//             ease: "linear",
+//             repeat: Infinity,
+//             repeatDelay: 0,
+//         }}
+//     />
+
+//     {/* Text */}
+//     <span className="relative z-2">
+//         Book Intro Call
+//     </span>
+// </motion.button>
