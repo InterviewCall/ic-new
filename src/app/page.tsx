@@ -44,7 +44,7 @@ const sections = [
 
 export default function Home() {
   return (
-    <div  className="w-full h-full overflow-x-hidden ">
+    <div  className="w-full h-auto overflow-hidden ">
 
       <InterviewCallHero />
       <HeroMarque />

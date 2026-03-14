@@ -5,6 +5,7 @@ import "./globals.css";
 import { siteConfig } from '@/constants/config';
 import Providers from "./providers";
 import PopUpWrapper from "@/components/PopUpWrapper";
+// import Footer from "@/components/Footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -54,6 +55,9 @@ export default function RootLayout({
           <PopUpWrapper />
 
           {children}
+          {/* <div className="flex justify-center bg-linear-to-b from-[#0C142D] to-[#080C19]">
+            <Footer/>
+          </div> */}
         </Providers>
       </body>
     </html>

@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This is a Next.js 16 web application for InterviewCall - a platform for interview preparation. The project uses:
+Next.js 16 web application for InterviewCall - a platform for interview preparation:
 - **Framework**: Next.js 16 with App Router
-- **Language**: TypeScript (strict mode enabled)
+- **Language**: TypeScript (strict mode)
 - **Styling**: TailwindCSS v4
 - **State Management**: Redux Toolkit
 - **Form Handling**: React Hook Form + Zod validation
@@ -36,8 +36,6 @@ npm run lint -- --fix   # Run ESLint with auto-fix
 npx tsc --noEmit   # Run TypeScript type checker
 ```
 
-> **Note**: This project does not currently have a test framework configured (no Jest, Vitest, or Playwright). Tests should be added before implementing new features.
-
 ---
 
 ## Code Style Guidelines
@@ -63,58 +61,28 @@ npx tsc --noEmit   # Run TypeScript type checker
 - Use type inference when type is obvious
 - Export types alongside implementations when reused
 
-```typescript
-// Component with explicit props
-export default function MyComponent({
-  title,
-  onClick,
-}: {
-  title: string;
-  onClick: () => void;
-}) {
-  return <div onClick={onClick}>{title}</div>;
-}
-```
-
 ### Naming Conventions
-- **Components**: PascalCase (`CohortForms.tsx`, `InputFieldTyped.tsx`)
+- **Components**: PascalCase (`CohortForms.tsx`)
 - **Files**: camelCase for utilities, PascalCase for components
 - **Variables/functions**: camelCase
 - **Constants**: camelCase or UPPER_SNAKE_CASE for config values
-- **Redux slices**: camelCase (`exampleSlice.ts`)
 
 ### React/Next.js Patterns
-- Use `"use client"` directive for client-side components
-- Use Server Components by default; only add `"use client"` when needed
-- Use `export default function` for page/component exports
-- Keep client-side logic in separate components when possible
+- Use `"use client"` directive for client-side components only
+- Use Server Components by default
+- Use `export default function` for exports
+- Keep client-side logic in separate components
 
 ### Form Handling
 - Use React Hook Form with Zod resolvers
 - Define schemas in `src/validation/` directory
 - Export inferred types from schema files
 
-```typescript
-import { z } from "zod";
-
-export const mySchema = z.object({
-  name: z.string().min(1, "Name is required"),
-  email: z.string().email("Invalid email"),
-});
-
-export type MyFormData = z.infer<typeof mySchema>;
-```
-
 ### Redux Toolkit
 - Create slices in `src/lib/redux/slices/`
 - Use TypeScript for state and actions
 - Export typed hooks in `src/lib/redux/hooks.ts`
-- Wrap ReduxProvider in `src/app/providers.tsx` for use in Server Components
-
-### Using Redux in Components
-1. Use `useAppDispatch` and `useAppSelector` hooks from `src/lib/redux/hooks.ts`
-2. Access state: `const isOpen = useAppSelector((state) => state.showCohortForm.isOpen)`
-3. Dispatch actions: `useAppDispatch()(openForm())`
+- Use `useAppDispatch` and `useAppSelector` hooks in components
 
 ### Styling with TailwindCSS v4
 - Use Tailwind utility classes directly in components
@@ -127,15 +95,19 @@ export type MyFormData = z.infer<typeof mySchema>;
 - Always provide fallbacks for potentially failing operations
 - Handle async operations with proper error states
 
-```typescript
-function getStoredValue(): string {
-  try {
-    return localStorage.getItem(KEY) ?? defaultValue;
-  } catch {
-    return defaultValue;
-  }
-}
-```
+### Environment Variables
+- Never commit `.env` files or any files containing secrets
+- Use `.env.local` for local development (already gitignored)
+- Access env vars via `process.env.VARIABLE_NAME` in server components
+- Use `NEXT_PUBLIC_` prefix for client-side accessible variables
+- Document required environment variables in a `.env.example` file
+
+### Accessibility
+- Use semantic HTML elements (`<button>`, `<nav>`, `<main>`, etc.)
+- Include `aria-label` for icon-only buttons
+- Ensure color contrast meets WCAG AA standards
+- Use focus-visible for keyboard navigation styling
+- Include alt text for images
 
 ### Git Conventions
 - Use meaningful commit messages
@@ -145,45 +117,25 @@ function getStoredValue(): string {
 ---
 
 ## Directory Structure
-
 ```
 src/
 ├── app/
 │   ├── components/          # UI components
 │   │   └── forms/           # Form components
 │   ├── providers.tsx        # Client component wrappers
-│   ├── utils/               # Utility functions and content
+│   ├── utils/               # Utility functions
 │   ├── layout.tsx           # Root layout
 │   └── page.tsx             # Home page
 ├── constants/               # Configuration files
 ├── lib/
-│   ├── providers/           # Provider wrappers (ReduxProvider)
+│   ├── providers/           # Provider wrappers
 │   └── redux/               # Redux store, slices, hooks
-├── validation/              # Zod schemas
-└── ...
+└── validation/              # Zod schemas
 ```
 
 ---
 
 ## Common Tasks
-
-### Creating a New Component
-1. Create file in appropriate `src/app/components/` directory
-2. Define prop types (inline or interface)
-3. Export as default function
-4. Add to parent component imports
-
-### Adding a New Form
-1. Create Zod schema in `src/validation/`
-2. Create form component in `src/app/components/forms/`
-3. Use React Hook Form with `zodResolver`
-4. Export types from validation file
-
-### Adding Redux State
-1. Create slice in `src/lib/redux/slices/`
-2. Add reducer to store in `src/lib/redux/store.ts`
-3. Add typed hooks in `src/lib/redux/hooks.ts`
-
-
-### Follow up
-1. Update AGENTS.md accordingly after each iteration
+- **New Component**: Create in `src/app/components/`, define prop types, export as default
+- **New Form**: Create Zod schema in `src/validation/`, form in `src/app/components/forms/`
+- **New Redux State**: Create slice in `src/lib/redux/slices/`, add to store, export typed hooks
