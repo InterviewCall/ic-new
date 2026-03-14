@@ -91,8 +91,28 @@ export default function CohortStepForm({ closeForm }: { closeForm: () => void })
   };
 
   return (
-    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-x bg-black/10 justify-center">
-      {currentStep === 1 ? (
+    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-sm bg-black/10 justify-center">
+      {currentStep == 1 ? (
+        <CohortBasicDetailsForm
+        key={1}
+          setCurrentStep={handleSetStep}
+          setBasicDetailsData={handleSetBasicDetails}
+          closeForm={handleClose}
+          handleSetStep={handleSetStep}
+        />
+      ) : (
+
+        <CohortWorkProfileForm
+          key={2}
+          basicDetailsData={basicDetailsData!}
+          workProfileData={workProfileData}
+          setWorkProfileData={handleSetWorkProfile}
+          setCurrentStep={handleSetStep}
+          closeForm={handleClose}
+          onFinalSubmit={handleFinalSubmit}
+        />
+      )}
+      {/* {currentStep == 1 ? (
         <CohortBasicDetailsForm
           setCurrentStep={handleSetStep}
           setBasicDetailsData={handleSetBasicDetails}
@@ -100,7 +120,7 @@ export default function CohortStepForm({ closeForm }: { closeForm: () => void })
           handleSetStep={handleSetStep}
         />
       ) : null}
-      {currentStep === 2 ? (
+      {currentStep == 2 ? (
         <CohortWorkProfileForm
           basicDetailsData={basicDetailsData!}
           workProfileData={workProfileData}
@@ -109,7 +129,7 @@ export default function CohortStepForm({ closeForm }: { closeForm: () => void })
           closeForm={handleClose}
           onFinalSubmit={handleFinalSubmit}
         />
-      ) : null}
+      ) : null} */}
     </div>
   );
 }
@@ -138,7 +158,7 @@ function CohortBasicDetailsForm({
   };
 
   return (
-    <div className="relative w-full md:w-100 border border-white/10 bg-radial from-[#001E52] to-[#000B22] rounded-lg flex items-center justify-center p-6">
+    <div className="form1 relative w-full md:w-100 border border-white/10 bg-radial from-[#001E52] to-[#000B22] rounded-lg flex items-center justify-center p-6">
       <div className="absolute h-6 w-6 top-5 right-5 hover:cursor-pointer" onClick={() => closeForm(getValues())}>
         <X />
       </div>
@@ -157,7 +177,7 @@ function CohortBasicDetailsForm({
             <InputFieldTyped name="phone" type="tel" placeholder="Phone" />
 
             <button
-              onClick={() => {handleSetStep(2); }}
+              onClick={() => { handleSetStep(2); }}
               type="submit"
               className="w-full py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white hover:cursor-pointer"
             >
@@ -345,7 +365,6 @@ function CohortWorkProfileForm({
   const handleBack = () => {
     setWorkProfileData(getValues());
     setCurrentStep(1);
-    
   };
 
   const onSubmit = async (data: WorkProfileFormData) => {
@@ -359,7 +378,7 @@ function CohortWorkProfileForm({
   };
 
   return (
-    <div className="relative w-full max-h-[90vh] overflow-y-scroll md:w-100 border border-white/10 bg-radial from-[#001E52] to-[#000B22] rounded-lg flex  justify-center px-6 pt-6 hide-scroll">
+    <div className="form2 relative w-full max-h-[91vh] overflow-y-scroll md:w-100 border border-white/10 bg-radial from-[#001E52] to-[#000B22] rounded-lg flex  justify-center px-6 pt-6 hide-scroll">
       <div className="absolute h-6 w-6 top-5 right-5 hover:cursor-pointer" onClick={() => closeForm(getValues())}>
         <X />
       </div>

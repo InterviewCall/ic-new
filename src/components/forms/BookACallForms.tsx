@@ -90,7 +90,7 @@ export default function BookACallStepForm({ closeForm }: { closeForm: () => void
   };
 
   return (
-    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-x bg-black/10 justify-center">
+    <div className="fixed h-full w-full z-100 flex items-center backdrop-blur-sm bg-black/10 justify-center">
       {currentStep === 1 && (
         <BookACallBasicDetailsForm
           setCurrentStep={handleSetStep}

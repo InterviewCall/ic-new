@@ -22,19 +22,19 @@ export default function PopUpWrapper() {
     return (
         <>
             {systemBreakdownIsOpen ? (
-                <div className="fixed bg-black/5 top-0 left-0 z-[50] w-full min-h-full h-screen sm:h-full overflow-y-auto hide-scroll">
+                <div className="fixed bg-black/5 top-0 left-0 z-50 w-full min-h-full h-screen sm:h-full overflow-y-auto hide-scroll">
                     <SystemOverviewCard isOpen={systemBreakdownIsOpen} onClose={handleCloseSystemBreakdown} />
                 </div>
             ): null }
 
             {cohortFormIsOpen ? (
-                <div className="fixed bg-black/5 w-full h-screen sm:h-full top-0 left-0 z-[60]">
+                <div className="fixed bg-black/5 w-full h-screen sm:h-full top-0 left-0 z-60">
                     <CohortStepForm closeForm={handleCloseCohortForm} />
                 </div>
             ): null}
 
             {bookACallFormIsOpen ? (
-                <div className="fixed bg-black/5 top-0 left-0 z-[70] w-full h-screen sm:h-full">
+                <div className="fixed bg-black/5 top-0 left-0 z-70 w-full h-screen sm:h-full">
                     <BookACallStepForm closeForm={handleCloseBookACallForm} />
                 </div>
             ): null}
