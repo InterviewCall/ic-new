@@ -178,16 +178,16 @@ export default function ProblemBank() {
 
                 <Comparison />
             </div>
-            <div className="my-10 w-full md:w-1/3 flex flex-col items-center ">
+            <div className="my-10 w-full  flex flex-col items-center ">
                 <div className="text-[22px] md:text-2xl font-light text-[#98C1EF] ">
                     Get access after eligibility call
                 </div>
-                <button onClick={() => dispatch(openCohortForm())} className="hover:cursor-pointer py-2.5 md:py-3.5  px-4 md:px-6 relative bg-radial from-black to-white/5 w-full text-2xl mt-3 rounded-2xl border border-white/10  overflow-hidden">
+                <button onClick={() => dispatch(openCohortForm())} className="hover:cursor-pointer w-full md:w-96 py-2.5 md:py-3.5  px-4 md:px-6 relative bg-radial from-black to-white/5  text-2xl mt-3 rounded-2xl border border-white/10  overflow-hidden">
                     <div className="absolute bottom-10 inset-0 flex items-center justify-center z-0">
                         <div className="h-8 w-32 rounded-full bg-[#437adf] blur-[30px]" />
                     </div>
 
-                    <span className="relative text-xl md:text-2xl z-10">
+                    <span className="relative  text-xl md:text-2xl z-10">
                         Unlock in your roadmap
                     </span>
                 </button>

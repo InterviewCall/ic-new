@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { siteConfig } from '@/constants/config';
 import Providers from "./providers";
+import PopUpWrapper from "@/components/PopUpWrapper";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,9 +48,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full bg-black">
       <body
-        className={`${inter.variable} antialiased h-full`}
+        className={`${inter.variable} antialiased h-full relative`}
       >
         <Providers>
+          <PopUpWrapper />
+
           {children}
         </Providers>
       </body>

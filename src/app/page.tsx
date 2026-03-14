@@ -16,7 +16,6 @@ import ProblemBank from "../components/ProblemBank";
 import RoleMatchedMentors from "../components/RoleMatchedMentor";
 import JobSwitchExectionSection from "../components/JobSwitchExecutionSection";
 import Reveal from "../components/Reveal";
-import PopUpWrapper from "../components/PopUpWrapper";
 // import { useMotionAnimationSync } from "./components/AnimationMotionSync";
 
 // import dynamic from "next/dynamic";
@@ -50,14 +49,13 @@ export default function Home() {
       <InterviewCallHero />
       <HeroMarque />
       <div className="w-full flex flex-col items-center ">
-        <div className="w-10/10">
+        <div className="relativew-10/10">
           {sections.map(({ component: Component, css }, index) => (
             <div
               key={index}
               className={`w-full flex flex-col items-center ${css}`}
             >
               <div className="w-full md:w-8/10 relative">
-                <PopUpWrapper />
 
                 <Reveal duration={0.75}>
                   <Component />
