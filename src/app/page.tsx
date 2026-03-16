@@ -49,7 +49,7 @@ export default function Home() {
       <InterviewCallHero />
       <HeroMarque />
       <div className="w-full flex flex-col items-center ">
-        <div className="relativew-10/10">
+        <div className="relative w-full">
           {sections.map(({ component: Component, css }, index) => (
             <div
               key={index}
