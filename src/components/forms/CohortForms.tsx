@@ -98,7 +98,6 @@ export default function CohortStepForm({ closeForm }: { closeForm: () => void })
           setCurrentStep={handleSetStep}
           setBasicDetailsData={handleSetBasicDetails}
           closeForm={handleClose}
-          handleSetStep={handleSetStep}
         />
       ) : (
 
@@ -138,12 +137,10 @@ function CohortBasicDetailsForm({
   setCurrentStep,
   setBasicDetailsData,
   closeForm,
-  handleSetStep,
 }: {
   setCurrentStep: (step: number) => void;
   setBasicDetailsData: (data: BasicDetailsFormData | null) => void;
   closeForm: (data?: BasicDetailsFormData) => void;
-  handleSetStep: (step: number) => void;
 }) {
   const methods = useForm<BasicDetailsFormData>({
     resolver: zodResolver(basicDetailsSchema),
@@ -177,7 +174,7 @@ function CohortBasicDetailsForm({
             <InputFieldTyped name="phone" type="tel" placeholder="Phone" />
 
             <button
-              onClick={() => { handleSetStep(2); }}
+              // onClick={() => { handleSetStep(2); }}
               type="submit"
               className="w-full py-3 rounded-lg bg-radial from-[#0A45B8] to-[#052E8A] text-lg text-white hover:cursor-pointer"
             >

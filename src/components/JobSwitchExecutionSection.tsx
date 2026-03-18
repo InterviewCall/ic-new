@@ -7,9 +7,9 @@ export default function JobSwitchExectionSection() {
     return (
         <div className="mt-10 md:mt-30 mb-10 relative flex flex-col items-center">
             <div className="absolute inset-0 mx-auto top-[20%] z-0 h-7/10 w-full rounded-full bg-[#2B2F41] blur-[95px]" />
-            <div className="z-10">
-                <div>
-                    <div className="text-4xl md:text-7xl font-light text-center">
+            <div className="z-10 w-full">
+                <div className="w-full">
+                    <div className="w-full text-4xl md:text-7xl font-light text-center">
                         Job Switch Execution System
                     </div>
                     <div className="text-2xl md:text-3xl font-light text-center my-3 text-white/70 px-4 md:px-0">
