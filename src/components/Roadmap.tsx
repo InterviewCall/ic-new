@@ -282,9 +282,9 @@ export default function Roadmap() {
                 <div
                     ref={scrollContainerLeftRef}
                     onScroll={handleScrollLeft}
-                    className="w-full md:h-full md:overflow-y-scroll hide-scroll"
+                    className="w-full md:h-full md:overflow-y-scroll hide-scroll md:overflow-x-hidden"
                 >
-                    <div>
+                    <div className="">
                         {roadmap.left.map((item, index) => (
                             <ConceptCard
                                 key={index}
