@@ -33,7 +33,7 @@ export default function InterviewCallHero() {
   // })
 
   return (
-    <div className="relative min-h-210 w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top  items-center justify-center ">
+    <div className="relative w-full bg-[url(/heroSectionBG.svg)] bg-no-repeat bg-cover bg-top flex flex-col items-center justify-center ">
       {/* <iframe
         src={backgroundVideo}
         className="absolute top-1/2 left-1/2 w-[120%] h-[120%] -translate-x-1/2 -translate-y-1/2"
@@ -41,15 +41,13 @@ export default function InterviewCallHero() {
         allowFullScreen
       /> */}
       <div className="block absolute inset-0 overflow-hidden">
-        <iframe
+        <video
           src={backgroundVideo}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-0 "
-          style={{
-            minWidth: "2000.78vh",  /* 16/9 * 100vh */
-            minHeight: "56.25vw",  /* 9/16 * 100vw */
-          }}
-          allowFullScreen
-
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full object-cover z-0"
         />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-1">
 
@@ -76,7 +74,7 @@ export default function InterviewCallHero() {
         )}
       </ModalWrapper> */}
 
-      <div className="absolute inset-0 h-full w-full z-20">
+      <div className=" inset-0 h-full w-full z-20">
         <div className="z-20 flex items-center justify-between px-4 md:px-14 py-8 pb-3 md:pb-6 md:py-8">
           <div className="flex items-center gap-2 text-white font-semibold text-lg">
             <Image
@@ -362,6 +360,17 @@ export default function InterviewCallHero() {
     </div>
   );
 }
+
+// <iframe
+//           src={backgroundVideo}
+//           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-0 "
+//           style={{
+//             minWidth: "2000.78vh",  /* 16/9 * 100vh */
+//             minHeight: "56.25vw",  /* 9/16 * 100vw */
+//           }}
+//           allowFullScreen
+
+//         />
 
 
 // {
